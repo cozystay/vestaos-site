@@ -1,280 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VestaOS — Autonomous Operating System for Short-Term Rentals</title>
-<meta name="description" content="VestaOS is the autonomous operating system for short-term rental operators. Bots run 96% of operations. Humans only handle edge cases that need judgment. Cut labor costs 80%.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VestaOS — The AI Native OS for Alternative Accommodations</title>
+<meta name="description" content="VestaOS unifies guest messaging, dynamic pricing, and field dispatch into a single autonomous loop. Bots execute 96% of operations. Humans only handle the 4% that needs judgment.">
 <link rel="alternate" hreflang="en" href="https://vestaos.ai/en/">
 <link rel="alternate" hreflang="zh" href="https://vestaos.ai/zh/">
-<link rel="alternate" hreflang="x-default" href="https://vestaos.ai/en/">
+<link rel="canonical" href="https://vestaos.ai/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+/* ── Brand tokens ── */
 :root{
-  --near-black:#0B0F1A;
-  --surface:#111520;
-  --surface2:#161B2B;
-  --surface3:#1c2236;
-  --deep-purple:#540E57;
-  --mid-purple:#7C2A67;
-  --light-purple:#c47fbf;
-  --solar-gold:#F4AD46;
-  --vesta-orange:#F18C28;
-  --wordmark-gray:#BDC2CC;
-  --off-white:#F5F6FA;
-  --text-muted:#8A90A0;
-  --border:rgba(255,255,255,0.08);
-  --border-hover:rgba(255,255,255,0.16);
-  --ai-green:#4ade80;
-  --human-amber:#fbbf24;
+  --bg:       #0B0F1A;
+  --bg2:      #111520;
+  --bg3:      #161B27;
+  --card:     #1A1F2E;
+  --card2:    #1F2535;
+  --border:   rgba(255,255,255,.08);
+  --border2:  rgba(255,255,255,.13);
+  --ink:      #F5F6FA;
+  --ink2:     #BDC2CC;
+  --ink3:     #808591;
+  --ink4:     #555A63;
+  --orange:   #F18C28;
+  --orange2:  #F4AD46;
+  --purple1:  #540E57;
+  --purple2:  #7C2A67;
+  --grad:     linear-gradient(135deg,#540E57,#7C2A67 50%,#F4AD46);
+  --grad-btn: linear-gradient(135deg,#C0392B,#F18C28 60%,#F4AD46);
+  --r:        12px;
+  --r2:       18px;
 }
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--near-black);color:var(--wordmark-gray);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--orange);color:#000}
 
-/* ===== NAV ===== */
-nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(11,15,26,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-wordmark{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;letter-spacing:0.08em;color:var(--wordmark-gray)}
-.nav-wordmark span{color:var(--vesta-orange)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{font-size:13.5px;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
-.nav-links a:hover{color:var(--off-white)}
-.nav-right{display:flex;align-items:center;gap:20px}
-.lang-switch{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted)}
-.lang-switch a{color:var(--text-muted);text-decoration:none;padding:4px 8px;border-radius:4px;transition:all 0.2s;letter-spacing:0.03em}
-.lang-switch a:hover{color:var(--off-white);background:rgba(255,255,255,0.05)}
-.lang-switch a.active{color:var(--vesta-orange);font-weight:500}
-.lang-divider{color:rgba(255,255,255,0.15);font-size:11px}
-.nav-cta{background:var(--vesta-orange);color:#fff;border:none;padding:9px 22px;border-radius:6px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.03em;transition:opacity 0.2s}
-.nav-cta:hover{opacity:0.88}
-
-/* ===== HERO ===== */
-.hero{padding:100px 48px 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(241,140,40,0.1);border:1px solid rgba(241,140,40,0.2);padding:5px 14px;border-radius:100px;font-size:12px;color:var(--vesta-orange);letter-spacing:0.08em;font-weight:500;text-transform:uppercase;margin-bottom:24px}
-.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--vesta-orange);display:inline-block;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:54px;line-height:1.08;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:20px}
-h1 em{font-style:normal;background:linear-gradient(135deg,var(--solar-gold),var(--vesta-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:16px;line-height:1.7;color:var(--text-muted);max-width:460px;margin-bottom:36px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.btn-primary{background:var(--vesta-orange);color:#fff;padding:13px 28px;border-radius:7px;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;letter-spacing:0.03em;transition:all 0.2s}
-.btn-primary:hover{opacity:0.88;transform:translateY(-1px)}
-.btn-secondary{background:transparent;color:var(--wordmark-gray);padding:13px 28px;border-radius:7px;border:1px solid var(--border-hover);font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;transition:all 0.2s}
-.btn-secondary:hover{border-color:rgba(255,255,255,0.4);color:var(--off-white)}
-
-/* ===== AUTONOMOUS OPS CONSOLE (Hero right) ===== */
-.ops-console{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:0;position:relative;overflow:hidden}
-.ops-console::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(84,14,87,0.45),transparent 70%);pointer-events:none;z-index:0}
-.ops-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border);position:relative;z-index:1}
-.ops-brand{display:flex;align-items:center;gap:10px}
-.ai-pulse{width:8px;height:8px;border-radius:50%;background:var(--ai-green);box-shadow:0 0 10px var(--ai-green);animation:aiPulse 1.8s infinite}
-@keyframes aiPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(1.2)}}
-.ops-brand-text{font-size:12px;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
-.ops-brand-text strong{color:var(--off-white);font-weight:600}
-.savings-badge{background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.25);padding:5px 12px;border-radius:100px;font-size:11px;color:var(--ai-green);font-weight:500;display:flex;align-items:center;gap:6px;letter-spacing:0.03em}
-.savings-num{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px}
-
-.ops-hero-stat{padding:22px 24px 18px;text-align:center;position:relative;z-index:1;border-bottom:1px solid var(--border)}
-.stat-label{font-size:11px;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;font-weight:500;margin-bottom:6px}
-.stat-value{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:800;color:var(--off-white);letter-spacing:-0.02em;line-height:1;margin-bottom:10px}
-.stat-value .pct-ai{color:var(--ai-green)}
-.stat-value .separator{color:var(--text-muted);font-weight:400;margin:0 6px}
-.stat-value .pct-human{color:var(--human-amber)}
-.autonomy-segbar{display:flex;height:5px;border-radius:3px;overflow:hidden;background:rgba(255,255,255,0.04);margin-bottom:10px}
-.seg-ai{background:linear-gradient(90deg,var(--ai-green),#22c55e);flex:96}
-.seg-human{background:var(--human-amber);flex:4}
-.stat-footnote{font-size:11.5px;color:var(--text-muted);line-height:1.5}
-.stat-footnote strong{color:var(--ai-green);font-weight:500}
-
-.ops-activity{padding:16px 24px;position:relative;z-index:1}
-.ops-activity-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.ops-activity-title{font-size:11px;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;font-weight:500}
-.live-indicator{font-size:10px;color:var(--ai-green);display:flex;align-items:center;gap:5px;font-weight:500;letter-spacing:0.04em}
-.live-indicator::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--ai-green);animation:aiPulse 1.8s infinite}
-.event-list{display:flex;flex-direction:column;gap:7px}
-.event{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;position:relative;overflow:hidden}
-.event.bot::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--ai-green)}
-.event.escalate::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--human-amber)}
-.event-icon{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.event-icon.bot{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3)}
-.event-icon.escalate{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.3)}
-.event-body{flex:1;min-width:0}
-.event-header{display:flex;align-items:center;gap:7px;margin-bottom:3px;flex-wrap:wrap}
-.event-agent{font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:4px}
-.agent-bot{background:rgba(74,222,128,0.1);color:var(--ai-green);border:1px solid rgba(74,222,128,0.2)}
-.agent-human{background:rgba(251,191,36,0.1);color:var(--human-amber);border:1px solid rgba(251,191,36,0.2)}
-.event-time{font-size:10px;color:var(--text-muted);font-variant-numeric:tabular-nums;margin-left:auto}
-.event-text{font-size:12.5px;color:var(--wordmark-gray);line-height:1.4}
-.event-text strong{color:var(--off-white);font-weight:500}
-.event-meta{font-size:10.5px;color:var(--text-muted);margin-top:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.meta-chip{background:rgba(255,255,255,0.04);padding:1px 7px;border-radius:3px;font-size:10px;font-variant-numeric:tabular-nums}
-.auto-resolved{color:var(--ai-green);font-weight:500;display:flex;align-items:center;gap:3px}
-.needs-human{color:var(--human-amber);font-weight:500;display:flex;align-items:center;gap:3px}
-
-/* ===== STATS STRIP ===== */
-.stats-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
-.stat-strip-item{text-align:center}
-.stat-strip-num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:700;color:var(--off-white);letter-spacing:-0.02em}
-.stat-strip-num span{color:var(--vesta-orange);font-size:0.7em;font-weight:500}
-.stat-strip-label{font-size:13px;color:var(--text-muted);margin-top:4px}
-
-/* ===== SECTIONS ===== */
-.section{max-width:1200px;margin:0 auto;padding:96px 48px}
-.section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--vesta-orange);margin-bottom:12px;font-weight:500}
-.section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:36px;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:12px}
-.section-sub{font-size:15px;color:var(--text-muted);line-height:1.7;max-width:540px;margin-bottom:56px}
-
-/* ===== PRODUCT CARDS ===== */
-.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:64px}
-.product-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px;transition:border-color 0.25s,transform 0.2s;position:relative;overflow:hidden;cursor:pointer}
-.product-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-.product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--deep-purple),var(--vesta-orange));opacity:0;transition:opacity 0.3s}
-.product-card:hover::before{opacity:1}
-.product-card.featured{border-color:rgba(241,140,40,0.2);background:linear-gradient(135deg,var(--surface) 60%,rgba(84,14,87,0.15))}
-.product-card.featured::before{opacity:0.7}
-.product-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.icon-vrm{background:rgba(241,140,40,0.12);border:1px solid rgba(241,140,40,0.2)}
-.icon-clean{background:rgba(124,42,103,0.2);border:1px solid rgba(124,42,103,0.3)}
-.product-tag{display:inline-block;font-size:11px;background:rgba(241,140,40,0.1);color:var(--vesta-orange);border:1px solid rgba(241,140,40,0.2);padding:3px 10px;border-radius:100px;margin-bottom:14px;letter-spacing:0.06em}
-.product-tag.purple{background:rgba(124,42,103,0.15);color:#c47fbf;border-color:rgba(124,42,103,0.3)}
-.product-name{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:var(--off-white);margin-bottom:10px}
-.product-desc{font-size:14px;line-height:1.7;color:var(--text-muted);margin-bottom:22px}
-.product-features{list-style:none;display:flex;flex-direction:column;gap:8px}
-.product-features li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--wordmark-gray)}
-.product-features li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--vesta-orange);flex-shrink:0}
-.feat-purple::before{background:var(--mid-purple) !important}
-.product-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:13px;color:var(--vesta-orange);text-decoration:none;font-weight:500;letter-spacing:0.02em;transition:gap 0.2s;cursor:pointer}
-.product-link:hover{gap:10px}
-
-/* ===== PRODUCT TOUR CONSOLE (below cards) ===== */
-.tour-console{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;max-width:900px;margin:0 auto;position:relative}
-.tour-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border)}
-.tour-title{font-size:12px;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;display:flex;align-items:center;gap:8px}
-.tour-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--ai-green);box-shadow:0 0 8px var(--ai-green)}
-.tour-version{font-size:10px;color:var(--text-muted);font-family:'Montserrat',sans-serif;letter-spacing:0.04em}
-
-.tour-tabs{display:flex;gap:4px;padding:0 24px;border-bottom:1px solid var(--border);background:var(--surface2)}
-.tour-tab{padding:12px 18px;font-size:13px;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;letter-spacing:0.04em;font-weight:500;display:flex;align-items:center;gap:8px;background:none;border-left:none;border-right:none;border-top:none;font-family:inherit}
-.tour-tab:hover{color:var(--wordmark-gray)}
-.tour-tab.active{color:var(--vesta-orange);border-bottom-color:var(--vesta-orange)}
-.tour-tab.active.purple{color:var(--light-purple);border-bottom-color:var(--light-purple)}
-.tab-dot{width:6px;height:6px;border-radius:50%}
-.dot-vrm{background:var(--vesta-orange)}
-.dot-cleanfy{background:var(--light-purple)}
-
-.tour-panel{padding:28px;display:none}
-.tour-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-.tour-panel-info h4{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--off-white);margin-bottom:10px;letter-spacing:-0.01em}
-.tour-panel-info p{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:20px}
-.tour-panel-info ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.tour-panel-info li{font-size:13px;color:var(--wordmark-gray);display:flex;align-items:flex-start;gap:10px;line-height:1.5}
-.tour-panel-info li svg{flex-shrink:0;margin-top:2px}
-
-/* VRM inner UI mockup */
-.vrm-mockup{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
-.vrm-top{display:flex;align-items:center;justify-content:space-between}
-.vrm-unit-info{display:flex;flex-direction:column;gap:2px}
-.vrm-unit-title{font-size:13px;color:var(--off-white);font-weight:500}
-.vrm-unit-meta{font-size:11px;color:var(--text-muted)}
-.rate-badge{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);padding:4px 10px;border-radius:100px;font-size:11px;color:var(--ai-green);font-weight:500;display:flex;align-items:center;gap:5px}
-.rate-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--ai-green)}
-.rate-display{display:flex;align-items:baseline;gap:10px}
-.rate-current{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:700;color:var(--vesta-orange);letter-spacing:-0.02em;line-height:1}
-.rate-old{font-size:13px;color:var(--text-muted);text-decoration:line-through}
-.rate-unit{font-size:11px;color:var(--text-muted)}
-.chart-box{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px}
-.chart-box-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.chart-box-title{font-size:11px;color:var(--text-muted);letter-spacing:0.04em}
-.chart-legend{display:flex;gap:12px;font-size:10px}
-.legend-item{display:flex;align-items:center;gap:5px;color:var(--text-muted)}
-.legend-line{width:10px;height:2px;border-radius:2px}
-.chart-svg{width:100%;height:80px;display:block}
-
-/* Cleanfy inner UI mockup */
-.cleanfy-mockup{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
-.cleanfy-stats{display:flex;gap:18px}
-.cleanfy-stat{display:flex;flex-direction:column;gap:2px}
-.cleanfy-stat-label{font-size:10px;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase}
-.cleanfy-stat-num{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:var(--off-white)}
-.cleanfy-stat-num.purple{color:var(--light-purple)}
-.map-box{background:linear-gradient(135deg,#1a1f35 0%,#232844 100%);border:1px solid var(--border);border-radius:10px;height:110px;position:relative;overflow:hidden}
-.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:28px 28px}
-.map-pin{position:absolute;width:9px;height:9px;border-radius:50%;border:2px solid var(--near-black)}
-.pin-unit{background:var(--light-purple);box-shadow:0 0 0 3px rgba(196,127,191,0.25)}
-.pin-cleaner{background:var(--vesta-orange);box-shadow:0 0 0 3px rgba(241,140,40,0.25);animation:pulseCleaner 2s infinite}
-@keyframes pulseCleaner{0%,100%{box-shadow:0 0 0 3px rgba(241,140,40,0.25)}50%{box-shadow:0 0 0 6px rgba(241,140,40,0.1)}}
-.job-list-mini{display:flex;flex-direction:column;gap:6px}
-.job-mini{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 12px;display:flex;align-items:center;gap:10px}
-.job-status{width:5px;height:24px;border-radius:3px;flex-shrink:0}
-.status-inprogress{background:var(--ai-green)}
-.status-dispatched{background:var(--vesta-orange)}
-.status-done{background:var(--text-muted);opacity:0.5}
-.job-mini-info{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
-.job-mini-title{font-size:11.5px;color:var(--off-white);font-weight:500}
-.job-mini-meta{font-size:10px;color:var(--text-muted)}
-.job-mini-time{font-size:10.5px;color:var(--light-purple);font-weight:500;font-variant-numeric:tabular-nums}
-
-/* ===== HOW IT WORKS ===== */
-.how-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.how-inner{max-width:1200px;margin:0 auto;padding:96px 48px}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px}
-.step{padding:28px 24px 28px 0;border-right:1px solid var(--border);position:relative}
-.step:last-child{border-right:none;padding-right:0}
-.step:not(:first-child){padding-left:24px}
-.step-num{font-family:'Montserrat',sans-serif;font-size:42px;font-weight:800;color:rgba(241,140,40,0.15);line-height:1;margin-bottom:14px}
-.step-title{font-size:14px;font-weight:500;color:var(--off-white);margin-bottom:8px;letter-spacing:0.02em}
-.step-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
-
-/* ===== CTA ===== */
-.cta-section{max-width:1200px;margin:0 auto;padding:96px 48px;text-align:center}
-.cta-box{background:linear-gradient(135deg,var(--surface) 0%,rgba(84,14,87,0.2) 50%,var(--surface) 100%);border:1px solid var(--border-hover);border-radius:20px;padding:72px 48px;position:relative;overflow:hidden}
-.cta-box::after{content:'';position:absolute;bottom:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(244,173,70,0.1),transparent 70%);pointer-events:none}
-.cta-box h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:40px;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:16px}
-.cta-box p{font-size:16px;color:var(--text-muted);margin-bottom:32px;line-height:1.6}
-.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-/* ===== FOOTER ===== */
-footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--wordmark-gray);letter-spacing:0.06em}
-.footer-logo span{color:var(--vesta-orange)}
-.footer-copy{font-size:12px;color:var(--text-muted)}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
-.footer-links a:hover{color:var(--wordmark-gray)}
-
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero-left{animation:fadeUp 0.6s ease both}
-.ops-console{animation:fadeUp 0.6s 0.15s ease both}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 980px){
-  .hero{grid-template-columns:1fr;gap:40px;padding:72px 24px 60px}
-  h1{font-size:40px}
-  .stats-strip{grid-template-columns:repeat(2,1fr);padding:28px 24px}
-  .section,.how-inner,.cta-section{padding:72px 24px}
-  .products-grid{grid-template-columns:1fr}
-  .tour-panel.active{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr 1fr}
-  .step{border-right:none;border-bottom:1px solid var(--border);padding:24px 0 !important}
-  .step:nth-child(2){border-right:none}
-  .step:nth-child(odd){padding-right:16px !important}
-  .step:nth-child(even){padding-left:16px !important}
-  .cta-box{padding:48px 24px}
-  .cta-box h2{font-size:30px}
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  footer{padding:24px;flex-direction:column;text-align:center}
+/* ── Atmosphere ── */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 900px 600px at 20% -10%, rgba(124,42,103,.22) 0%, transparent 65%),
+    radial-gradient(ellipse 700px 500px at 80% 5%,  rgba(241,140,40,.10) 0%, transparent 60%);
 }
+
+/* ── Layout ── */
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+.section{padding:96px 0;position:relative;z-index:1}
+
+/* ── Nav ── */
+.nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(11,15,26,.75);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand-logo{flex-shrink:0}
+.brand-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em}
+.brand-name span{color:var(--orange)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-sw{display:flex;align-items:center;gap:4px;font-size:13px}
+.lang-sw a{color:var(--ink3);text-decoration:none;padding:3px 7px;border-radius:6px;transition:all .15s}
+.lang-sw a.on{color:var(--ink);background:rgba(255,255,255,.06)}
+.lang-sw .sep{color:var(--ink4)}
+.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:99px;background:var(--grad-btn);color:#fff;font:600 13.5px 'Inter',sans-serif;text-decoration:none;transition:opacity .15s,transform .12s;box-shadow:0 4px 16px rgba(241,140,40,.25)}
+.btn-nav:hover{opacity:.9;transform:translateY(-1px)}
+
+/* ── Hero ── */
+.hero{padding:80px 0 96px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--ink2);font-size:13px;margin-bottom:36px}
+.hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;box-shadow:0 0 0 3px rgba(241,140,40,.2)}
+.hero h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(52px,7vw,96px);line-height:1.0;letter-spacing:-.02em;margin-bottom:28px}
+.hero h1 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:18px;color:var(--ink2);max-width:640px;margin:0 auto 14px;line-height:1.6}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-ctas{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:99px;background:var(--grad-btn);color:#fff;font:600 15px 'Inter',sans-serif;text-decoration:none;transition:opacity .15s,transform .12s,box-shadow .15s;box-shadow:0 6px 24px rgba(241,140,40,.3)}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 10px 30px rgba(241,140,40,.4)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:99px;border:1px solid var(--border2);color:var(--ink);font:500 15px 'Inter',sans-serif;text-decoration:none;transition:border-color .15s,background .15s}
+.btn-ghost:hover{border-color:var(--ink3);background:rgba(255,255,255,.04)}
+
+/* ── Trust strip ── */
+.trust{padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
+.trust-label{font-size:13px;color:var(--ink3)}
+.trust-logos{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.trust-logo{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink2);opacity:.7;transition:opacity .15s}
+.trust-logo:hover{opacity:1}
+.trust-logo svg{flex-shrink:0}
+
+/* ── Kicker capsule ── */
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:transparent;border:1px solid var(--orange);color:var(--orange);font:600 11.5px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
+.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* ── Problem section ── */
+.prob-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(36px,5vw,58px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+.prob-head h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.prob-head p{font-size:17px;color:var(--ink2);max-width:600px;line-height:1.65;margin-bottom:48px}
+.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.prob-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;transition:border-color .2s,transform .2s}
+.prob-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.prob-icon{width:44px;height:44px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.prob-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px;color:var(--ink)}
+.prob-card p{font-size:13.5px;color:var(--ink3);line-height:1.6;margin-bottom:18px}
+.prob-stat{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--orange);letter-spacing:-.01em}
+.prob-stat-l{font-size:11px;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+
+/* ── Platform section ── */
+.platform-head{max-width:680px;margin-bottom:64px}
+.platform-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.02em;margin-bottom:16px}
+.platform-head h2 .g1,.platform-head h2 .g2{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.platform-head p{font-size:17px;color:var(--ink2);line-height:1.65}
+.module{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;border-top:1px solid var(--border)}
+.module.reverse{direction:rtl}
+.module.reverse>*{direction:ltr}
+.module-meta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.module-meta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
+.module h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.015em;margin-bottom:14px}
+.module h3 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.module-desc{font-size:15.5px;color:var(--ink2);line-height:1.7;margin-bottom:22px}
+.module-checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.module-checks li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2);line-height:1.5}
+.module-checks li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:rgba(241,140,40,.15);border:1px solid rgba(241,140,40,.35);color:var(--orange);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+/* Mockup panels */
+.mockup{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden}
+.mockup-bar{background:var(--card2);padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.mockup-bar .dot{width:8px;height:8px;border-radius:50%}
+.mockup-bar .dot.r{background:#F87171}
+.mockup-bar .dot.y{background:#FBBF24}
+.mockup-bar .dot.g{background:#34D399}
+.mockup-body{padding:20px}
+/* Chat mockup */
+.chat-msg{margin-bottom:12px}
+.chat-msg .bubble{display:inline-block;padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.5;max-width:82%}
+.chat-msg.guest .bubble{background:var(--card2);border:1px solid var(--border);color:var(--ink2);border-radius:12px 12px 12px 4px}
+.chat-msg.bot .bubble{background:rgba(241,140,40,.12);border:1px solid rgba(241,140,40,.25);color:var(--ink);border-radius:12px 12px 4px 12px;float:right}
+.chat-msg.bot{text-align:right}
+.chat-label{font-size:11px;color:var(--ink3);margin-bottom:4px;padding:0 4px}
+.chat-msg.bot .chat-label{text-align:right;color:var(--orange)}
+.chat-meta{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(241,140,40,.06);border-top:1px solid var(--border);margin-top:8px;clear:both}
+.chat-meta span{font-size:12px;color:var(--ink3)}
+.chat-meta strong{font-size:12px;color:var(--orange);font-weight:600}
+/* Pricing mockup */
+.price-rows{display:flex;flex-direction:column;gap:0}
+.price-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
+.price-row:last-child{border-bottom:none}
+.price-row .label{color:var(--ink2)}
+.price-row .val{font-weight:600;color:var(--ink)}
+.price-row .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(241,140,40,.15);color:var(--orange);margin-left:8px}
+.price-final{background:rgba(241,140,40,.08);border:1px solid rgba(241,140,40,.3);border-radius:10px;padding:14px;margin-top:12px;display:flex;align-items:center;justify-content:space-between}
+.price-final .l{font-size:13px;color:var(--ink2)}
+.price-final .l strong{color:var(--ink);display:block;font-size:13px;margin-bottom:2px}
+.price-final .r{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--orange)}
+.price-refresh{font-size:11.5px;color:var(--ink3);margin-top:10px}
+/* Job mockup */
+.job-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.job-header h5{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink)}
+.job-header p{font-size:12px;color:var(--ink3);margin-top:3px}
+.job-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:#34D399;white-space:nowrap}
+.job-steps{display:flex;flex-direction:column;gap:8px}
+.job-step{padding:12px 14px;border-radius:10px;font-size:13.5px;display:flex;align-items:center;gap:10px}
+.job-step.done{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34D399}
+.job-step.active{background:rgba(241,140,40,.08);border:1px solid rgba(241,140,40,.3);color:var(--orange)}
+.job-step svg{flex-shrink:0}
+.job-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+.job-foot span{font-size:12.5px;color:var(--ink3)}
+.job-foot strong{color:var(--ink);font-weight:600}
+
+/* ── Before / After ── */
+.ba-head-text h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(32px,4vw,50px);line-height:1.08;letter-spacing:-.02em;margin-bottom:10px}
+.ba-head-text h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ba-head-text p{font-size:15px;color:var(--ink3);margin-bottom:36px}
+.ba-table{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
+.ba-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;align-items:center;border-bottom:1px solid var(--border)}
+.ba-row:last-child{border-bottom:none}
+.ba-row.head{background:var(--card2)}
+.ba-row div{padding:14px 20px;font-size:14px}
+.ba-row.head div{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+.ba-workflow{color:var(--ink2)}
+.ba-before{color:var(--ink3);text-decoration:line-through}
+.ba-after{color:var(--ink);font-weight:600}
+.ba-delta{color:var(--orange);font-weight:700;font-size:13.5px}
+
+/* ── Case study ── */
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.case-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px}
+.case-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case-stat-n{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.01em;line-height:1}
+.case-stat-l{font-size:12px;color:var(--ink3);margin-top:6px;letter-spacing:.03em}
+
+/* ── Why we win ── */
+.why-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.02em;margin-bottom:48px}
+.why-head h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;transition:border-color .2s,transform .2s}
+.why-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.why-icon{width:48px;height:48px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+.why-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;margin-bottom:10px;color:var(--ink)}
+.why-card p{font-size:13.5px;color:var(--ink3);line-height:1.65}
+
+/* ── CTA / Get started ── */
+.cta-box{background:linear-gradient(135deg,rgba(84,14,87,.4),rgba(124,42,103,.3),rgba(241,140,40,.15));border:1px solid rgba(241,140,40,.2);border-radius:var(--r2);padding:56px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.cta-left h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.cta-left h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-left p{font-size:15px;color:var(--ink2);line-height:1.65;margin-bottom:28px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+.cta-form{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);padding:28px}
+.cta-form label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;margin-top:14px}
+.cta-form label:first-child{margin-top:0}
+.cta-form input,.cta-form select{width:100%;padding:11px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;color:var(--ink);font:500 14px 'Inter',sans-serif;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
+.cta-form input::placeholder{color:var(--ink4)}
+.cta-form input:focus,.cta-form select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(241,140,40,.12)}
+.cta-form select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%23808591' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.submit-btn{margin-top:18px;width:100%;padding:13px;background:var(--grad-btn);border:none;border-radius:99px;color:#fff;font:600 14.5px 'Inter',sans-serif;cursor:pointer;transition:opacity .15s,transform .1s;box-shadow:0 4px 18px rgba(241,140,40,.3)}
+.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
+.submit-btn:disabled{opacity:.55;cursor:not-allowed}
+.form-fine{margin-top:10px;font-size:11.5px;color:var(--ink4);text-align:center}
+.form-success{display:none;text-align:center;padding:16px 0}
+.form-success h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px;color:var(--ink)}
+.form-success p{font-size:14px;color:var(--ink3)}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--border);padding:56px 0 36px;position:relative;z-index:1}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-brand p{font-size:14px;color:var(--ink3);line-height:1.6;margin-top:14px;max-width:240px}
+.foot-col h5{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col a{color:var(--ink3);text-decoration:none;font-size:14px;transition:color .15s}
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.foot-copy{font-size:13px;color:var(--ink4)}
+.foot-right{display:flex;align-items:center;gap:20px}
+.foot-right span{font-size:13px;color:var(--ink4)}
+.foot-right a{color:var(--ink3);text-decoration:none;font-size:13px;transition:color .15s}
+.foot-right a:hover{color:var(--ink)}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .prob-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .module{grid-template-columns:1fr;gap:36px}
+  .module.reverse{direction:ltr}
+  .case-grid{grid-template-columns:1fr}
+  .cta-box{grid-template-columns:1fr;gap:32px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .wrap{padding:0 20px}
+  .section{padding:64px 0}
+  .hero{padding:56px 0 72px}
+  .hero h1{font-size:44px}
+  .nav-links{display:none}
+  .ba-row{grid-template-columns:1.4fr 1fr 1fr}
+  .ba-delta{display:none}
+  .ba-row.head .ba-delta{display:none}
+  .prob-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .trust-inner{flex-direction:column;gap:16px;text-align:center}
+  .case-stats{grid-template-columns:repeat(3,1fr)}
+  .foot-grid{grid-template-columns:1fr}
+}
+
+/* Pricing cards */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px 28px;position:relative;transition:border-color .2s,transform .2s}
+.price-card:hover{transform:translateY(-3px)}
+.price-card.featured{border-color:var(--orange);border-width:2px}
+.price-card-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad-btn);color:#fff;font:700 11px 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:99px;white-space:nowrap}
+.price-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.price-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15.5px;color:var(--ink);margin-bottom:4px}
+.price-card .sub{font-size:12px;color:var(--ink3);margin-bottom:20px}
+.price-amount{padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px}
+.price-amount .num{font-family:'Montserrat',sans-serif;font-size:46px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.price-amount .unit{font-size:13.5px;color:var(--ink3);margin-left:4px}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:10px}
+.price-features li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--ink2);line-height:1.5}
+.price-features li::before{content:"✓";color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="/en/" class="nav-logo">
+<header class="nav">
+<div class="wrap nav-inner">
+  <a class="brand" href="/en/">
     <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
       <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
       <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
@@ -290,392 +306,485 @@ footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify
         </linearGradient>
       </defs>
     </svg>
-    <span class="nav-wordmark">VESTA <span>OS</span></span>
+    <span class="brand-name">VESTA <span>OS</span></span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#how">How it works</a></li>
-    <li><a href="#partners">City Partners</a></li>
-    <li><a href="#about">About</a></li>
-  </ul>
+  <nav><ul class="nav-links">
+    <li><a href="#problem">Product</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="/en/about/">About</a></li>
+  </ul></nav>
   <div class="nav-right">
-    <div class="lang-switch">
-      <a href="/en/" class="active">EN</a>
-      <span class="lang-divider">|</span>
-      <a href="/zh/">中</a>
+    <div class="lang-sw">
+      <a href="/en/" class="on">EN</a><span class="sep">|</span><a href="/zh/">中</a>
     </div>
-    <button class="nav-cta">Book a Demo</button>
+    <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-nav">Book a demo →</a>
   </div>
-</nav>
+</div>
+</header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Autonomous Operating System</div>
-    <h1>Bots run your portfolio.<br><em>Not your team.</em></h1>
-    <p class="hero-sub">VestaOS is the AI operating system where bots execute 96% of rental operations — pricing, dispatching, guest replies — autonomously. Humans only step in for the 4% that truly needs judgment.</p>
-    <div class="hero-actions">
-      <button class="btn-primary">Book a Demo</button>
-      <button class="btn-secondary">Watch Demo →</button>
-    </div>
+<div class="wrap">
+  <h1>The <span class="g1">AI Native OS</span><br>for Alternative<br>Accommodations</h1>
+  <p class="hero-sub">Guest messaging · Pricing · Dispatch · QA · Settlement.<br><strong>End-to-end. Zero-touch.</strong></p>
+  <div class="hero-ctas">
+    <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo →</a>
+    <a href="#watch-demo" class="btn-ghost">⊙ Watch the OS in action</a>
   </div>
-
-  <!-- Autonomous Ops Console -->
-  <div class="ops-console">
-    <div class="ops-header">
-      <div class="ops-brand">
-        <div class="ai-pulse"></div>
-        <span class="ops-brand-text"><strong>VestaOS</strong> · Autonomous Ops</span>
-      </div>
-      <div class="savings-badge">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M7 13l3 3 7-7" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="savings-num">-80%</span> labor cost
-      </div>
-    </div>
-
-    <div class="ops-hero-stat">
-      <div class="stat-label">Today's operations</div>
-      <div class="stat-value">
-        <span class="pct-ai">96%</span><span class="separator">/</span><span class="pct-human">4%</span>
-      </div>
-      <div class="autonomy-segbar">
-        <div class="seg-ai"></div>
-        <div class="seg-human"></div>
-      </div>
-      <div class="stat-footnote">
-        <strong>Bots ran everything.</strong> Humans only touched what truly needed judgment.
-      </div>
-    </div>
-
-    <div class="ops-activity">
-      <div class="ops-activity-head">
-        <span class="ops-activity-title">Live agent activity</span>
-        <span class="live-indicator">● LIVE</span>
-      </div>
-      <div class="event-list">
-        <div class="event bot">
-          <div class="event-icon bot">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="4" y="8" width="16" height="12" rx="2" stroke="#4ade80" stroke-width="2"/><circle cx="9" cy="14" r="1.5" fill="#4ade80"/><circle cx="15" cy="14" r="1.5" fill="#4ade80"/><path d="M12 2v6M9 4h6" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <div class="event-body">
-            <div class="event-header">
-              <span class="event-agent agent-bot">Bot</span>
-              <span class="event-time">just now</span>
-            </div>
-            <div class="event-text">Re-priced <strong>LA-0412</strong> for weekend surge</div>
-            <div class="event-meta">
-              <span class="meta-chip">$195 → $218</span>
-              <span class="auto-resolved">● Auto-executed</span>
-            </div>
-          </div>
-        </div>
-        <div class="event bot">
-          <div class="event-icon bot">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="4" y="8" width="16" height="12" rx="2" stroke="#4ade80" stroke-width="2"/><circle cx="9" cy="14" r="1.5" fill="#4ade80"/><circle cx="15" cy="14" r="1.5" fill="#4ade80"/><path d="M12 2v6M9 4h6" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <div class="event-body">
-            <div class="event-header">
-              <span class="event-agent agent-bot">Bot</span>
-              <span class="event-time">12s ago</span>
-            </div>
-            <div class="event-text">Dispatched cleaner to <strong>Sunset 4B</strong></div>
-            <div class="event-meta">
-              <span class="meta-chip">ETA 8 min</span>
-              <span class="auto-resolved">● No human involved</span>
-            </div>
-          </div>
-        </div>
-        <div class="event bot">
-          <div class="event-icon bot">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="4" y="8" width="16" height="12" rx="2" stroke="#4ade80" stroke-width="2"/><circle cx="9" cy="14" r="1.5" fill="#4ade80"/><circle cx="15" cy="14" r="1.5" fill="#4ade80"/><path d="M12 2v6M9 4h6" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <div class="event-body">
-            <div class="event-header">
-              <span class="event-agent agent-bot">Bot</span>
-              <span class="event-time">38s ago</span>
-            </div>
-            <div class="event-text">Answered guest WiFi question · <strong>Highland 2A</strong></div>
-            <div class="event-meta">
-              <span class="meta-chip">CSAT 5/5</span>
-              <span class="auto-resolved">● Auto-resolved</span>
-            </div>
-          </div>
-        </div>
-        <div class="event escalate">
-          <div class="event-icon escalate">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 20h20L12 3z" stroke="#fbbf24" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4M12 17v.5" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <div class="event-body">
-            <div class="event-header">
-              <span class="event-agent agent-human">Escalated → Human</span>
-              <span class="event-time">2m ago</span>
-            </div>
-            <div class="event-text">Plumbing leak reported · <strong>Melrose 1C</strong></div>
-            <div class="event-meta">
-              <span class="meta-chip">Needs judgment</span>
-              <span class="needs-human">● Resolved in 11 min</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </section>
 
-<!-- STATS STRIP -->
-<section class="stats-strip">
-  <div class="stat-strip-item">
-    <div class="stat-strip-num">96<span>%</span></div>
-    <div class="stat-strip-label">Tasks fully automated</div>
+<!-- TRUST STRIP -->
+<div class="trust">
+<div class="wrap trust-inner">
+  <span class="trust-label">Official Connectivity Partner ·</span>
+  <div class="trust-logos">
+    <span class="trust-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A5F"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Airbnb
+    </span>
+    <span class="trust-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#003580"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a4 4 0 018 0v2" stroke="#003580" stroke-width="2" fill="none"/></svg>
+      Booking
+    </span>
+    <span class="trust-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBCC33"><path d="M3 17l9-14 9 14H3z"/></svg>
+      Expedia
+    </span>
+    <span class="trust-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1D5C96"><path d="M3 9l9-6 9 6v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/></svg>
+      VRBO
+    </span>
   </div>
-  <div class="stat-strip-item">
-    <div class="stat-strip-num">80<span>%</span></div>
-    <div class="stat-strip-label">Labor cost reduction</div>
+</div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="section" id="problem">
+<div class="wrap">
+  <div class="kicker">The Problem</div>
+  <div class="prob-head">
+    <h2>Linear operations <span class="g1">cap growth</span><br>and compress margins</h2>
+    <p>More listings always meant more headcount. Response SLAs, pricing agility, onboarding speed, and offline dispatch were persistent bottlenecks — opaque, manual, and impossible to scale without burning margin.</p>
   </div>
-  <div class="stat-strip-item">
-    <div class="stat-strip-num">24<span>/7</span></div>
-    <div class="stat-strip-label">Always-on operations</div>
+  <div class="prob-grid">
+    <div class="prob-card">
+      <div class="prob-icon">💬</div>
+      <h4>Guest communications</h4>
+      <p>200+ daily messages handled manually. 20-min average response vs 3-min target — 60% SLA hit rate.</p>
+      <div class="prob-stat">20 min</div>
+      <div class="prob-stat-l">Avg Response</div>
+    </div>
+    <div class="prob-card">
+      <div class="prob-icon">📈</div>
+      <h4>Pricing operations</h4>
+      <p>2 hours per cycle across channels, twice daily on rolling 3–45 day windows. An analyst job, every day.</p>
+      <div class="prob-stat">2 hrs</div>
+      <div class="prob-stat-l">Per Cycle</div>
+    </div>
+    <div class="prob-card">
+      <div class="prob-icon">🏠</div>
+      <h4>New listing onboarding</h4>
+      <p>~7 days per listing. Manual descriptions, photos, POIs across 4–5 OTAs. A growth tax on every new room.</p>
+      <div class="prob-stat">7 days</div>
+      <div class="prob-stat-l">Time to Live</div>
+    </div>
+    <div class="prob-card">
+      <div class="prob-icon">🔧</div>
+      <h4>Offline work &amp; dispatch</h4>
+      <p>30–60 min to assign a clean or repair. Quality verification lags hours to weeks. Hosts play phone tag.</p>
+      <div class="prob-stat">60 min</div>
+      <div class="prob-stat-l">To Dispatch</div>
+    </div>
   </div>
-  <div class="stat-strip-item">
-    <div class="stat-strip-num">0<span> delay</span></div>
-    <div class="stat-strip-label">Bot response time</div>
-  </div>
+</div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="section" id="products">
-  <div class="section-label">Two core products</div>
-  <h2 class="section-title">AI intelligence + ground execution</h2>
-  <p class="section-sub">VestaOS fuses smart decision-making with offline fulfillment — closing the loop that fragmented tools leave open. Every action is bot-executed by default.</p>
+<!-- PLATFORM -->
+<section class="section" id="platform" style="padding-top:0">
+<div class="wrap">
+  <div class="kicker">The VestaOS Platform</div>
+  <div class="platform-head">
+    <h2>One operating system.<br><span class="g1">Online</span> + <span class="g2">offline</span>, closed-loop.</h2>
+    <p>VestaOS unifies guest messaging, dynamic pricing, and field dispatch into a single autonomous loop. Humans only intervene on high-risk escalations — the rest runs itself.</p>
+  </div>
 
-  <div class="products-grid">
-    <article class="product-card featured">
-      <div class="product-icon icon-vrm">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M3 17l5-5 4 4 9-9" stroke="#F18C28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 8h-5V3" stroke="#F18C28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="product-tag">Revenue Intelligence</span>
-      <h3 class="product-name">VRM</h3>
-      <p class="product-desc">Bots monitor market conditions, competitor rates, and historical demand in real time — automatically adjusting prices across every channel. No pricing manager required.</p>
-      <ul class="product-features">
-        <li>Dynamic pricing across Airbnb, VRBO &amp; direct</li>
-        <li>AI demand forecasting &amp; rate optimization</li>
-        <li>Real-time competitor monitoring</li>
-        <li>GraphQL API · native PMS integration</li>
+  <!-- Module 01: C Claw -->
+  <div class="module">
+    <div>
+      <div class="module-meta">Module 01 · Guest Ops</div>
+      <h3>C Claw <span class="g1">AI Guest Operations</span></h3>
+      <p class="module-desc">90% of inquiries handled end-to-end. Drafts, sends, and prioritizes. Humans only see high-risk escalations — brand-safe, SLA-guaranteed.</p>
+      <ul class="module-checks">
+        <li>20 min → <strong>~1 min</strong> guest response time</li>
+        <li>98% SLA fulfillment (up from 60%)</li>
+        <li>24/7 coverage without host staffing</li>
       </ul>
-      <a href="#tour" class="product-link">Explore VRM console →</a>
-    </article>
-
-    <article class="product-card">
-      <div class="product-icon icon-clean">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#c47fbf" stroke-width="2" stroke-linecap="round"/>
-          <rect x="9" y="3" width="6" height="4" rx="1" stroke="#c47fbf" stroke-width="2"/>
-          <path d="M9 12l2 2 4-4" stroke="#c47fbf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">Guest · Sunlit Studio</span></div>
+      <div class="mockup-body">
+        <div class="chat-msg guest"><div class="chat-label">Sarah K.</div><div class="bubble">Hi! Can I check in early around 1pm? My flight lands at noon.</div></div>
+        <div class="chat-msg bot"><div class="chat-label">C Claw Bot</div><div class="bubble">Hi Sarah! Early check-in at 1pm is available for $25. Shall I add it to your booking?</div></div>
+        <div class="chat-msg guest" style="margin-top:10px"><div class="chat-label">Sarah K.</div><div class="bubble">Yes please! Also what's the WiFi password?</div></div>
+        <div class="chat-msg bot"><div class="chat-label">C Claw Bot</div><div class="bubble">Done! Early check-in confirmed ✓ WiFi: VestaGuest · Pass: Sunny2024</div></div>
+        <div class="chat-meta" style="clear:both">
+          <span>Auto-handled · 0 human touch</span>
+          <strong>CSAT 5/5</strong>
+        </div>
       </div>
-      <span class="product-tag purple">Offline Fulfillment</span>
-      <h3 class="product-name">Cleanfy</h3>
-      <p class="product-desc">Bots auto-dispatch cleaners the moment checkout fires. GPS tracking, AI photo inspection, and auto-settlement close the loop before the next guest arrives — with zero human coordination.</p>
-      <ul class="product-features">
-        <li class="feat-purple">Checkout-triggered auto dispatch</li>
-        <li class="feat-purple">Real-time GPS tracking per cleaner</li>
-        <li class="feat-purple">AI photo QC &amp; sign-off</li>
-        <li class="feat-purple">Automated settlement · 35% commission</li>
+    </div>
+  </div>
+
+  <!-- Module 02: Pricing -->
+  <div class="module reverse">
+    <div>
+      <div class="module-meta">Module 02 · Revenue</div>
+      <h3>Autonomous <span class="g1">Pricing</span></h3>
+      <p class="module-desc">Re-prices every listing nightly. Reacts to demand and events in real time. Tracks comp rates without an analyst — replaces the host's rate work entirely.</p>
+      <ul class="module-checks">
+        <li>Nightly re-pricing on all listings</li>
+        <li>Event-aware demand modeling</li>
+        <li>Competitor tracking without an analyst</li>
       </ul>
-      <a href="#tour" class="product-link" style="color:#c47fbf">Explore Cleanfy console →</a>
-    </article>
+    </div>
+    <div class="mockup">
+      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">VRM · Downtown Loft LA-0412</span></div>
+      <div class="mockup-body">
+        <div class="price-rows">
+          <div class="price-row"><span class="label">Base rate</span><span class="val">$189</span></div>
+          <div class="price-row"><span class="label">Event demand <span class="badge">+12%</span></span><span class="val">$212</span></div>
+          <div class="price-row"><span class="label">Comp-set lift <span class="badge">+6%</span></span><span class="val">$225</span></div>
+        </div>
+        <div class="price-final">
+          <div class="l"><strong>AI final price</strong><span style="font-size:11px;padding:2px 8px;border-radius:99px;background:rgba(241,140,40,.2);color:var(--orange);margin-left:6px;font-weight:700">AI SET</span></div>
+          <div class="r">$238</div>
+        </div>
+        <div class="price-refresh">Updated 5 min ago · next refresh in 4h</div>
+      </div>
+    </div>
   </div>
 
-  <!-- PRODUCT TOUR CONSOLE (tabs for VRM / Cleanfy) -->
-  <div class="tour-console" id="tour">
-    <div class="tour-header">
-      <span class="tour-title">Product console</span>
-      <span class="tour-version">v2.4</span>
+  <!-- Module 03: Cleanfy -->
+  <div class="module">
+    <div>
+      <div class="module-meta">Module 03 · Field Ops</div>
+      <h3>Cleanfy <span class="g1">Closed-Loop Fulfillment</span></h3>
+      <p class="module-desc">Auto-dispatch → AI photo QA → auto-settlement. Host touches nothing. City-Partner network executes on SLA.</p>
+      <ul class="module-checks">
+        <li>Auto-dispatch to top-ranked partner</li>
+        <li>AI pre-screen + SOP compliance photo QA</li>
+        <li>Auto-settlement + vendor performance scoring</li>
+      </ul>
     </div>
-    <div class="tour-tabs" role="tablist">
-      <button class="tour-tab active" id="tab-vrm" onclick="switchTourTab('vrm')" role="tab">
-        <span class="tab-dot dot-vrm"></span>
-        VRM · Pricing
-      </button>
-      <button class="tour-tab purple" id="tab-cleanfy" onclick="switchTourTab('cleanfy')" role="tab">
-        <span class="tab-dot dot-cleanfy"></span>
-        Cleanfy · Ops
-      </button>
-    </div>
-
-    <!-- VRM tour panel -->
-    <div class="tour-panel active" id="panel-vrm">
-      <div class="tour-panel-info">
-        <h4>Real-time dynamic pricing</h4>
-        <p>Bots scan demand signals every few minutes and adjust rates across every channel — autonomously. Operators only set the guardrails.</p>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Market &amp; competitor data fused with occupancy history</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Channel-specific rate optimization per listing</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Event detection triggers surge pricing automatically</li>
-        </ul>
-      </div>
-      <div class="vrm-mockup">
-        <div class="vrm-top">
-          <div class="vrm-unit-info">
-            <div class="vrm-unit-title">Downtown Loft · LA-0412</div>
-            <div class="vrm-unit-meta">Mon, Apr 21 · 1BR/1BA</div>
-          </div>
-          <div class="rate-badge">Auto-priced</div>
+    <div class="mockup">
+      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">Job #CLN-4821</span></div>
+      <div class="mockup-body">
+        <div class="job-header">
+          <div><h5>Job #CLN-4821</h5><p style="font-size:12px;color:var(--ink3);margin-top:3px">Turnover · 2BR · Downtown</p></div>
+          <span class="job-badge">✓ AUTO-DISPATCHED</span>
         </div>
-        <div class="rate-display">
-          <span class="rate-current">$218</span>
-          <span class="rate-old">$195</span>
-          <span class="rate-unit">per night</span>
+        <div class="job-steps">
+          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Assigned · 0:07</div>
+          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>On-site · 13:42</div>
+          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Photo QA passed</div>
+          <div class="job-step active"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="2" fill="currentColor"/></svg>Settling · $68 → partner</div>
         </div>
-        <div class="chart-box">
-          <div class="chart-box-head">
-            <span class="chart-box-title">7-day rate curve</span>
-            <div class="chart-legend">
-              <div class="legend-item"><span class="legend-line" style="background:var(--vesta-orange)"></span>VestaOS</div>
-              <div class="legend-item"><span class="legend-line" style="background:var(--text-muted)"></span>Market</div>
-            </div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 300 80" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="chart-area" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stop-color="#F18C28" stop-opacity="0.25"/>
-                <stop offset="100%" stop-color="#F18C28" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <polyline points="0,50 50,48 100,52 150,50 200,46 250,48 300,50" fill="none" stroke="#8A90A0" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
-            <polygon points="0,42 50,30 100,35 150,20 200,15 250,25 300,18 300,80 0,80" fill="url(#chart-area)"/>
-            <polyline points="0,42 50,30 100,35 150,20 200,15 250,25 300,18" fill="none" stroke="#F18C28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="50" cy="30" r="3.5" fill="#F18C28" stroke="#0B0F1A" stroke-width="1.5"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cleanfy tour panel -->
-    <div class="tour-panel" id="panel-cleanfy">
-      <div class="tour-panel-info">
-        <h4>Autonomous dispatch network</h4>
-        <p>The moment a guest checks out, bots find the nearest qualified cleaner, assign the job, and track it to AI-verified completion. Zero dispatcher required.</p>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#c47fbf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Check-out webhook triggers instant dispatch</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#c47fbf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>GPS-based cleaner matching &amp; live tracking</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#c47fbf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>AI photo QC closes the loop before next check-in</li>
-        </ul>
-      </div>
-      <div class="cleanfy-mockup">
-        <div class="cleanfy-stats">
-          <div class="cleanfy-stat">
-            <span class="cleanfy-stat-label">In queue</span>
-            <span class="cleanfy-stat-num purple">8</span>
-          </div>
-          <div class="cleanfy-stat">
-            <span class="cleanfy-stat-label">In progress</span>
-            <span class="cleanfy-stat-num">3</span>
-          </div>
-          <div class="cleanfy-stat">
-            <span class="cleanfy-stat-label">Done today</span>
-            <span class="cleanfy-stat-num">24</span>
-          </div>
-        </div>
-        <div class="map-box">
-          <div class="map-grid"></div>
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 500 110" preserveAspectRatio="none">
-            <path d="M 60 40 Q 140 30, 200 70" stroke="#F18C28" stroke-width="1.5" stroke-dasharray="4,4" fill="none" opacity="0.55"/>
-            <path d="M 300 30 Q 360 55, 420 70" stroke="#F18C28" stroke-width="1.5" stroke-dasharray="4,4" fill="none" opacity="0.55"/>
-          </svg>
-          <div class="map-pin pin-unit" style="top:55%;left:38%"></div>
-          <div class="map-pin pin-unit" style="top:58%;left:82%"></div>
-          <div class="map-pin pin-unit" style="top:28%;left:60%"></div>
-          <div class="map-pin pin-cleaner" style="top:32%;left:12%"></div>
-          <div class="map-pin pin-cleaner" style="top:22%;left:58%"></div>
-        </div>
-        <div class="job-list-mini">
-          <div class="job-mini">
-            <div class="job-status status-inprogress"></div>
-            <div class="job-mini-info">
-              <div class="job-mini-title">Sunset 4B · assigned to Maria L.</div>
-              <div class="job-mini-meta">Checkout 10:30 · est 45 min</div>
-            </div>
-            <div class="job-mini-time">In progress</div>
-          </div>
-          <div class="job-mini">
-            <div class="job-status status-dispatched"></div>
-            <div class="job-mini-info">
-              <div class="job-mini-title">Highland 2A · assigned to James T.</div>
-              <div class="job-mini-meta">Dispatched · ETA 8 min</div>
-            </div>
-            <div class="job-mini-time">11:15</div>
-          </div>
+        <div class="job-foot">
+          <span>SLA <strong>98%</strong></span>
+          <span>QA score <strong>4.9</strong></span>
         </div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="how-inner">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">Four steps. Bots do the work.</h2>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-title">Bots price your listings</div>
-        <div class="step-desc">Market signals in, optimized rates out — every channel, every day, no pricing manager.</div>
+<!-- BEFORE / AFTER -->
+<section class="section" id="results" style="padding-top:0">
+<div class="wrap">
+  <div class="kicker">Before vs. After</div>
+  <div class="ba-head-text">
+    <h2>Measurable improvement <span class="g1">across<br>every workflow</span></h2>
+    <p>Q4 2024 → Q4 2025 · 9,030 orders verified</p>
+  </div>
+  <div class="ba-table">
+    <div class="ba-row head">
+      <div>Workflow</div><div>Before</div><div>After</div><div class="ba-delta">Delta</div>
+    </div>
+    <div class="ba-row">
+      <div class="ba-workflow">Guest response time</div>
+      <div class="ba-before">20 min</div>
+      <div class="ba-after">~1 min</div>
+      <div class="ba-delta">↑ 20× faster</div>
+    </div>
+    <div class="ba-row">
+      <div class="ba-workflow">Price adjustment cycle</div>
+      <div class="ba-before">2 hrs / cycle</div>
+      <div class="ba-after">5 min / cycle</div>
+      <div class="ba-delta">↑ 24× faster</div>
+    </div>
+    <div class="ba-row">
+      <div class="ba-workflow">SLA fulfillment rate</div>
+      <div class="ba-before">60%</div>
+      <div class="ba-after">98%</div>
+      <div class="ba-delta">↑ +38 pts</div>
+    </div>
+    <div class="ba-row">
+      <div class="ba-workflow">New listing onboarding</div>
+      <div class="ba-before">7 days</div>
+      <div class="ba-after">1 day</div>
+      <div class="ba-delta">↑ 7× faster</div>
+    </div>
+    <div class="ba-row">
+      <div class="ba-workflow">Guest inquiries handled by AI</div>
+      <div class="ba-before">0%</div>
+      <div class="ba-after">90%</div>
+      <div class="ba-delta">↑ +90 pts</div>
+    </div>
+  </div>
+
+  <!-- Case studies -->
+  <div class="case-grid">
+    <div class="case-card">
+      <div class="case-label">Case Study · Vancouver 2BR</div>
+      <div class="case-stats">
+        <div><div class="case-stat-n">+20%</div><div class="case-stat-l">Revenue</div></div>
+        <div><div class="case-stat-n">−30%</div><div class="case-stat-l">Labor</div></div>
+        <div><div class="case-stat-n">+22%</div><div class="case-stat-l">CSAT</div></div>
       </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-title">Bots handle guests 24/7</div>
-        <div class="step-desc">Inquiries, check-in guidance, issue triage — answered by AI in seconds, zero human touch.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-title">Bots dispatch operations</div>
-        <div class="step-desc">Checkout fires a cleaning job in seconds. Nearest cleaner auto-accepts. Dispatcher-free.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-title">Humans only on the 4%</div>
-        <div class="step-desc">Real emergencies and edge cases escalate to your team. Everything else runs itself.</div>
+    </div>
+    <div class="case-card">
+      <div class="case-label">Market Expansion · Los Angeles · 2025 Q1</div>
+      <div class="case-stats">
+        <div><div class="case-stat-n">3.5×</div><div class="case-stat-l">Listing growth in 90 days</div></div>
+        <div><div class="case-stat-n">76%</div><div class="case-stat-l">Peak occupancy (from 50%)</div></div>
+        <div><div class="case-stat-n">95%</div><div class="case-stat-l">SLA held through scale-up</div></div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- WHY WE WIN -->
+<section class="section" id="why" style="padding-top:0">
+<div class="wrap">
+  <div class="kicker">Competitive Advantage</div>
+  <div class="why-head">
+    <h2>Why we win: <span class="g1">Data moat +<br>Operator DNA</span></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🗄</div>
+      <h4>Proprietary Data &amp; Expertise</h4>
+      <p>10M+ curated historical data points from real operations. Harness built on our proven SOPs, escalations, and exception handling logic.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">∞</div>
+      <h4>Integrated Operating System</h4>
+      <p>Unified online (C Claw) and offline (Cleanfy) operations into a single continuous loop — platform-wide learning, immediate feedback.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡</div>
+      <h4>Reliability &amp; Control</h4>
+      <p>Strict SLA policy, brand-safety guardrails, and flexible human-in-the-loop options for consistent quality and risk mitigation.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔄</div>
+      <h4>Compounding Flywheel</h4>
+      <p>More customers → richer data → better models → higher margins. The network grows more valuable each quarter.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing" style="padding-top:0">
+<div class="wrap">
+  <div class="kicker">Revenue Model</div>
+  <div style="margin-bottom:48px">
+    <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,52px);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px">Usage-based pricing.</h2>
+    <p style="font-size:17px;color:var(--ink2);line-height:1.6;max-width:600px">Three modules. Each new listing adds revenue without adding headcount.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <div class="price-card">
+      <div class="price-card-icon" style="background:linear-gradient(135deg,#540E57,#7C2A67)">💬</div>
+      <h4>Guest Comms Autopilot</h4>
+      <div class="sub">Per 300 auto-replies handled</div>
+      <div class="price-amount">
+        <span class="num">$69</span><span class="unit">/ listing / month</span>
+      </div>
+      <ul class="price-features">
+        <li>Covers 300 guest replies — AI drafts &amp; sends</li>
+        <li>+$5 per 100 extra auto-replies</li>
+        <li>90% sent without human review</li>
+        <li>98% SLA — replaces 24/7 host staffing</li>
+      </ul>
+    </div>
+
+    <div class="price-card featured">
+      <div class="price-card-tag">Highest Leverage</div>
+      <div class="price-card-icon" style="background:linear-gradient(135deg,#F18C28,#F4AD46);margin-top:10px">📈</div>
+      <h4>Autonomous Pricing</h4>
+      <div class="sub">Share of bookings AI priced</div>
+      <div class="price-amount">
+        <span class="num">5%</span><span class="unit">per booking · ~$108 / listing / mo</span>
+      </div>
+      <ul class="price-features">
+        <li>Re-prices every listing nightly</li>
+        <li>Auto-reacts to events &amp; demand</li>
+        <li>Tracks comp rates without an analyst</li>
+        <li>Replaces host's manual rate work entirely</li>
+      </ul>
+    </div>
+
+    <div class="price-card">
+      <div class="price-card-icon" style="background:linear-gradient(135deg,#7C2A67,#540E57)">🔧</div>
+      <h4>Ops Autopilot (Cleanfy)</h4>
+      <div class="sub">Per job AI dispatches</div>
+      <div class="price-amount">
+        <span class="num">$10</span><span class="unit">per job · ~$70 / listing / mo</span>
+      </div>
+      <ul class="price-features">
+        <li>~7 jobs / month × $10 avg ticket</li>
+        <li>AI picks partner, inspects photos</li>
+        <li>City partner settles directly</li>
+        <li>Host never makes a phone call</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- CTA / GET STARTED -->
+<section class="section" id="watch-demo" style="padding-top:0">
+<div class="wrap">
   <div class="cta-box">
-    <h2>Run more listings with fewer people.</h2>
-    <p>Scale from your first listing to thousands without scaling headcount.<br>14-day free trial. No credit card required.</p>
-    <div class="cta-actions">
-      <button class="btn-primary">Book a Demo</button>
-      <button class="btn-secondary">Talk to City Partnerships</button>
+    <div class="cta-left">
+      <div class="kicker" style="margin-bottom:18px">Get Started</div>
+      <h2>Turn every listing into an <span class="g1">autonomous P&amp;L.</span></h2>
+      <p>See VestaOS on your real portfolio. 30-minute working session. No slides — we'll connect a sample listing and run C Claw, Pricing, and Cleanfy live.</p>
+      <div class="cta-btns">
+        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo →</a>
+      </div>
+    </div>
+    <div class="cta-form" id="demoFormWrap">
+      <label>Work Email</label>
+      <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
+      <div class="form-row">
+        <div>
+          <label>Portfolio Size</label>
+          <select id="f-size">
+            <option value="" disabled selected>Select…</option>
+            <option>1–10 units</option><option>11–50 units</option>
+            <option>51–200 units</option><option>200+ units</option>
+          </select>
+        </div>
+        <div>
+          <label>City / Region</label>
+          <input type="text" id="f-city" placeholder="e.g. Vancouver, LA">
+        </div>
+      </div>
+      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Request demo</button>
+      <div class="form-fine">By submitting you agree to our <a href="/en/terms/" style="color:var(--ink3)">terms</a>.</div>
+      <div class="form-success" id="formSuccess">
+        <h4>You're in ✓</h4>
+        <p>We'll reach out within 1 business day to schedule your live session.</p>
+      </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">VESTA <span>OS</span></span>
-  <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Contact</a>
+<div class="wrap">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/en/" style="text-decoration:none">
+        <svg width="34" height="21" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+      <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#fgs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="24" cy="15" r="3.5" fill="url(#fgo)"/>
+      <defs>
+        <linearGradient id="fgs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#540E57"/>
+          <stop offset="50%" stop-color="#F4AD46"/>
+          <stop offset="100%" stop-color="#7C2A67"/>
+        </linearGradient>
+        <linearGradient id="fgo" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#F4AD46"/>
+          <stop offset="100%" stop-color="#F18C28"/>
+        </linearGradient>
+      </defs>
+    </svg>
+        <span class="brand-name" style="font-size:16px;letter-spacing:.05em">VESTA <span>OS</span></span>
+      </a>
+      <p>The AI Native OS for Alternative Accommodations. Guest messaging · Pricing · Dispatch · QA · Settlement.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <ul>
+        <li><a href="#platform">C Claw</a></li>
+        <li><a href="#platform">Autonomous Pricing</a></li>
+        <li><a href="#platform">Cleanfy</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/en/about/">About</a></li>
+        <li><a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener">Book a Demo</a></li>
+        <li><a href="mailto:contact@vestaos.ai">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="/en/privacy/">Privacy Policy</a></li>
+        <li><a href="/en/terms/">Terms of Service</a></li>
+      </ul>
+    </div>
   </div>
-  <span class="footer-copy">© 2025 Cozy Holdings Corp. All rights reserved.</span>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2026 VestaOS · Cozy Holdings Corp. · Richmond, BC, Canada</span>
+    <div class="foot-right">
+      <span>Official Airbnb &amp; Booking.com Connectivity Partner</span>
+      <div class="lang-sw"><a href="/en/" class="on">EN</a><span class="sep">|</span><a href="/zh/">中</a></div>
+    </div>
+  </div>
+</div>
 </footer>
 
 <script>
-  function switchTourTab(tab) {
-    document.querySelectorAll('.tour-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tour-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('tab-' + tab).classList.add('active');
-    document.getElementById('panel-' + tab).classList.add('active');
-  }
-</script>
+var FORM_ACTION = "";
+var ENTRY_IDS = { email:"", size:"", city:"" };
 
+function handleSubmit(){
+  var email = document.getElementById('f-email').value.trim();
+  var size  = document.getElementById('f-size').value;
+  var city  = document.getElementById('f-city').value.trim();
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    alert('Please enter a valid work email.');return;
+  }
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitBtn').textContent = 'Sending…';
+  if(FORM_ACTION && ENTRY_IDS.email){
+    var fd = new FormData();
+    fd.append(ENTRY_IDS.email, email);
+    if(ENTRY_IDS.size) fd.append(ENTRY_IDS.size, size);
+    if(ENTRY_IDS.city) fd.append(ENTRY_IDS.city, city);
+    fetch(FORM_ACTION,{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
+  }
+  try{localStorage.setItem('vestaos_demo_unlocked','1');localStorage.setItem('vestaos_lead',JSON.stringify({email:email,size:size,city:city,ts:new Date().toISOString()}));}catch(e){}
+  setTimeout(function(){
+    document.getElementById('formSuccess').style.display='block';
+    document.getElementById('submitBtn').style.display='none';
+    document.querySelector('.form-fine').style.display='none';
+  },400);
+}
+</script>
 </body>
 </html>
