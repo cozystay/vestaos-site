@@ -1,210 +1,331 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pricing · VestaOS</title>
-<meta name="description" content="Usage-based pricing. Three modules — Guest Comms Autopilot at $69/listing/mo, Autonomous Pricing at 5% per booking, Ops Autopilot at $10/job.">
-<link rel="canonical" href="https://vestaos.ai/en/pricing/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23F18C28'/><text y='22' x='8' font-size='18' fill='white' font-weight='bold'>V</text></svg>">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing · Vesta OS</title>
+  <meta name="description" content="Usage-based pricing. Pay for the work AI does. $69 guest comms, 5% autonomous pricing, $10 per dispatched job." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
 </head>
 <body>
 
-<header class="nav">
-  <div class="container nav-inner">
-    <a href="/en/" class="nav-logo">
-      <svg width="38" height="24" viewBox="0 0 48 30" fill="none">
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/en/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
         <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
         <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
         <defs>
-          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#540E57"/><stop offset="50%" stop-color="#F4AD46"/><stop offset="100%" stop-color="#7C2A67"/></linearGradient>
-          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F4AD46"/><stop offset="100%" stop-color="#F18C28"/></linearGradient>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/>
+            <stop offset="50%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
         </defs>
       </svg>
       <span class="nav-brand">VESTA <span>OS</span></span>
     </a>
-    <nav class="nav-center">
-      <a href="/en/" class="nav-link">Home</a>
-      <a href="/en/vrm/" class="nav-link">VRM</a>
-      <a href="/en/cleanfy/" class="nav-link">Cleanfy</a>
-      <a href="/en/pricing/" class="nav-link active">Pricing</a>
-      <a href="/en/about/" class="nav-link">About</a>
-    </nav>
-    <div class="nav-right">
-      <a href="/zh/" class="nav-link hide-mobile lang-sw">中文</a>
-      <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-sm btn-pill">Book a Demo</a>
-      <button class="nav-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      <nav class="nav-center">
+        <a href="/en/" class="nav-link">Home</a>
+        <a href="/en/vrm/" class="nav-link">VRM</a>
+        <a href="/en/cleanfy/" class="nav-link">Cleanfy</a>
+        <a href="/en/pricing/" class="nav-link active">Pricing</a>
+        <a href="/en/about/" class="nav-link">About</a>
+      </nav>
+      <div class="nav-right">
+        <a href="#" class="nav-link hide-mobile">Log in</a>
+        <a href="#contact" class="btn btn-primary btn-sm btn-pill">Talk to sales</a>
+        <button class="nav-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      </div>
     </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="/en/">Home</a>
+    <a href="/en/vrm/">VRM</a>
+    <a href="/en/cleanfy/">Cleanfy</a>
+    <a href="/en/pricing/">Pricing</a>
+    <a href="/en/about/">About</a>
   </div>
-</header>
-<div class="mobile-menu">
-  <a href="/en/">Home</a><a href="/en/vrm/">VRM</a><a href="/en/cleanfy/">Cleanfy</a>
-  <a href="/en/pricing/">Pricing</a><a href="/en/about/">About</a><a href="/zh/">中文</a>
-</div>
 
-<!-- PAGE HEADER -->
-<section class="page-header" style="text-align:center">
-  <div class="container">
-    <span class="t-eyebrow">Revenue Model</span>
-    <h1 class="t-hero mt-4">Usage-based pricing.<br><span class="grad-text">Pay for what you use.</span></h1>
-    <p class="t-lead lead mt-6" style="max-width:560px;margin:24px auto 0">Three modules. Each new listing adds revenue without adding headcount. Start with one, add more as you scale.</p>
-  </div>
-</section>
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <span class="t-eyebrow eyebrow">Usage-based pricing</span>
+      <h1 class="t-h1">Pay for the work AI does — not the seat your team doesn't need.</h1>
+      <p class="t-lead lead">Three simple usage meters. Scale only when your AI actually replaces human labor. Revenue Management is free for your first month.</p>
+    </div>
+  </section>
 
-<!-- PRICING CARDS -->
-<section class="section">
-  <div class="container">
-    <div class="pricing-grid-full">
-
-      <!-- Guest Comms -->
-      <div class="pf-card">
-        <div class="pf-icon" style="background:linear-gradient(135deg,#540E57,#7C2A67)"><i class="fas fa-comment-dots"></i></div>
-        <div class="pf-module">VRM · Guest Ops</div>
-        <h3 class="pf-name">Guest Comms Autopilot</h3>
-        <p class="pf-sub">Per 300 auto-replies handled</p>
-        <div class="pf-price-row">
-          <span class="pf-price grad-text">$69</span>
-          <span class="pf-unit">/ listing / month</span>
+  <!-- ===== PRICING GRID ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="pricing-grid">
+        <!-- Guest Comms -->
+        <div class="price-card">
+          <div class="icon-box" style="width:44px;height:44px;background:var(--brand-soft);color:var(--brand);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>Guest Comms Autopilot</h3>
+          <p class="desc">AI answers guest inquiries across every channel — with your tone, rules and SLAs.</p>
+          <div class="price">$69<small> / listing / mo</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Includes 300 guest replies / mo</li>
+            <li><i class="fas fa-check-circle"></i> +$5 per additional 100 replies</li>
+            <li><i class="fas fa-check-circle"></i> 90% sent without human review</li>
+            <li><i class="fas fa-check-circle"></i> Priority queue &amp; escalations</li>
+            <li><i class="fas fa-check-circle"></i> Unified inbox across 4–5 channels</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-pill">Start free trial</a>
         </div>
-        <div class="pf-divider"></div>
-        <ul class="pf-features">
-          <li><i class="fas fa-check-circle"></i> Covers 300 guest replies — AI drafts &amp; sends</li>
-          <li><i class="fas fa-check-circle"></i> +$5 per 100 extra auto-replies</li>
-          <li><i class="fas fa-check-circle"></i> 90% sent without human review</li>
-          <li><i class="fas fa-check-circle"></i> 98% SLA — replaces 24/7 host staffing</li>
-          <li><i class="fas fa-check-circle"></i> Priority queue + escalation routing</li>
-        </ul>
-        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-dark btn-pill pf-btn">Get started →</a>
-      </div>
 
-      <!-- Autonomous Pricing (featured) -->
-      <div class="pf-card pf-featured">
-        <div class="pf-tag">Highest Leverage</div>
-        <div class="pf-icon" style="background:linear-gradient(135deg,#F18C28,#F4AD46);margin-top:8px"><i class="fas fa-chart-line"></i></div>
-        <div class="pf-module">VRM · Revenue</div>
-        <h3 class="pf-name">Autonomous Pricing</h3>
-        <p class="pf-sub">Share of bookings AI priced</p>
-        <div class="pf-price-row">
-          <span class="pf-price grad-text">5%</span>
-          <span class="pf-unit">per booking · ~$108 / listing / mo</span>
+        <!-- Autonomous Pricing (featured) -->
+        <div class="price-card featured">
+          <div class="icon-box" style="width:44px;height:44px;background:var(--brand-soft);color:var(--brand);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Autonomous Pricing</h3>
+          <p class="desc">Nightly re-pricing across your rolling 3–45 day window. Replaces manual rate work entirely.</p>
+          <div class="price">5%<small> of monthly net revenue</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>First month free</strong></li>
+            <li><i class="fas fa-check-circle"></i> Event-aware demand signals</li>
+            <li><i class="fas fa-check-circle"></i> Competitor rate tracking</li>
+            <li><i class="fas fa-check-circle"></i> Rule-constrained guardrails</li>
+            <li><i class="fas fa-check-circle"></i> Push to Airbnb, Booking, Expedia, Vrbo</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-pill">Start free trial</a>
         </div>
-        <div class="pf-divider"></div>
-        <ul class="pf-features">
-          <li><i class="fas fa-check-circle"></i> Re-prices every listing nightly</li>
-          <li><i class="fas fa-check-circle"></i> Auto-reacts to events &amp; demand</li>
-          <li><i class="fas fa-check-circle"></i> Tracks comp rates without an analyst</li>
-          <li><i class="fas fa-check-circle"></i> 3–45 day rolling window optimization</li>
-          <li><i class="fas fa-check-circle"></i> Replaces host's manual rate work entirely</li>
-        </ul>
-        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-pill pf-btn">Get started →</a>
-      </div>
 
-      <!-- Ops Autopilot -->
-      <div class="pf-card">
-        <div class="pf-icon" style="background:linear-gradient(135deg,#7C2A67,#540E57)"><i class="fas fa-broom"></i></div>
-        <div class="pf-module">Cleanfy · Field Ops</div>
-        <h3 class="pf-name">Ops Autopilot</h3>
-        <p class="pf-sub">Per job AI dispatches</p>
-        <div class="pf-price-row">
-          <span class="pf-price grad-text">$10</span>
-          <span class="pf-unit">per job · ~$70 / listing / mo</span>
+        <!-- Ops Autopilot -->
+        <div class="price-card">
+          <div class="icon-box" style="width:44px;height:44px;background:var(--brand-soft);color:var(--brand);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;">
+            <i class="fas fa-broom"></i>
+          </div>
+          <h3>Ops Autopilot (Cleanfy)</h3>
+          <p class="desc">Auto-dispatch, live tracking, AI photo QA and auto-settlement for every offline job.</p>
+          <div class="price">$10<small> / dispatched job</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Cleaning, maintenance, errands</li>
+            <li><i class="fas fa-check-circle"></i> Vendor onboarding in minutes</li>
+            <li><i class="fas fa-check-circle"></i> SOP-pinned live photo QA</li>
+            <li><i class="fas fa-check-circle"></i> Auto invoice &amp; settlement</li>
+            <li><i class="fas fa-check-circle"></i> Vendor performance score</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-pill">Start free trial</a>
         </div>
-        <div class="pf-divider"></div>
-        <ul class="pf-features">
-          <li><i class="fas fa-check-circle"></i> ~7 jobs / month × $10 avg ticket</li>
-          <li><i class="fas fa-check-circle"></i> AI picks partner, inspects photos</li>
-          <li><i class="fas fa-check-circle"></i> Geo-fence verified arrival &amp; departure</li>
-          <li><i class="fas fa-check-circle"></i> City partner settles directly</li>
-          <li><i class="fas fa-check-circle"></i> Host never makes a phone call</li>
-        </ul>
-        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-dark btn-pill pf-btn">Get started →</a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section section-soft">
-  <div class="container" style="max-width:720px">
-    <div class="section-head center">
-      <span class="t-eyebrow">FAQ</span>
-      <h2 class="t-h1 mt-4">Common <span class="grad-text">questions.</span></h2>
-    </div>
-    <div class="faq">
-      <details class="faq-item">
-        <summary>Can I use just one module?</summary>
-        <div class="answer">Yes. Each module is independent. Most operators start with Autonomous Pricing for the fastest ROI, then add Guest Comms and Cleanfy as they scale.</div>
-      </details>
-      <details class="faq-item">
-        <summary>How does billing work?</summary>
-        <div class="answer">Guest Comms is billed monthly per listing. Autonomous Pricing is billed as a percentage of each booking processed. Ops Autopilot is billed per job dispatched. No setup fees, no long-term contracts.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Is there a minimum portfolio size?</summary>
-        <div class="answer">No minimum. We work with operators from 5 listings to 500+. Pricing stays the same regardless of portfolio size.</div>
-      </details>
-      <details class="faq-item">
-        <summary>What happens when humans need to intervene?</summary>
-        <div class="answer">C Claw routes high-risk escalations to the owner with full context. Cleanfy flags jobs that fail photo QA. You only see what genuinely needs your attention — typically less than 10% of tasks.</div>
-      </details>
-      <details class="faq-item">
-        <summary>How quickly can I get started?</summary>
-        <div class="answer">Onboarding takes less than 24 hours. Book a 30-minute demo and we'll connect a sample listing and run all three modules live — no migration headaches.</div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="section">
-  <div class="container">
-    <div class="cta-banner">
-      <div>
-        <h2 class="t-h2">Start with one listing. <span class="grad-text">Scale from there.</span></h2>
-        <p>30-minute working session. No slides — we'll connect a real listing and show you the numbers.</p>
-      </div>
-      <div class="btns">
-        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-pill">Book a Demo →</a>
-        <a href="mailto:contact@vestaos.ai" class="btn btn-ghost btn-lg btn-pill">Contact us</a>
+      <!-- ARPU summary -->
+      <div class="case-card mt-12" style="grid-template-columns: 1.5fr 1fr;">
+        <div>
+          <span class="t-eyebrow">Typical economics</span>
+          <h2 class="t-h2 mt-4">~$247 ARPU per unit / month.</h2>
+          <p class="t-lead mt-6">Replacing hours of manual labor across comms, pricing and dispatch — at a fraction of a single FTE's fully-loaded cost.</p>
+          <p class="t-small mt-6" style="font-style:italic;">"We charge for the work AI does — replacing host labor, not seats."</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><strong>$69</strong><span>Guest comms</span></div>
+          <div class="case-metric"><strong>~$108</strong><span>Pricing (5% rev share)</span></div>
+          <div class="case-metric"><strong>~$70</strong><span>Dispatch (~7 jobs)</span></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div><h5>Product</h5><ul>
-        <li><a href="/en/vrm/">VRM</a></li>
-        <li><a href="/en/cleanfy/">Cleanfy</a></li>
-        <li><a href="/en/pricing/">Pricing</a></li>
-      </ul></div>
-      <div><h5>Company</h5><ul>
-        <li><a href="/en/about/">About</a></li>
-        <li><a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener">Book a Demo</a></li>
-        <li><a href="mailto:contact@vestaos.ai">Contact</a></li>
-      </ul></div>
-      <div><h5>Legal</h5><ul>
-        <li><a href="/en/terms/">Terms</a></li>
-        <li><a href="/en/privacy/">Privacy</a></li>
-      </ul></div>
-      <div><h5>Language</h5><ul>
-        <li><a href="/zh/pricing/">中文版</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="cy">2026</span> Cozy Holdings Corp. · Official Airbnb &amp; Booking.com Connectivity Partner</span>
-    </div>
-  </div>
-</footer>
+  <!-- ===== COMPARISON WITH LEGACY ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Why usage-based</span>
+        <h2 class="t-h1 mt-4">Your bill goes down when the AI fails. So it doesn't.</h2>
+        <p class="t-lead mt-6">Legacy PMS charges you the same whether the software works or not. We align our business model with your outcomes.</p>
+      </div>
 
-<script src="../js/main.js"></script>
-<script>document.getElementById('cy').textContent=new Date().getFullYear();</script>
+      <div class="compare-table">
+        <div class="compare-row">
+          <div class="head">Dimension</div>
+          <div class="head">Legacy PMS SaaS</div>
+          <div class="head">Cozystay</div>
+          <div class="head" style="text-align:right;">Benefit</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Pricing model</div>
+          <div class="before">Flat seat / listing fee</div>
+          <div class="after">Usage-based</div>
+          <div class="delta">Aligned with value</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Guest replies</div>
+          <div class="before">Manual, template-assisted</div>
+          <div class="after">AI-sent (90%)</div>
+          <div class="delta">Labor replaced</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Pricing updates</div>
+          <div class="before">Analyst + rules</div>
+          <div class="after">Autonomous, nightly</div>
+          <div class="delta">No FTE needed</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Offline dispatch</div>
+          <div class="before">Phone / WhatsApp</div>
+          <div class="after">Auto-dispatch + photo QA</div>
+          <div class="delta">Closed loop</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Settlement</div>
+          <div class="before">Spreadsheets</div>
+          <div class="after">Auto-invoice</div>
+          <div class="delta">Finance-ready</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section">
+    <div class="container" style="max-width:880px;">
+      <div class="section-head center">
+        <span class="t-eyebrow">Questions operators ask us</span>
+        <h2 class="t-h1 mt-4">Frequently asked questions.</h2>
+      </div>
+      <div class="faq">
+        <details class="faq-item" open>
+          <summary>Do I need to switch my current PMS?</summary>
+          <div class="answer">No. Vesta OS connects to your existing channels directly (Airbnb, Booking, Expedia, Vrbo) and can run alongside your PMS during migration. Most operators start with guest comms and pricing, then move offline operations to Cleanfy.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens when VRM isn't sure how to reply?</summary>
+          <div class="answer">Any message with negative sentiment, refund risk or compliance implications is auto-routed to your team's priority queue. You can also set "review every reply" mode while you're getting comfortable.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I bring my own vendors into Cleanfy?</summary>
+          <div class="answer">Yes. Onboarding a third-party cleaning company, maintenance team or inventory vendor into Cleanfy takes minutes. You can also tap into the Vesta OS city partner network where coverage exists.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How does the 5% revenue share on pricing work?</summary>
+          <div class="answer">It's 5% of the net revenue from listings that use Autonomous Pricing, charged monthly. First month is free. You can set rate floors, ceilings, and minimum LOS rules; we optimize inside them.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a minimum number of listings?</summary>
+          <div class="answer">No hard minimum. Vesta OS is built for operators with 5–50 units, but we also serve larger portfolios. Contact sales for multi-city deployments.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Who owns the data and the listings?</summary>
+          <div class="answer">You do. Your channels, your content, your guest data. Vesta OS is your operational layer — you can export at any time, and we never share data across customers.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / CTA FORM ===== -->
+  <section id="contact" class="section section-soft">
+    <div class="container" style="max-width:640px;">
+      <div class="section-head center">
+        <span class="t-eyebrow">Get started</span>
+        <h2 class="t-h1 mt-4">Start your free trial.</h2>
+        <p class="t-lead mt-6">Leave us a few details — we'll get you live across your channels in days, not weeks.</p>
+      </div>
+
+      <form class="feature-card" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.reset();" style="padding:32px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            Full name
+            <input required type="text" name="name" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit;" />
+          </label>
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            Work email
+            <input required type="email" name="email" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit;" />
+          </label>
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            Company
+            <input type="text" name="company" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit;" />
+          </label>
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            Listings under management
+            <select name="units" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit; background:#fff;">
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+            </select>
+          </label>
+        </div>
+        <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600; margin-top:16px;">
+          Tell us about your operation
+          <textarea name="message" rows="4" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit; resize:vertical;"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg btn-pill btn-block mt-6" style="margin-top:20px;">Request access</button>
+        <div id="form-success" style="display:none; margin-top:16px; padding:12px; border-radius:8px; background:var(--brand-soft); color:var(--brand-dark); font-size:14px;">
+          <i class="fas fa-check-circle"></i> Thanks — we'll be in touch within one business day.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/en/vrm/">VRM</a></li>
+            <li><a href="/en/cleanfy/">Cleanfy</a></li>
+            <li><a href="/en/pricing/">Pricing</a></li>
+            <li><a href="vrm.html#workflow">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/en/about/">About us</a></li>
+            <li><a href="about.html#team">Team</a></li>
+            <li><a href="about.html#story">Our story</a></li>
+            <li><a href="mailto:hello@cozystay.ai">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Operator guides</a></li>
+            <li><a href="#">API &amp; integrations</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Acceptable use</a></li>
+            <li><a href="#">Data processing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> Vesta OS All rights reserved.</span>
+        <div class="social">
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
 </body>
 </html>

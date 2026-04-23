@@ -1,4 +1,4 @@
-/* VestaOS - Main site JS
+/* Cozystay - Main site JS
    Handles mobile menu, navigation active state, smooth scroll, simple stat animation */
 
 (function () {
