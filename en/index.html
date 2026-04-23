@@ -2,789 +2,543 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VestaOS — The AI Native OS for Alternative Accommodations</title>
-<meta name="description" content="VestaOS unifies guest messaging, dynamic pricing, and field dispatch into a single autonomous loop. Bots execute 96% of operations. Humans only handle the 4% that needs judgment.">
+<meta name="description" content="VestaOS unifies guest messaging, dynamic pricing, and field dispatch into a single autonomous loop. Bots execute 96% of operations.">
+<link rel="canonical" href="https://vestaos.ai/en/">
 <link rel="alternate" hreflang="en" href="https://vestaos.ai/en/">
 <link rel="alternate" hreflang="zh" href="https://vestaos.ai/zh/">
-<link rel="canonical" href="https://vestaos.ai/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ── Brand tokens ── */
-:root{
-  --bg:       #0B0F1A;
-  --bg2:      #111520;
-  --bg3:      #161B27;
-  --card:     #1A1F2E;
-  --card2:    #1F2535;
-  --border:   rgba(255,255,255,.08);
-  --border2:  rgba(255,255,255,.13);
-  --ink:      #F5F6FA;
-  --ink2:     #BDC2CC;
-  --ink3:     #808591;
-  --ink4:     #555A63;
-  --orange:   #F18C28;
-  --orange2:  #F4AD46;
-  --purple1:  #540E57;
-  --purple2:  #7C2A67;
-  --grad:     linear-gradient(135deg,#540E57,#7C2A67 50%,#F4AD46);
-  --grad-btn: linear-gradient(135deg,#C0392B,#F18C28 60%,#F4AD46);
-  --r:        12px;
-  --r2:       18px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--orange);color:#000}
-
-/* ── Atmosphere ── */
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:
-    radial-gradient(ellipse 900px 600px at 20% -10%, rgba(124,42,103,.22) 0%, transparent 65%),
-    radial-gradient(ellipse 700px 500px at 80% 5%,  rgba(241,140,40,.10) 0%, transparent 60%);
-}
-
-/* ── Layout ── */
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
-.section{padding:96px 0;position:relative;z-index:1}
-
-/* ── Nav ── */
-.nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(11,15,26,.75);border-bottom:1px solid var(--border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.brand-logo{flex-shrink:0}
-.brand-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em}
-.brand-name span{color:var(--orange)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
-.nav-links a:hover{color:var(--ink)}
-.nav-right{display:flex;align-items:center;gap:16px}
-.lang-sw{display:flex;align-items:center;gap:4px;font-size:13px}
-.lang-sw a{color:var(--ink3);text-decoration:none;padding:3px 7px;border-radius:6px;transition:all .15s}
-.lang-sw a.on{color:var(--ink);background:rgba(255,255,255,.06)}
-.lang-sw .sep{color:var(--ink4)}
-.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:99px;background:var(--grad-btn);color:#fff;font:600 13.5px 'Inter',sans-serif;text-decoration:none;transition:opacity .15s,transform .12s;box-shadow:0 4px 16px rgba(241,140,40,.25)}
-.btn-nav:hover{opacity:.9;transform:translateY(-1px)}
-
-/* ── Hero ── */
-.hero{padding:80px 0 96px;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--ink2);font-size:13px;margin-bottom:36px}
-.hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;box-shadow:0 0 0 3px rgba(241,140,40,.2)}
-.hero h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(52px,7vw,96px);line-height:1.0;letter-spacing:-.02em;margin-bottom:28px}
-.hero h1 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:18px;color:var(--ink2);max-width:640px;margin:0 auto 14px;line-height:1.6}
-.hero-sub strong{color:var(--ink);font-weight:600}
-.hero-ctas{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:99px;background:var(--grad-btn);color:#fff;font:600 15px 'Inter',sans-serif;text-decoration:none;transition:opacity .15s,transform .12s,box-shadow .15s;box-shadow:0 6px 24px rgba(241,140,40,.3)}
-.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 10px 30px rgba(241,140,40,.4)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:99px;border:1px solid var(--border2);color:var(--ink);font:500 15px 'Inter',sans-serif;text-decoration:none;transition:border-color .15s,background .15s}
-.btn-ghost:hover{border-color:var(--ink3);background:rgba(255,255,255,.04)}
-
-/* ── Trust strip ── */
-.trust{padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
-.trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
-.trust-label{font-size:13px;color:var(--ink3)}
-.trust-logos{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.trust-logo{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink2);opacity:.7;transition:opacity .15s}
-.trust-logo:hover{opacity:1}
-.trust-logo svg{flex-shrink:0}
-
-/* ── Kicker capsule ── */
-.kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:transparent;border:1px solid var(--orange);color:var(--orange);font:600 11.5px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
-.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
-
-/* ── Problem section ── */
-.prob-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(36px,5vw,58px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
-.prob-head h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.prob-head p{font-size:17px;color:var(--ink2);max-width:600px;line-height:1.65;margin-bottom:48px}
-.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.prob-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;transition:border-color .2s,transform .2s}
-.prob-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.prob-icon{width:44px;height:44px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
-.prob-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px;color:var(--ink)}
-.prob-card p{font-size:13.5px;color:var(--ink3);line-height:1.6;margin-bottom:18px}
-.prob-stat{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--orange);letter-spacing:-.01em}
-.prob-stat-l{font-size:11px;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
-
-/* ── Platform section ── */
-.platform-head{max-width:680px;margin-bottom:64px}
-.platform-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.02em;margin-bottom:16px}
-.platform-head h2 .g1,.platform-head h2 .g2{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.platform-head p{font-size:17px;color:var(--ink2);line-height:1.65}
-.module{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;border-top:1px solid var(--border)}
-.module.reverse{direction:rtl}
-.module.reverse>*{direction:ltr}
-.module-meta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.module-meta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
-.module h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.015em;margin-bottom:14px}
-.module h3 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.module-desc{font-size:15.5px;color:var(--ink2);line-height:1.7;margin-bottom:22px}
-.module-checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
-.module-checks li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2);line-height:1.5}
-.module-checks li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:rgba(241,140,40,.15);border:1px solid rgba(241,140,40,.35);color:var(--orange);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-/* Mockup panels */
-.mockup{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden}
-.mockup-bar{background:var(--card2);padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.mockup-bar .dot{width:8px;height:8px;border-radius:50%}
-.mockup-bar .dot.r{background:#F87171}
-.mockup-bar .dot.y{background:#FBBF24}
-.mockup-bar .dot.g{background:#34D399}
-.mockup-body{padding:20px}
-/* Chat mockup */
-.chat-msg{margin-bottom:12px}
-.chat-msg .bubble{display:inline-block;padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.5;max-width:82%}
-.chat-msg.guest .bubble{background:var(--card2);border:1px solid var(--border);color:var(--ink2);border-radius:12px 12px 12px 4px}
-.chat-msg.bot .bubble{background:rgba(241,140,40,.12);border:1px solid rgba(241,140,40,.25);color:var(--ink);border-radius:12px 12px 4px 12px;float:right}
-.chat-msg.bot{text-align:right}
-.chat-label{font-size:11px;color:var(--ink3);margin-bottom:4px;padding:0 4px}
-.chat-msg.bot .chat-label{text-align:right;color:var(--orange)}
-.chat-meta{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(241,140,40,.06);border-top:1px solid var(--border);margin-top:8px;clear:both}
-.chat-meta span{font-size:12px;color:var(--ink3)}
-.chat-meta strong{font-size:12px;color:var(--orange);font-weight:600}
-/* Pricing mockup */
-.price-rows{display:flex;flex-direction:column;gap:0}
-.price-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
-.price-row:last-child{border-bottom:none}
-.price-row .label{color:var(--ink2)}
-.price-row .val{font-weight:600;color:var(--ink)}
-.price-row .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(241,140,40,.15);color:var(--orange);margin-left:8px}
-.price-final{background:rgba(241,140,40,.08);border:1px solid rgba(241,140,40,.3);border-radius:10px;padding:14px;margin-top:12px;display:flex;align-items:center;justify-content:space-between}
-.price-final .l{font-size:13px;color:var(--ink2)}
-.price-final .l strong{color:var(--ink);display:block;font-size:13px;margin-bottom:2px}
-.price-final .r{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--orange)}
-.price-refresh{font-size:11.5px;color:var(--ink3);margin-top:10px}
-/* Job mockup */
-.job-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
-.job-header h5{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink)}
-.job-header p{font-size:12px;color:var(--ink3);margin-top:3px}
-.job-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:#34D399;white-space:nowrap}
-.job-steps{display:flex;flex-direction:column;gap:8px}
-.job-step{padding:12px 14px;border-radius:10px;font-size:13.5px;display:flex;align-items:center;gap:10px}
-.job-step.done{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34D399}
-.job-step.active{background:rgba(241,140,40,.08);border:1px solid rgba(241,140,40,.3);color:var(--orange)}
-.job-step svg{flex-shrink:0}
-.job-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
-.job-foot span{font-size:12.5px;color:var(--ink3)}
-.job-foot strong{color:var(--ink);font-weight:600}
-
-/* ── Before / After ── */
-.ba-head-text h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(32px,4vw,50px);line-height:1.08;letter-spacing:-.02em;margin-bottom:10px}
-.ba-head-text h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ba-head-text p{font-size:15px;color:var(--ink3);margin-bottom:36px}
-.ba-table{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
-.ba-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;align-items:center;border-bottom:1px solid var(--border)}
-.ba-row:last-child{border-bottom:none}
-.ba-row.head{background:var(--card2)}
-.ba-row div{padding:14px 20px;font-size:14px}
-.ba-row.head div{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.ba-workflow{color:var(--ink2)}
-.ba-before{color:var(--ink3);text-decoration:line-through}
-.ba-after{color:var(--ink);font-weight:600}
-.ba-delta{color:var(--orange);font-weight:700;font-size:13.5px}
-
-/* ── Case study ── */
-.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
-.case-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px}
-.case-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
-.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.case-stat-n{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.01em;line-height:1}
-.case-stat-l{font-size:12px;color:var(--ink3);margin-top:6px;letter-spacing:.03em}
-
-/* ── Why we win ── */
-.why-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.02em;margin-bottom:48px}
-.why-head h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;transition:border-color .2s,transform .2s}
-.why-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.why-icon{width:48px;height:48px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
-.why-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;margin-bottom:10px;color:var(--ink)}
-.why-card p{font-size:13.5px;color:var(--ink3);line-height:1.65}
-
-/* ── CTA / Get started ── */
-.cta-box{background:linear-gradient(135deg,rgba(84,14,87,.4),rgba(124,42,103,.3),rgba(241,140,40,.15));border:1px solid rgba(241,140,40,.2);border-radius:var(--r2);padding:56px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.cta-left h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
-.cta-left h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cta-left p{font-size:15px;color:var(--ink2);line-height:1.65;margin-bottom:28px}
-.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
-.cta-form{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);padding:28px}
-.cta-form label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;margin-top:14px}
-.cta-form label:first-child{margin-top:0}
-.cta-form input,.cta-form select{width:100%;padding:11px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;color:var(--ink);font:500 14px 'Inter',sans-serif;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
-.cta-form input::placeholder{color:var(--ink4)}
-.cta-form input:focus,.cta-form select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(241,140,40,.12)}
-.cta-form select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%23808591' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.submit-btn{margin-top:18px;width:100%;padding:13px;background:var(--grad-btn);border:none;border-radius:99px;color:#fff;font:600 14.5px 'Inter',sans-serif;cursor:pointer;transition:opacity .15s,transform .1s;box-shadow:0 4px 18px rgba(241,140,40,.3)}
-.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
-.submit-btn:disabled{opacity:.55;cursor:not-allowed}
-.form-fine{margin-top:10px;font-size:11.5px;color:var(--ink4);text-align:center}
-.form-success{display:none;text-align:center;padding:16px 0}
-.form-success h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px;color:var(--ink)}
-.form-success p{font-size:14px;color:var(--ink3)}
-
-/* ── Footer ── */
-footer{border-top:1px solid var(--border);padding:56px 0 36px;position:relative;z-index:1}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.foot-brand p{font-size:14px;color:var(--ink3);line-height:1.6;margin-top:14px;max-width:240px}
-.foot-col h5{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px}
-.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.foot-col a{color:var(--ink3);text-decoration:none;font-size:14px;transition:color .15s}
-.foot-col a:hover{color:var(--ink)}
-.foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
-.foot-copy{font-size:13px;color:var(--ink4)}
-.foot-right{display:flex;align-items:center;gap:20px}
-.foot-right span{font-size:13px;color:var(--ink4)}
-.foot-right a{color:var(--ink3);text-decoration:none;font-size:13px;transition:color .15s}
-.foot-right a:hover{color:var(--ink)}
-
-/* ── Responsive ── */
-@media(max-width:1024px){
-  .prob-grid{grid-template-columns:repeat(2,1fr)}
-  .why-grid{grid-template-columns:repeat(2,1fr)}
-  .module{grid-template-columns:1fr;gap:36px}
-  .module.reverse{direction:ltr}
-  .case-grid{grid-template-columns:1fr}
-  .cta-box{grid-template-columns:1fr;gap:32px}
-  .foot-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  .wrap{padding:0 20px}
-  .section{padding:64px 0}
-  .hero{padding:56px 0 72px}
-  .hero h1{font-size:44px}
-  .nav-links{display:none}
-  .ba-row{grid-template-columns:1.4fr 1fr 1fr}
-  .ba-delta{display:none}
-  .ba-row.head .ba-delta{display:none}
-  .prob-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
-  .trust-inner{flex-direction:column;gap:16px;text-align:center}
-  .case-stats{grid-template-columns:repeat(3,1fr)}
-  .foot-grid{grid-template-columns:1fr}
-}
-
-/* Pricing cards */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px 28px;position:relative;transition:border-color .2s,transform .2s}
-.price-card:hover{transform:translateY(-3px)}
-.price-card.featured{border-color:var(--orange);border-width:2px}
-.price-card-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad-btn);color:#fff;font:700 11px 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:99px;white-space:nowrap}
-.price-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
-.price-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15.5px;color:var(--ink);margin-bottom:4px}
-.price-card .sub{font-size:12px;color:var(--ink3);margin-bottom:20px}
-.price-amount{padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:20px}
-.price-amount .num{font-family:'Montserrat',sans-serif;font-size:46px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.price-amount .unit{font-size:13.5px;color:var(--ink3);margin-left:4px}
-.price-features{list-style:none;display:flex;flex-direction:column;gap:10px}
-.price-features li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--ink2);line-height:1.5}
-.price-features li::before{content:"✓";color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px}
-@media(max-width:900px){.pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
-
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/en/css/style.css?v=light2">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23F18C28'/><text y='22' x='8' font-size='18' fill='white' font-weight='bold'>V</text></svg>">
 </head>
-<body>
+<body style="background:#ffffff!important">
 
 <!-- NAV -->
 <header class="nav">
-<div class="wrap nav-inner">
-  <a class="brand" href="/en/">
-    <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
-      <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
-      <defs>
-        <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#540E57"/>
-          <stop offset="50%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#7C2A67"/>
-        </linearGradient>
-        <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#F18C28"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <span class="brand-name">VESTA <span>OS</span></span>
-  </a>
-  <nav><ul class="nav-links">
-    <li><a href="#problem">Product</a></li>
-    <li><a href="#results">Results</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="/en/about/">About</a></li>
-  </ul></nav>
-  <div class="nav-right">
-    <div class="lang-sw">
-      <a href="/en/" class="on">EN</a><span class="sep">|</span><a href="/zh/">中</a>
+  <div class="container nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+        <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
+        <defs>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/><stop offset="50%" stop-color="#F4AD46"/><stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/><stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">VESTA <span>OS</span></span>
+    </a>
+    <nav class="nav-center" aria-label="Main">
+      <a href="/en/" class="nav-link active">Home</a>
+      <a href="/en/vrm/" class="nav-link">VRM</a>
+      <a href="/en/cleanfy/" class="nav-link">Cleanfy</a>
+      <a href="/en/pricing/" class="nav-link">Pricing</a>
+      <a href="/en/about/" class="nav-link">About</a>
+    </nav>
+    <div class="nav-right">
+      <a href="/zh/" class="nav-link hide-mobile lang-sw">中文</a>
+      <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-sm btn-pill">Book a Demo</a>
+      <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
     </div>
-    <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-nav">Book a demo →</a>
   </div>
-</div>
 </header>
+<div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a href="/en/">Home</a><a href="/en/vrm/">VRM</a><a href="/en/cleanfy/">Cleanfy</a>
+  <a href="/en/pricing/">Pricing</a><a href="/en/about/">About</a><a href="/zh/">中文</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-<div class="wrap">
-  <h1>The <span class="g1">AI Native OS</span><br>for Alternative<br>Accommodations</h1>
-  <p class="hero-sub">Guest messaging · Pricing · Dispatch · QA · Settlement.<br><strong>End-to-end. Zero-touch.</strong></p>
-  <div class="hero-ctas">
-    <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo →</a>
-    <a href="#watch-demo" class="btn-ghost">⊙ Watch the OS in action</a>
+  <div class="container hero-stack">
+    <!-- Top: centered text -->
+    <div class="hero-text">
+      <h1 class="t-hero">The <span class="grad-text">AI Native OS</span><br>for alternative accommodations.</h1>
+      <p class="t-lead">Guest messaging · pricing · dispatch · QA · settlement —<br>all automated, end-to-end.</p>
+      <div class="hero-ctas">
+        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-pill">Book a Demo →</a>
+        <a href="#watch-demo" class="btn btn-ghost btn-lg btn-pill">⊙ Watch the OS in action</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><span class="hs-n grad-text">96%</span><span class="hs-l">Tasks automated</span></div>
+        <div class="hs-sep"></div>
+        <div class="hs"><span class="hs-n grad-text">−80%</span><span class="hs-l">Labor cost</span></div>
+        <div class="hs-sep"></div>
+        <div class="hs"><span class="hs-n grad-text">24/7</span><span class="hs-l">Always-on</span></div>
+      </div>
+    </div>
+    <!-- Bottom: console card -->
+    <div class="hero-console-wrap" aria-hidden="true">
+      <div class="hero-console">
+        <div class="hc-top">
+          <div class="hc-dots"><span class="hcd r"></span><span class="hcd y"></span><span class="hcd g"></span></div>
+          <span class="hc-title">VestaOS · Live Ops</span>
+          <span class="hc-live"><span class="live-dot"></span>LIVE</span>
+        </div>
+        <div class="hc-body hc-body-wide">
+          <div class="hc-cols">
+            <div class="hc-col-stat">
+              <div class="hc-split-row">
+                <div class="hc-split-stat">
+                  <div class="hc-n grad-text">96%</div>
+                  <div class="hc-l">Automated</div>
+                </div>
+                <div class="hc-split-divider"></div>
+                <div class="hc-split-stat">
+                  <div class="hc-n" style="color:rgba(255,255,255,.3)">4%</div>
+                  <div class="hc-l">Human</div>
+                </div>
+              </div>
+              <div class="hc-bar" style="margin:16px 0 0"><div class="hc-bar-fill"></div></div>
+            </div>
+            <div class="hc-col-feed">
+              <div class="hc-feed-label">Recent activity</div>
+              <div class="hc-feed">
+                <div class="hc-evt"><span class="hc-tag bot">Bot</span><span class="hc-txt">Re-priced <b>LA-0412</b> · $195 → $218</span><span class="hc-time">now</span></div>
+                <div class="hc-evt"><span class="hc-tag bot">Bot</span><span class="hc-txt">Dispatched cleaner · <b>Sunset 4B</b></span><span class="hc-time">12s</span></div>
+                <div class="hc-evt"><span class="hc-tag bot">Bot</span><span class="hc-txt">Guest WiFi query · <b>Highland 2A</b></span><span class="hc-time">38s</span></div>
+                <div class="hc-evt"><span class="hc-tag human">Human</span><span class="hc-txt">Escalation · <b>Melrose 1C</b></span><span class="hc-time">2m</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </section>
 
-<!-- TRUST STRIP -->
-<div class="trust">
-<div class="wrap trust-inner">
-  <span class="trust-label">Official Connectivity Partner ·</span>
-  <div class="trust-logos">
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A5F"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      Airbnb
-    </span>
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#003580"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a4 4 0 018 0v2" stroke="#003580" stroke-width="2" fill="none"/></svg>
-      Booking
-    </span>
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBCC33"><path d="M3 17l9-14 9 14H3z"/></svg>
-      Expedia
-    </span>
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1D5C96"><path d="M3 9l9-6 9 6v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/></svg>
-      VRBO
-    </span>
+<!-- CHANNEL STRIP -->
+<section class="channel-strip">
+  <div class="container">
+    <p class="strip-label">Official Connectivity Partner · Connected to the world's leading channels</p>
+    <div class="strip-logos">
+      <span>Airbnb</span><span>Booking.com</span><span>Expedia</span><span>VRBO</span><span>Stripe</span><span>Google</span>
+    </div>
   </div>
-</div>
-</div>
+</section>
 
-<!-- THE PROBLEM -->
+<!-- PROBLEM -->
 <section class="section" id="problem">
-<div class="wrap">
-  <div class="kicker">The Problem</div>
-  <div class="prob-head">
-    <h2>Linear operations <span class="g1">cap growth</span><br>and compress margins</h2>
-    <p>More listings always meant more headcount. Response SLAs, pricing agility, onboarding speed, and offline dispatch were persistent bottlenecks — opaque, manual, and impossible to scale without burning margin.</p>
+  <div class="container">
+    <div class="section-head center">
+      <span class="t-eyebrow">The problem we lived</span>
+      <h2 class="t-h1 mt-4">Linear operations <span class="grad-text">cap growth</span><br>and compress margins.</h2>
+      <p class="t-lead mt-6">Before we built VestaOS, we operated short-term rental listings at scale. Every new listing meant more headcount, more messages, more dispatches. We saw firsthand why the industry hasn't scaled — and why AI finally changes that.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="prob-icon"><i class="fas fa-comments"></i></div>
+        <div class="prob-stat grad-text">20 min</div>
+        <div class="prob-stat-l">Avg response</div>
+        <h3>Drowning in messages</h3>
+        <p>200+ daily inquiries. 20-min avg response vs 3-min target — 60% SLA hit rate.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon"><i class="fas fa-tags"></i></div>
+        <div class="prob-stat grad-text">2 hrs</div>
+        <div class="prob-stat-l">Per pricing cycle</div>
+        <h3>Manual pricing every day</h3>
+        <p>Two full hours, twice a day, across 4–5 channels for 3–45 days ahead.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon"><i class="fas fa-home"></i></div>
+        <div class="prob-stat grad-text">7 days</div>
+        <div class="prob-stat-l">To go live</div>
+        <h3>Slow listing onboarding</h3>
+        <p>Manual descriptions, photos, POIs across 4–5 OTAs. A growth tax on every new room.</p>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="prob-stat grad-text">60 min</div>
+        <div class="prob-stat-l">To dispatch</div>
+        <h3>Offline work, offline quality</h3>
+        <p>30–60 min just to assign cleaning or maintenance. Verification took hours to weeks.</p>
+      </div>
+    </div>
   </div>
-  <div class="prob-grid">
-    <div class="prob-card">
-      <div class="prob-icon">💬</div>
-      <h4>Guest communications</h4>
-      <p>200+ daily messages handled manually. 20-min average response vs 3-min target — 60% SLA hit rate.</p>
-      <div class="prob-stat">20 min</div>
-      <div class="prob-stat-l">Avg Response</div>
-    </div>
-    <div class="prob-card">
-      <div class="prob-icon">📈</div>
-      <h4>Pricing operations</h4>
-      <p>2 hours per cycle across channels, twice daily on rolling 3–45 day windows. An analyst job, every day.</p>
-      <div class="prob-stat">2 hrs</div>
-      <div class="prob-stat-l">Per Cycle</div>
-    </div>
-    <div class="prob-card">
-      <div class="prob-icon">🏠</div>
-      <h4>New listing onboarding</h4>
-      <p>~7 days per listing. Manual descriptions, photos, POIs across 4–5 OTAs. A growth tax on every new room.</p>
-      <div class="prob-stat">7 days</div>
-      <div class="prob-stat-l">Time to Live</div>
-    </div>
-    <div class="prob-card">
-      <div class="prob-icon">🔧</div>
-      <h4>Offline work &amp; dispatch</h4>
-      <p>30–60 min to assign a clean or repair. Quality verification lags hours to weeks. Hosts play phone tag.</p>
-      <div class="prob-stat">60 min</div>
-      <div class="prob-stat-l">To Dispatch</div>
-    </div>
-  </div>
-</div>
 </section>
 
-<!-- PLATFORM -->
-<section class="section" id="platform" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">The VestaOS Platform</div>
-  <div class="platform-head">
-    <h2>One operating system.<br><span class="g1">Online</span> + <span class="g2">offline</span>, closed-loop.</h2>
-    <p>VestaOS unifies guest messaging, dynamic pricing, and field dispatch into a single autonomous loop. Humans only intervene on high-risk escalations — the rest runs itself.</p>
-  </div>
+<!-- PRODUCTS -->
+<section class="section section-soft" id="products">
+  <div class="container">
+    <div class="section-head">
+      <span class="t-eyebrow">The VestaOS platform</span>
+      <h2 class="t-h1 mt-4">Two products. <span class="grad-text">One autonomous operation.</span></h2>
+      <p class="t-lead mt-6">VRM runs your online workflow — guest comms, pricing, onboarding. Cleanfy runs your ground operations — dispatch, QA, settlement. Together they close the loop.</p>
+    </div>
+    <div class="product-grid">
 
-  <!-- Module 01: C Claw -->
-  <div class="module">
-    <div>
-      <div class="module-meta">Module 01 · Guest Ops</div>
-      <h3>C Claw <span class="g1">AI Guest Operations</span></h3>
-      <p class="module-desc">90% of inquiries handled end-to-end. Drafts, sends, and prioritizes. Humans only see high-risk escalations — brand-safe, SLA-guaranteed.</p>
-      <ul class="module-checks">
-        <li>20 min → <strong>~1 min</strong> guest response time</li>
-        <li>98% SLA fulfillment (up from 60%)</li>
-        <li>24/7 coverage without host staffing</li>
-      </ul>
-    </div>
-    <div class="mockup">
-      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">Guest · Sunlit Studio</span></div>
-      <div class="mockup-body">
-        <div class="chat-msg guest"><div class="chat-label">Sarah K.</div><div class="bubble">Hi! Can I check in early around 1pm? My flight lands at noon.</div></div>
-        <div class="chat-msg bot"><div class="chat-label">C Claw Bot</div><div class="bubble">Hi Sarah! Early check-in at 1pm is available for $25. Shall I add it to your booking?</div></div>
-        <div class="chat-msg guest" style="margin-top:10px"><div class="chat-label">Sarah K.</div><div class="bubble">Yes please! Also what's the WiFi password?</div></div>
-        <div class="chat-msg bot"><div class="chat-label">C Claw Bot</div><div class="bubble">Done! Early check-in confirmed ✓ WiFi: VestaGuest · Pass: Sunny2024</div></div>
-        <div class="chat-meta" style="clear:both">
-          <span>Auto-handled · 0 human touch</span>
-          <strong>CSAT 5/5</strong>
+      <!-- VRM -->
+      <article class="product-card">
+        <div class="mockup-cover vrm-cover">
+          <div class="mc-label">Online · Revenue + Guest Ops</div>
+          <div class="mc-name">VRM</div>
+          <div class="vrm-mockup">
+            <div class="vm-pricing">
+              <div class="vm-p-head">
+                <span class="vm-p-title">Downtown Loft · LA-0412</span>
+                <span class="vm-p-badge ai-set">AI SET</span>
+              </div>
+              <div class="vm-p-rows">
+                <div class="vm-p-row"><span>Base rate</span><span>$189</span></div>
+                <div class="vm-p-row"><span>Event demand <em class="vm-chip">+12%</em></span><span>$212</span></div>
+                <div class="vm-p-row vm-p-final"><span>AI final price</span><span class="vm-p-price">$238</span></div>
+              </div>
+            </div>
+            <div class="vm-chat">
+              <div class="vm-msg guest">Can I check in at 1pm?</div>
+              <div class="vm-msg bot">Hi! Early check-in at 1pm is $25. Confirmed ✓</div>
+              <div class="vm-chat-meta"><span class="vm-dot"></span>Auto-replied · 0 human touch</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <div class="body">
+          <h3>Autonomous pricing and AI guest ops — 24/7, zero headcount.</h3>
+          <p>Re-prices every listing nightly, handles 90% of guest inquiries end-to-end, and onboards new listings across channels in hours — not days.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Autonomous pricing across 3–45 day rolling windows</li>
+            <li><i class="fas fa-check-circle"></i> AI guest messaging with priority queue &amp; escalations</li>
+            <li><i class="fas fa-check-circle"></i> One-click listing generation across 4–5 channels</li>
+          </ul>
+          <div class="card-cta">
+            <a href="/en/vrm/" class="btn btn-dark btn-pill">Explore VRM <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </article>
 
-  <!-- Module 02: Pricing -->
-  <div class="module reverse">
-    <div>
-      <div class="module-meta">Module 02 · Revenue</div>
-      <h3>Autonomous <span class="g1">Pricing</span></h3>
-      <p class="module-desc">Re-prices every listing nightly. Reacts to demand and events in real time. Tracks comp rates without an analyst — replaces the host's rate work entirely.</p>
-      <ul class="module-checks">
-        <li>Nightly re-pricing on all listings</li>
-        <li>Event-aware demand modeling</li>
-        <li>Competitor tracking without an analyst</li>
-      </ul>
-    </div>
-    <div class="mockup">
-      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">VRM · Downtown Loft LA-0412</span></div>
-      <div class="mockup-body">
-        <div class="price-rows">
-          <div class="price-row"><span class="label">Base rate</span><span class="val">$189</span></div>
-          <div class="price-row"><span class="label">Event demand <span class="badge">+12%</span></span><span class="val">$212</span></div>
-          <div class="price-row"><span class="label">Comp-set lift <span class="badge">+6%</span></span><span class="val">$225</span></div>
+      <!-- Cleanfy -->
+      <article class="product-card">
+        <div class="mockup-cover cleanfy-cover">
+          <div class="mc-label">Offline · Fulfillment</div>
+          <div class="mc-name">Cleanfy</div>
+          <div class="cleanfy-mockup">
+            <div class="cm-job">
+              <div class="cm-job-head">
+                <span class="cm-job-id">Job #CLN-4821</span>
+                <span class="cm-badge dispatched">AUTO-DISPATCHED</span>
+              </div>
+              <div class="cm-job-meta">Turnover · 2BR · Downtown</div>
+              <div class="cm-steps">
+                <div class="cm-step done"><i class="fas fa-check-circle"></i> Assigned · 0:07</div>
+                <div class="cm-step done"><i class="fas fa-check-circle"></i> On-site · 13:42</div>
+                <div class="cm-step done"><i class="fas fa-check-circle"></i> Photo QA passed</div>
+                <div class="cm-step active"><i class="fas fa-circle-notch fa-spin"></i> Settling · $68 → partner</div>
+              </div>
+              <div class="cm-foot">
+                <span>SLA <strong>98%</strong></span>
+                <span>QA score <strong>4.9</strong></span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="price-final">
-          <div class="l"><strong>AI final price</strong><span style="font-size:11px;padding:2px 8px;border-radius:99px;background:rgba(241,140,40,.2);color:var(--orange);margin-left:6px;font-weight:700">AI SET</span></div>
-          <div class="r">$238</div>
+        <div class="body">
+          <h3>Closed-loop fulfillment: dispatch, verify, settle — hands-off.</h3>
+          <p>Auto-assigns the right partner, tracks them in real-time, gates work behind AI photo QA, and settles invoices automatically.</p>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Instant auto-dispatch to your vendor network</li>
+            <li><i class="fas fa-check-circle"></i> Live geo-tracking &amp; SOP-pinned photo checkpoints</li>
+            <li><i class="fas fa-check-circle"></i> AI photo QA + auto-settlement</li>
+          </ul>
+          <div class="card-cta">
+            <a href="/en/cleanfy/" class="btn btn-dark btn-pill">Explore Cleanfy <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-        <div class="price-refresh">Updated 5 min ago · next refresh in 4h</div>
-      </div>
-    </div>
-  </div>
+      </article>
 
-  <!-- Module 03: Cleanfy -->
-  <div class="module">
-    <div>
-      <div class="module-meta">Module 03 · Field Ops</div>
-      <h3>Cleanfy <span class="g1">Closed-Loop Fulfillment</span></h3>
-      <p class="module-desc">Auto-dispatch → AI photo QA → auto-settlement. Host touches nothing. City-Partner network executes on SLA.</p>
-      <ul class="module-checks">
-        <li>Auto-dispatch to top-ranked partner</li>
-        <li>AI pre-screen + SOP compliance photo QA</li>
-        <li>Auto-settlement + vendor performance scoring</li>
-      </ul>
-    </div>
-    <div class="mockup">
-      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">Job #CLN-4821</span></div>
-      <div class="mockup-body">
-        <div class="job-header">
-          <div><h5>Job #CLN-4821</h5><p style="font-size:12px;color:var(--ink3);margin-top:3px">Turnover · 2BR · Downtown</p></div>
-          <span class="job-badge">✓ AUTO-DISPATCHED</span>
-        </div>
-        <div class="job-steps">
-          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Assigned · 0:07</div>
-          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>On-site · 13:42</div>
-          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>Photo QA passed</div>
-          <div class="job-step active"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="2" fill="currentColor"/></svg>Settling · $68 → partner</div>
-        </div>
-        <div class="job-foot">
-          <span>SLA <strong>98%</strong></span>
-          <span>QA score <strong>4.9</strong></span>
-        </div>
-      </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- BEFORE / AFTER -->
-<section class="section" id="results" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">Before vs. After</div>
-  <div class="ba-head-text">
-    <h2>Measurable improvement <span class="g1">across<br>every workflow</span></h2>
-    <p>Q4 2024 → Q4 2025 · 9,030 orders verified</p>
-  </div>
-  <div class="ba-table">
-    <div class="ba-row head">
-      <div>Workflow</div><div>Before</div><div>After</div><div class="ba-delta">Delta</div>
+<section class="section" id="results">
+  <div class="container">
+    <div class="section-head">
+      <span class="t-eyebrow">Before vs. After</span>
+      <h2 class="t-h1 mt-4">Measurable improvement <span class="grad-text">across every workflow.</span></h2>
+      <p class="t-lead mt-6">Same portfolio, same team — fundamentally different economics.</p>
     </div>
-    <div class="ba-row">
-      <div class="ba-workflow">Guest response time</div>
-      <div class="ba-before">20 min</div>
-      <div class="ba-after">~1 min</div>
-      <div class="ba-delta">↑ 20× faster</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">Price adjustment cycle</div>
-      <div class="ba-before">2 hrs / cycle</div>
-      <div class="ba-after">5 min / cycle</div>
-      <div class="ba-delta">↑ 24× faster</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">SLA fulfillment rate</div>
-      <div class="ba-before">60%</div>
-      <div class="ba-after">98%</div>
-      <div class="ba-delta">↑ +38 pts</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">New listing onboarding</div>
-      <div class="ba-before">7 days</div>
-      <div class="ba-after">1 day</div>
-      <div class="ba-delta">↑ 7× faster</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">Guest inquiries handled by AI</div>
-      <div class="ba-before">0%</div>
-      <div class="ba-after">90%</div>
-      <div class="ba-delta">↑ +90 pts</div>
+    <div class="compare-table">
+      <div class="compare-row head-row">
+        <div>Workflow</div><div>Before</div><div>After</div><div>Improvement</div>
+      </div>
+      <div class="compare-row"><div class="metric">Guest response time</div><div class="before">20 min avg</div><div class="after">~1 min</div><div class="delta">↑ 20× faster</div></div>
+      <div class="compare-row"><div class="metric">Price adjustment cycle</div><div class="before">2 hrs / cycle</div><div class="after">5 min / cycle</div><div class="delta">↑ 24× faster</div></div>
+      <div class="compare-row"><div class="metric">SLA fulfillment rate</div><div class="before">60%</div><div class="after">98%</div><div class="delta">↑ +38 pts</div></div>
+      <div class="compare-row"><div class="metric">New listing onboarding</div><div class="before">7 days</div><div class="after">1 day</div><div class="delta">↑ 7× faster</div></div>
+      <div class="compare-row"><div class="metric">Guest inquiries handled by AI</div><div class="before">0%</div><div class="after">90%</div><div class="delta">↑ +90 pts</div></div>
     </div>
   </div>
+</section>
 
-  <!-- Case studies -->
-  <div class="case-grid">
-    <div class="case-card">
-      <div class="case-label">Case Study · Vancouver 2BR</div>
-      <div class="case-stats">
-        <div><div class="case-stat-n">+20%</div><div class="case-stat-l">Revenue</div></div>
-        <div><div class="case-stat-n">−30%</div><div class="case-stat-l">Labor</div></div>
-        <div><div class="case-stat-n">+22%</div><div class="case-stat-l">CSAT</div></div>
-      </div>
+<!-- STATS BAND -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-head center">
+      <span class="t-eyebrow">What operators measured after switching</span>
+      <h2 class="t-h1 mt-4" >Numbers from operators <span class="grad-text">who made the switch.</span></h2>
     </div>
-    <div class="case-card">
-      <div class="case-label">Market Expansion · Los Angeles · 2025 Q1</div>
-      <div class="case-stats">
-        <div><div class="case-stat-n">3.5×</div><div class="case-stat-l">Listing growth in 90 days</div></div>
-        <div><div class="case-stat-n">76%</div><div class="case-stat-l">Peak occupancy (from 50%)</div></div>
-        <div><div class="case-stat-n">95%</div><div class="case-stat-l">SLA held through scale-up</div></div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="value grad-text">90%</div><div class="label">Inquiries handled by AI</div></div>
+      <div class="stat-card"><div class="value grad-text">98%</div><div class="label">SLA fulfillment rate</div></div>
+      <div class="stat-card"><div class="value grad-text">24×</div><div class="label">Faster price adjustments</div></div>
+      <div class="stat-card"><div class="value grad-text">7×</div><div class="label">Faster listing onboarding</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="t-eyebrow">Case studies</span>
+      <h2 class="t-h1 mt-4">Real results. <span class="grad-text">Real portfolios.</span></h2>
+    </div>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-label">Case Study · Vancouver 2BR</div>
+        <blockquote>"We kept the unit, the team, and the listing. We just let VRM handle guest comms and pricing, and Cleanfy handle turnovers. Revenue went up, labor went down, and guests are happier."</blockquote>
+        <p class="attribution">— Portfolio operator, Downtown Vancouver</p>
+        <div class="case-metrics">
+          <div class="case-metric"><strong class="grad-text">+20%</strong><span>Revenue</span></div>
+          <div class="case-metric"><strong class="grad-text">−30%</strong><span>Labor hours</span></div>
+          <div class="case-metric"><strong class="grad-text">+22%</strong><span>Guest satisfaction</span></div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-label">Market Expansion · Los Angeles · 2025 Q1</div>
+        <blockquote>"We replicated our Vancouver playbook in LA with VestaOS. 90 days in, listings were up 3.5× and SLA held throughout the scale-up."</blockquote>
+        <p class="attribution">— Operations lead, Los Angeles expansion</p>
+        <div class="case-metrics">
+          <div class="case-metric"><strong class="grad-text">3.5×</strong><span>Listing growth in 90 days</span></div>
+          <div class="case-metric"><strong class="grad-text">76%</strong><span>Peak occupancy</span></div>
+          <div class="case-metric"><strong class="grad-text">95%</strong><span>SLA held through scale-up</span></div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- WHY WE WIN -->
-<section class="section" id="why" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">Competitive Advantage</div>
-  <div class="why-head">
-    <h2>Why we win: <span class="g1">Data moat +<br>Operator DNA</span></h2>
+<section class="section section-soft" id="why">
+  <div class="container">
+    <div class="section-head center">
+      <span class="t-eyebrow">Competitive advantage</span>
+      <h2 class="t-h1 mt-4">Why we win: <span class="grad-text">Data moat + Operator DNA.</span></h2>
+      <p class="t-lead mt-6">We're not a SaaS vendor studying the industry. We are the industry — now with a 10M+ point training set of real escalations, SOPs and exception paths.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon-box"><i class="fas fa-dna"></i></div>
+        <h3>Operator DNA</h3>
+        <p>Every workflow was a process we actually ran. Every edge case is one we've already solved — and trained the model on.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><i class="fas fa-infinity"></i></div>
+        <h3>Closed-loop learning</h3>
+        <p>Online and offline run on one platform, so every dispatch, photo and reply feeds the next reply, dispatch and price.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><i class="fas fa-shield-halved"></i></div>
+        <h3>Human-in-the-loop by design</h3>
+        <p>Brand safety guardrails, SLA policies and optional review let operators choose their trust level — full audit to full autopilot.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><i class="fas fa-rotate"></i></div>
+        <h3>Compounding flywheel</h3>
+        <p>More customers → richer data → better models → higher margins. The network grows more valuable every quarter.</p>
+      </div>
+    </div>
   </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">🗄</div>
-      <h4>Proprietary Data &amp; Expertise</h4>
-      <p>10M+ curated historical data points from real operations. Harness built on our proven SOPs, escalations, and exception handling logic.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">∞</div>
-      <h4>Integrated Operating System</h4>
-      <p>Unified online (C Claw) and offline (Cleanfy) operations into a single continuous loop — platform-wide learning, immediate feedback.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🛡</div>
-      <h4>Reliability &amp; Control</h4>
-      <p>Strict SLA policy, brand-safety guardrails, and flexible human-in-the-loop options for consistent quality and risk mitigation.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🔄</div>
-      <h4>Compounding Flywheel</h4>
-      <p>More customers → richer data → better models → higher margins. The network grows more valuable each quarter.</p>
-    </div>
-  </div>
-</div>
 </section>
 
-<!-- PRICING -->
-<section class="section" id="pricing" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">Revenue Model</div>
-  <div style="margin-bottom:48px">
-    <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,52px);line-height:1.08;letter-spacing:-.02em;margin-bottom:12px">Usage-based pricing.</h2>
-    <p style="font-size:17px;color:var(--ink2);line-height:1.6;max-width:600px">Three modules. Each new listing adds revenue without adding headcount.</p>
+<!-- WATCH DEMO: 3-screen closed loop -->
+<section class="section section-light" id="watch-demo">
+  <div class="container">
+    <div class="section-head center">
+      <span class="t-eyebrow">Watch the OS in action</span>
+      <h2 class="t-h1 mt-4" >The full <span class="grad-text">closed-loop demo.</span></h2>
+      <p class="t-lead mt-6" >Guest message → Bot reply → Owner escalation → Cleaner dispatch → AI photo QA → auto-settlement. End-to-end.</p>
+    </div>
+    <div class="demo-progress" id="demoProgress"></div>
+    <div class="demo-phones">
+      <div class="demo-phone">
+        <div class="phone-bar"><span class="phone-role">Guest</span><span class="phone-status"><span class="sdot on"></span>Online</span></div>
+        <div class="phone-body" id="phoneGuest"></div>
+      </div>
+      <div class="demo-phone">
+        <div class="phone-bar"><span class="phone-role">Owner</span><span class="phone-status"><span class="sdot"></span>Notified</span></div>
+        <div class="phone-body" id="phoneOwner"></div>
+      </div>
+      <div class="demo-phone">
+        <div class="phone-bar"><span class="phone-role">City Partner (CP)</span><span class="phone-status"><span class="sdot"></span>On-site</span></div>
+        <div class="phone-body" id="phoneCP"></div>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <button class="demo-btn prev" id="demoPrev" onclick="demoNav(-1)"><i class="fas fa-chevron-left"></i> Prev</button>
+      <button class="demo-btn pause" id="demoPause" onclick="togglePause()"><i class="fas fa-pause"></i></button>
+      <span class="demo-step-info" id="demoStepInfo">Step 1 / 13</span>
+      <button class="demo-btn next" id="demoNext" onclick="demoNav(1)">Next <i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-pill">Book a live session →</a>
+    </div>
   </div>
-  <div class="pricing-grid">
-
-    <div class="price-card">
-      <div class="price-card-icon" style="background:linear-gradient(135deg,#540E57,#7C2A67)">💬</div>
-      <h4>Guest Comms Autopilot</h4>
-      <div class="sub">Per 300 auto-replies handled</div>
-      <div class="price-amount">
-        <span class="num">$69</span><span class="unit">/ listing / month</span>
-      </div>
-      <ul class="price-features">
-        <li>Covers 300 guest replies — AI drafts &amp; sends</li>
-        <li>+$5 per 100 extra auto-replies</li>
-        <li>90% sent without human review</li>
-        <li>98% SLA — replaces 24/7 host staffing</li>
-      </ul>
-    </div>
-
-    <div class="price-card featured">
-      <div class="price-card-tag">Highest Leverage</div>
-      <div class="price-card-icon" style="background:linear-gradient(135deg,#F18C28,#F4AD46);margin-top:10px">📈</div>
-      <h4>Autonomous Pricing</h4>
-      <div class="sub">Share of bookings AI priced</div>
-      <div class="price-amount">
-        <span class="num">5%</span><span class="unit">per booking · ~$108 / listing / mo</span>
-      </div>
-      <ul class="price-features">
-        <li>Re-prices every listing nightly</li>
-        <li>Auto-reacts to events &amp; demand</li>
-        <li>Tracks comp rates without an analyst</li>
-        <li>Replaces host's manual rate work entirely</li>
-      </ul>
-    </div>
-
-    <div class="price-card">
-      <div class="price-card-icon" style="background:linear-gradient(135deg,#7C2A67,#540E57)">🔧</div>
-      <h4>Ops Autopilot (Cleanfy)</h4>
-      <div class="sub">Per job AI dispatches</div>
-      <div class="price-amount">
-        <span class="num">$10</span><span class="unit">per job · ~$70 / listing / mo</span>
-      </div>
-      <ul class="price-features">
-        <li>~7 jobs / month × $10 avg ticket</li>
-        <li>AI picks partner, inspects photos</li>
-        <li>City partner settles directly</li>
-        <li>Host never makes a phone call</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
 </section>
 
-<!-- CTA / GET STARTED -->
-<section class="section" id="watch-demo" style="padding-top:0">
-<div class="wrap">
-  <div class="cta-box">
-    <div class="cta-left">
-      <div class="kicker" style="margin-bottom:18px">Get Started</div>
-      <h2>Turn every listing into an <span class="g1">autonomous P&amp;L.</span></h2>
-      <p>See VestaOS on your real portfolio. 30-minute working session. No slides — we'll connect a sample listing and run C Claw, Pricing, and Cleanfy live.</p>
-      <div class="cta-btns">
-        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-primary">Book a demo →</a>
+<!-- CTA BANNER -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner">
+      <div>
+        <h2 class="t-h2">Turn every listing into an <span class="grad-text">autonomous P&amp;L.</span></h2>
+        <p>30-minute working session. No slides — we'll connect a sample listing and run VRM and Cleanfy live.</p>
       </div>
-    </div>
-    <div class="cta-form" id="demoFormWrap">
-      <label>Work Email</label>
-      <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
-      <div class="form-row">
-        <div>
-          <label>Portfolio Size</label>
-          <select id="f-size">
-            <option value="" disabled selected>Select…</option>
-            <option>1–10 units</option><option>11–50 units</option>
-            <option>51–200 units</option><option>200+ units</option>
-          </select>
-        </div>
-        <div>
-          <label>City / Region</label>
-          <input type="text" id="f-city" placeholder="e.g. Vancouver, LA">
-        </div>
-      </div>
-      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Request demo</button>
-      <div class="form-fine">By submitting you agree to our <a href="/en/terms/" style="color:var(--ink3)">terms</a>.</div>
-      <div class="form-success" id="formSuccess">
-        <h4>You're in ✓</h4>
-        <p>We'll reach out within 1 business day to schedule your live session.</p>
+      <div class="btns">
+        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn btn-primary btn-lg btn-pill">Book a Demo →</a>
+        <a href="/en/about/" class="btn btn-ghost btn-lg btn-pill">Our story</a>
       </div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-<div class="wrap">
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <a class="brand" href="/en/" style="text-decoration:none">
-        <svg width="34" height="21" viewBox="0 0 48 30" fill="none" aria-hidden="true">
-      <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#fgs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="24" cy="15" r="3.5" fill="url(#fgo)"/>
-      <defs>
-        <linearGradient id="fgs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#540E57"/>
-          <stop offset="50%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#7C2A67"/>
-        </linearGradient>
-        <linearGradient id="fgo" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#F18C28"/>
-        </linearGradient>
-      </defs>
-    </svg>
-        <span class="brand-name" style="font-size:16px;letter-spacing:.05em">VESTA <span>OS</span></span>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <a href="/en/" class="nav-logo" style="text-decoration:none;margin-bottom:12px;display:inline-flex">
+        <svg width="32" height="20" viewBox="0 0 48 30" fill="none">
+          <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#fgs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="24" cy="15" r="3.5" fill="url(#fgo)"/>
+          <defs>
+            <linearGradient id="fgs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#540E57"/><stop offset="50%" stop-color="#F4AD46"/><stop offset="100%" stop-color="#7C2A67"/></linearGradient>
+            <linearGradient id="fgo" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#F4AD46"/><stop offset="100%" stop-color="#F18C28"/></linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-brand" style="font-size:16px">VESTA <span>OS</span></span>
       </a>
-      <p>The AI Native OS for Alternative Accommodations. Guest messaging · Pricing · Dispatch · QA · Settlement.</p>
+      <p class="footer-desc">The AI Native OS for alternative accommodations.<br>Guest messaging · Pricing · Dispatch · QA · Settlement.</p>
     </div>
-    <div class="foot-col">
-      <h5>Product</h5>
-      <ul>
-        <li><a href="#platform">C Claw</a></li>
-        <li><a href="#platform">Autonomous Pricing</a></li>
-        <li><a href="#platform">Cleanfy</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h5>Company</h5>
-      <ul>
-        <li><a href="/en/about/">About</a></li>
+    <div class="footer-grid">
+      <div><h5>Product</h5><ul>
+        <li><a href="/en/vrm/">VRM</a></li>
+        <li><a href="/en/cleanfy/">Cleanfy</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="#products">How it works</a></li>
+      </ul></div>
+      <div><h5>Company</h5><ul>
+        <li><a href="/en/about/">About us</a></li>
+        <li><a href="/en/about/">Our story</a></li>
         <li><a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener">Book a Demo</a></li>
         <li><a href="mailto:contact@vestaos.ai">Contact</a></li>
-      </ul>
+      </ul></div>
+      <div><h5>Resources</h5><ul>
+        <li><a href="#">Help center</a></li>
+        <li><a href="#">Operator guides</a></li>
+        <li><a href="#">API &amp; integrations</a></li>
+        <li><a href="#">Security</a></li>
+      </ul></div>
+      <div><h5>Legal</h5><ul>
+        <li><a href="/en/terms/">Terms</a></li>
+        <li><a href="/en/privacy/">Privacy</a></li>
+        <li><a href="/en/terms/">Acceptable use</a></li>
+        <li><a href="/en/privacy/">Data processing</a></li>
+      </ul></div>
     </div>
-    <div class="foot-col">
-      <h5>Legal</h5>
-      <ul>
-        <li><a href="/en/privacy/">Privacy Policy</a></li>
-        <li><a href="/en/terms/">Terms of Service</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <span>© <span id="current-year">2026</span> Cozy Holdings Corp. · Richmond, BC, Canada · Official Airbnb &amp; Booking.com Connectivity Partner</span>
+      <div class="footer-right">
+        <a href="/zh/" class="lang-sw">中文</a>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="foot-bottom">
-    <span class="foot-copy">© 2026 VestaOS · Cozy Holdings Corp. · Richmond, BC, Canada</span>
-    <div class="foot-right">
-      <span>Official Airbnb &amp; Booking.com Connectivity Partner</span>
-      <div class="lang-sw"><a href="/en/" class="on">EN</a><span class="sep">|</span><a href="/zh/">中</a></div>
-    </div>
-  </div>
-</div>
 </footer>
 
+<script src="/en/js/main.js"></script>
 <script>
-var FORM_ACTION = "";
-var ENTRY_IDS = { email:"", size:"", city:"" };
+var STEPS=[
+{n:1,title:"Guest messages",g:'<div class="pb-row"><div class="pb-lbl">Sarah K.</div><div class="pb guest">Hi! The A/C in my room isn\'t working 😓 It\'s really hot. Can I get a refund?</div></div>',o:'<div class="pb sys">Waiting for escalation…</div>',c:'<div class="pb sys">Standby…</div>'},
+{n:2,title:"Bot auto-replies",g:'<div class="pb-row"><div class="pb-lbl">Sarah K.</div><div class="pb guest">The A/C isn\'t working 😓</div></div><div class="pb-row"><div class="pb-lbl bot-l">C Claw Bot</div><div class="pb bot">Hi Sarah! So sorry — flagging this as urgent and escalating to our team. Back to you in 15 min 🙏</div></div>',o:'<div class="pb sys">Bot handling · escalation pending…</div>',c:'<div class="pb sys">Standby…</div>'},
+{n:3,title:"Escalation detected",g:'<div class="pb-row"><div class="pb-lbl bot-l">C Claw Bot</div><div class="pb bot">Escalating to owner now 🙏</div></div><div class="pb sys">🤖 Refund request — escalating to Owner</div>',o:'<div class="pb alert">⚠️ Escalation incoming from C Claw…</div>',c:'<div class="pb sys">Standby…</div>'},
+{n:4,title:"Owner notified",g:'<div class="pb sys">Awaiting owner decision…</div>',o:'<div class="pb alert">🔔 <strong>Action required</strong><br>Sarah K. · Room 4B · A/C failure<br>Requesting partial refund</div><div style="display:flex;gap:8px;margin-top:8px"><div style="flex:1;padding:8px;background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);border-radius:8px;color:#4ADE80;font-size:12px;font-weight:600;text-align:center">✓ Approve 30%</div><div style="flex:1;padding:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#808591;font-size:12px;text-align:center">Decline</div></div>',c:'<div class="pb sys">Standby…</div>'},
+{n:5,title:"Owner approves",g:'<div class="pb sys">Owner reviewing…</div>',o:'<div class="pb success">✓ <strong>Approved:</strong> 30% refund · Sarah K.<br>Reason: A/C failure · Room 4B</div>',c:'<div class="pb sys">Standby…</div>'},
+{n:6,title:"Bot executes refund",g:'<div class="pb-row"><div class="pb-lbl bot-l">C Claw Bot</div><div class="pb bot">Great news Sarah! Owner approved a 30% refund ($47). You\'ll see it in 3–5 days. Maintenance dispatched now 🙏</div></div>',o:'<div class="pb success">✓ Refund executed · $47 · Auto-processed<br>Cleanfy dispatch triggered</div>',c:'<div class="pb sys">Dispatch incoming…</div>'},
+{n:7,title:"Cleanfy dispatches CP",g:'<div class="pb sys">Maintenance en route…</div>',o:'<div class="pb success">✓ Cleanfy auto-dispatched maintenance<br>ETA: 18 min</div>',c:'<div class="job-card"><div class="jc-head"><span class="jc-title">Job #CLN-2291</span><span class="jc-badge pending">New Task</span></div><div class="jc-row"><span>Type</span><strong>A/C repair · Room 4B</strong></div><div class="jc-row"><span>ETA window</span><strong>18 min</strong></div></div><div class="pb bot" style="margin-top:8px;align-self:stretch">New job — tap to accept ↓</div>'},
+{n:8,title:"CP accepts & travels",g:'<div class="pb sys">CP accepted · en route</div>',o:'<div class="pb success">✓ CP Mike T. accepted · ETA 18 min<br>Live GPS tracking active</div>',c:'<div class="job-card"><div class="jc-head"><span class="jc-title">Job #CLN-2291</span><span class="jc-badge accepted">Accepted ✓</span></div><div class="jc-row"><span>Status</span><strong>En route · ~15 min</strong></div></div>'},
+{n:9,title:"Geo-fence verified",g:'<div class="pb sys">CP on-site · geo-fence confirmed</div>',o:'<div class="pb success">✓ CP on-site · Geo-fence verified<br>Job clock started</div>',c:'<div class="job-card"><div class="jc-head"><span class="jc-title">Job #CLN-2291</span></div></div><div class="geo-bar">📍 Geo-fence verified · 13:42</div>'},
+{n:10,title:"CP uploads photos",g:'<div class="pb sys">Photo inspection in progress…</div>',o:'<div class="pb sys">Awaiting photo QA…</div>',c:'<div class="checklist"><div class="cl done">A/C unit — before</div><div class="cl done">A/C unit — after</div><div class="cl done">Thermostat reading</div><div class="cl">Room overall — pending</div></div>'},
+{n:11,title:"AI photo QA passes",g:'<div class="pb sys">QA review complete</div>',o:'<div class="pb success">✓ AI Photo QA passed · 4/4 checkpoints<br>QA score: 4.9 / 5.0</div>',c:'<div class="checklist"><div class="cl done">A/C unit — before</div><div class="cl done">A/C unit — after</div><div class="cl done">Thermostat reading</div><div class="cl done">Room overall</div></div><div class="pb success" style="margin-top:8px">✓ All checkpoints passed · 4.9/5</div>'},
+{n:12,title:"Invoice generated",g:'<div class="pb sys">Settlement in progress…</div>',o:'<div class="inv-card"><div class="inv-row"><span>A/C repair labour</span><span>$55.00</span></div><div class="inv-row"><span>Parts</span><span>$18.00</span></div><div class="inv-row total"><span>Total</span><span>$80.30</span></div></div>',c:'<div class="job-card"><div class="jc-head"><span class="jc-title">Invoice #INV-2291</span><span class="jc-badge done">Queued</span></div><div class="jc-row"><span>Payout</span><strong>$80.30</strong></div></div>'},
+{n:13,title:"Loop closed ✓",g:'<div class="pb-row"><div class="pb-lbl bot-l">C Claw Bot</div><div class="pb bot">Hi Sarah! A/C repaired &amp; verified ✓ Your $47 refund is processed. Hope the rest of your stay is perfect! 😊</div></div><div class="pb guest" style="margin-top:6px">Thank you so much!! That was incredibly fast 🙏</div>',o:'<div class="pb success">✓ Loop closed<br>Refund: $47 · Repair: verified &amp; settled<br>CSAT follow-up: queued</div>',c:'<div class="job-card"><div class="jc-head"><span class="jc-title">Job #CLN-2291</span><span class="jc-badge done">Paid ✓</span></div><div class="jc-row"><span>Settlement</span><strong>$80.30 → Mike T.</strong></div><div class="jc-row"><span>Performance</span><strong>4.9 ⭐</strong></div></div>'}
+];
+var cur=0;
+var paused=false;
+var timer=null;
 
-function handleSubmit(){
-  var email = document.getElementById('f-email').value.trim();
-  var size  = document.getElementById('f-size').value;
-  var city  = document.getElementById('f-city').value.trim();
-  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    alert('Please enter a valid work email.');return;
-  }
-  document.getElementById('submitBtn').disabled = true;
-  document.getElementById('submitBtn').textContent = 'Sending…';
-  if(FORM_ACTION && ENTRY_IDS.email){
-    var fd = new FormData();
-    fd.append(ENTRY_IDS.email, email);
-    if(ENTRY_IDS.size) fd.append(ENTRY_IDS.size, size);
-    if(ENTRY_IDS.city) fd.append(ENTRY_IDS.city, city);
-    fetch(FORM_ACTION,{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
-  }
-  try{localStorage.setItem('vestaos_demo_unlocked','1');localStorage.setItem('vestaos_lead',JSON.stringify({email:email,size:size,city:city,ts:new Date().toISOString()}));}catch(e){}
-  setTimeout(function(){
-    document.getElementById('formSuccess').style.display='block';
-    document.getElementById('submitBtn').style.display='none';
-    document.querySelector('.form-fine').style.display='none';
-  },400);
+function renderDemo(idx){
+  var s=STEPS[idx];
+  document.getElementById('phoneGuest').innerHTML=s.g;
+  document.getElementById('phoneOwner').innerHTML=s.o;
+  document.getElementById('phoneCP').innerHTML=s.c;
+  document.getElementById('demoStepInfo').textContent='Step '+s.n+' / 13';
+  document.getElementById('demoPrev').disabled=idx===0;
+  document.getElementById('demoNext').disabled=idx===STEPS.length-1;
+  var prog=document.getElementById('demoProgress');
+  prog.innerHTML='';
+  STEPS.forEach(function(step,i){
+    var d=document.createElement('div');
+    d.className='dp-dot'+(i===idx?' active':i<idx?' done':'');
+    d.title=step.title;
+    d.onclick=(function(n){return function(){clearTimer();cur=n;renderDemo(n);};})(i);
+    prog.appendChild(d);
+  });
 }
+
+function demoNav(dir){
+  clearTimer();
+  cur=Math.max(0,Math.min(STEPS.length-1,cur+dir));
+  renderDemo(cur);
+  if(!paused) startTimer();
+}
+
+function clearTimer(){ if(timer){clearInterval(timer);timer=null;} }
+
+function startTimer(){
+  clearTimer();
+  timer=setInterval(function(){
+    if(paused) return;
+    if(cur<STEPS.length-1){ cur++; renderDemo(cur); }
+    else { clearTimer(); }
+  }, 1500);
+}
+
+function togglePause(){
+  paused=!paused;
+  var btn=document.getElementById('demoPause');
+  if(paused){
+    btn.innerHTML='<i class="fas fa-play"></i>';
+    clearTimer();
+  } else {
+    btn.innerHTML='<i class="fas fa-pause"></i>';
+    startTimer();
+  }
+}
+
+renderDemo(0);
+startTimer();
+document.getElementById('current-year').textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
