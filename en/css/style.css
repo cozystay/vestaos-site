@@ -14,14 +14,6 @@
   --brand-gradient-start: #F18C28;
   --brand-gradient-end: #F4AD46;
 
-  /* V3 dark palette (used for accents) */
-  --orange: #F18C28;
-  --orange2: #F4AD46;
-  --purple1: #540E57;
-  --purple2: #7C2A67;
-  --grad: linear-gradient(135deg,#540E57,#7C2A67 50%,#F4AD46);
-  --grad-btn: linear-gradient(135deg,#C0392B,#F18C28 60%,#F4AD46);
-
   /* Light palette */
   --bg: #FFFFFF;
   --bg-soft: #F7F8FA;
@@ -1637,4 +1629,4 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: rgba(255,255,255,.08);
   border-color: #666;
 }
-.grad-text { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.grad-text { background: none; -webkit-background-clip: unset; -webkit-text-fill-color: #1A1D23; background-clip: unset; color: #1A1D23; }
