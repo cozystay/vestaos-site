@@ -2906,3 +2906,26 @@ html[lang="zh-CN"] .offer-main {
     font-size: 28px !important;
   }
 }
+
+/* Custom Vesta nav logo */
+.nav-logo-img {
+  display: block;
+  width: 150px;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .nav-logo-img {
+    width: 132px;
+    max-width: 132px;
+  }
+}
