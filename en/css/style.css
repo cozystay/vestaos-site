@@ -2856,3 +2856,53 @@ html[lang="zh-CN"] section:has(.vrm-workflow-title-zh) .vrm-workflow-title-zh + 
     font-size: 28px !important;
   }
 }
+
+/* ===== Chinese May Madness pricing hierarchy ===== */
+html[lang="zh-CN"] .promo-price-old {
+  font-size: 58px !important;
+  line-height: 1 !important;
+}
+
+html[lang="zh-CN"] .promo-price-free {
+  font-size: 58px !important;
+  line-height: 1 !important;
+  font-weight: 900;
+  color: #ff6a1a;
+  margin-right: 8px;
+  vertical-align: baseline;
+  text-shadow: 0 8px 24px rgba(255, 106, 26, 0.14);
+}
+
+html[lang="zh-CN"] .offer-kicker {
+  display: block !important;
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  color: #ff5a14 !important;
+}
+
+html[lang="zh-CN"] .offer-main {
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 34px !important;
+  line-height: 0.96 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.035em !important;
+  color: #ff5a14 !important;
+}
+
+@media (max-width: 768px) {
+  html[lang="zh-CN"] .promo-price-old,
+  html[lang="zh-CN"] .promo-price-free {
+    font-size: 46px !important;
+  }
+
+  html[lang="zh-CN"] .offer-kicker {
+    font-size: 13px !important;
+  }
+
+  html[lang="zh-CN"] .offer-main {
+    font-size: 28px !important;
+  }
+}
