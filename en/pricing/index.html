@@ -262,5 +262,134 @@
   </footer>
 
   <script src="/en/js/main.js"></script>
+
+
+
+
+<!-- Vesta pricing form connector -->
+
+<script>
+(function () {
+  const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzBefmSNTz0oyBdgIIqMYqqbbtiwwTw5Wgak4vY0sKPB4E08y_EBGeHvjaIbFflJ5U0/exec";
+  const LANGUAGE = "en";
+
+  function findPricingForm() {
+    const section =
+      document.querySelector("#start-free-trial") ||
+      document.querySelector("[id*='trial']") ||
+      document.querySelector("[id*='signup']");
+
+    if (section) {
+      const scopedForm = section.querySelector("form");
+      if (scopedForm) return scopedForm;
+    }
+
+    const forms = Array.from(document.querySelectorAll("form"));
+    return forms[forms.length - 1] || null;
+  }
+
+  const form = findPricingForm();
+  if (!form) {
+    console.warn("Vesta pricing connector: form not found");
+    return;
+  }
+
+  if (form.dataset.googleSheetConnected === "true") return;
+  form.dataset.googleSheetConnected = "true";
+
+  function fieldValue(selector, fallbackIndex) {
+    const field = form.querySelector(selector);
+    if (field) return field.value.trim();
+
+    const fields = Array.from(form.querySelectorAll("input, select, textarea"));
+    return fields[fallbackIndex] ? fields[fallbackIndex].value.trim() : "";
+  }
+
+  function showMessage(text, type) {
+    let message = form.querySelector(".pricing-form-message");
+    if (!message) {
+      message = document.createElement("p");
+      message.className = "pricing-form-message";
+      form.appendChild(message);
+    }
+
+    message.textContent = text;
+    message.style.display = "block";
+    message.style.marginTop = "14px";
+    message.style.fontSize = "14px";
+    message.style.fontWeight = "700";
+    message.style.color = type === "success" ? "#167c3b" : "#b3261e";
+  }
+
+  async function submitToSheet(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+    const inputs = Array.from(form.querySelectorAll("input"));
+    const selects = Array.from(form.querySelectorAll("select"));
+    const textareas = Array.from(form.querySelectorAll("textarea"));
+
+    const payload = {
+      language: LANGUAGE,
+      fullName: inputs[0] ? inputs[0].value.trim() : "",
+      email: inputs[1] ? inputs[1].value.trim() : "",
+      company: inputs[2] ? inputs[2].value.trim() : "",
+      properties: selects[0] ? selects[0].value : "",
+      city: "",
+      need: textareas[0] ? textareas[0].value.trim() : "",
+      source: window.location.pathname + "#pricing-form"
+    };
+
+    if (!payload.fullName || !payload.email || !payload.company || !payload.properties) {
+      showMessage("Please fill out full name, work email, company, and number of listings.", "error");
+      return false;
+    }
+
+    const button = form.querySelector("button[type='submit'], button");
+    const originalText = button ? button.textContent : "";
+
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Submitting...";
+    }
+
+    try {
+      await fetch(SIGNUP_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      showMessage("Request received. We’ll contact you shortly.", "success");
+
+      if (button) {
+        button.textContent = "Request received";
+      }
+
+      form.reset();
+
+    } catch (err) {
+      console.error("Vesta pricing connector error:", err);
+      showMessage("Submission failed. Please try again.", "error");
+
+      if (button) {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    }
+
+    return false;
+  }
+
+  form.addEventListener("submit", submitToSheet, true);
+})();
+</script>
+
+<!-- /Vesta pricing form connector -->
+
 </body>
 </html>
