@@ -2703,3 +2703,156 @@ html[lang="zh-CN"] section:has(.vrm-workflow-title-zh) .vrm-workflow-title-zh + 
   line-height: 1.35;
   font-weight: 700;
 }
+
+/* Hero orange emphasis */
+.hero-orange-hit {
+  display: inline;
+  color: #ff5f14;
+  text-shadow:
+    0 0 18px rgba(255, 95, 20, 0.22),
+    0 10px 36px rgba(255, 95, 20, 0.18);
+  background: linear-gradient(90deg, #ff5f14, #ff8a24, #ff5f14);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: heroOrangeGlow 4.5s ease-in-out infinite;
+}
+
+@keyframes heroOrangeGlow {
+  0% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(255, 95, 20, 0));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 10px rgba(255, 95, 20, 0.22));
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(255, 95, 20, 0));
+  }
+}
+
+/* ===== May Madness card polish ===== */
+.promo-price-old {
+  position: relative;
+  display: inline-block;
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(19, 18, 35, 0.72);
+  margin-right: 10px;
+  vertical-align: baseline;
+}
+
+.promo-price-old::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: 52%;
+  height: 4px;
+  background: #131223;
+  border-radius: 999px;
+  transform: translateY(-50%) rotate(-7deg);
+}
+
+.promo-price-free {
+  display: inline-block;
+  font-size: 78px;
+  font-weight: 900;
+  line-height: 0.92;
+  color: #ff6a1a;
+  margin-right: 8px;
+  vertical-align: baseline;
+  text-shadow: 0 8px 24px rgba(255, 106, 26, 0.16);
+}
+
+.offer-kicker {
+  display: block;
+  font-size: 18px;
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #ff5a14;
+}
+
+.offer-main {
+  display: block;
+  margin-top: 4px;
+  font-size: 34px;
+  line-height: 0.96;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #ff5a14;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .promo-price-old {
+    font-size: 46px;
+  }
+
+  .promo-price-free {
+    font-size: 64px;
+  }
+
+  .offer-kicker {
+    font-size: 15px;
+  }
+
+  .offer-main {
+    font-size: 28px;
+  }
+}
+
+/* ===== May Madness price + offer hierarchy fix ===== */
+.promo-price-old {
+  font-size: 58px !important;
+  line-height: 1 !important;
+}
+
+.promo-price-free {
+  font-size: 58px !important;
+  line-height: 1 !important;
+  font-weight: 900;
+  color: #ff6a1a;
+  margin-right: 8px;
+  vertical-align: baseline;
+  text-shadow: 0 8px 24px rgba(255, 106, 26, 0.14);
+}
+
+.offer-kicker {
+  display: block !important;
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.02em !important;
+  color: #ff5a14 !important;
+}
+
+.offer-main {
+  display: block !important;
+  margin-top: 4px !important;
+  font-size: 34px !important;
+  line-height: 0.96 !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.035em !important;
+  color: #ff5a14 !important;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .promo-price-old,
+  .promo-price-free {
+    font-size: 46px !important;
+  }
+
+  .offer-kicker {
+    font-size: 13px !important;
+  }
+
+  .offer-main {
+    font-size: 28px !important;
+  }
+}
