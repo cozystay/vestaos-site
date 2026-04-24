@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="/en/css/style.css" />
 </head>
 <body>
+<!-- May Madness campaign bar -->
+<div class="may-madness-bar">
+  <strong>May Madness：</strong>
+  5 月 31 日前签约，即可享 <span>Airbnb Auto Message 终身免费</span>。
+  <a href="/zh/pricing/#may-madness">查看优惠 →</a>
+</div>
+<!-- /May Madness campaign bar -->
+
   <main class="auth-page">
     <section class="auth-card auth-card-wide">
       <a class="auth-brand" href="/zh/">VESTA OS</a>
@@ -15,6 +23,7 @@
       <p class="auth-subtitle">留下你的运营信息，我们会为你的团队准备合适的 Vesta OS 工作台。</p>
 
       <form id="signupForm" class="auth-form">
+        <input type="hidden" id="campaign" name="campaign" value="may-madness" />
         <label for="fullName">姓名</label>
         <input id="fullName" name="fullName" type="text" required />
 
@@ -72,7 +81,8 @@
         properties: document.getElementById("properties").value,
         city: document.getElementById("city").value.trim(),
         need: document.getElementById("need").value.trim(),
-        source: window.location.pathname
+        source: window.location.pathname,
+        campaign: "may-madness"
       };
 
       if (!payload.fullName || !payload.email || !payload.company || !payload.properties) {

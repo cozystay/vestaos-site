@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="/en/css/style.css" />
 </head>
 <body>
+<!-- May Madness campaign bar -->
+<div class="may-madness-bar">
+  <strong>May Madness:</strong>
+  Sign by May 31 and get <span>Airbnb Auto Message free for life</span>.
+  <a href="/en/pricing/#may-madness">View offer →</a>
+</div>
+<!-- /May Madness campaign bar -->
+
   <main class="auth-page">
     <section class="auth-card auth-card-wide">
       <a class="auth-brand" href="/en/">VESTA OS</a>
@@ -15,6 +23,7 @@
       <p class="auth-subtitle">Tell us a bit about your operation. We’ll prepare the right workspace setup for your team.</p>
 
       <form id="signupForm" class="auth-form">
+        <input type="hidden" id="campaign" name="campaign" value="may-madness" />
         <label for="fullName">Full name</label>
         <input id="fullName" name="fullName" type="text" required />
 
@@ -72,7 +81,8 @@
         properties: document.getElementById("properties").value,
         city: document.getElementById("city").value.trim(),
         need: document.getElementById("need").value.trim(),
-        source: window.location.pathname
+        source: window.location.pathname,
+        campaign: "may-madness"
       };
 
       if (!payload.fullName || !payload.email || !payload.company || !payload.properties) {
