@@ -125,8 +125,72 @@
         </div>
       </div>
 
+      <!-- ARPU summary -->
+      <div class="case-card mt-12" style="grid-template-columns: 1.5fr 1fr;">
+        <div>
+          <span class="t-eyebrow">Typical economics</span>
+          <h2 class="t-h2 mt-4">~$247 ARPU per unit / month.</h2>
+          <p class="t-lead mt-6">Replacing hours of manual labor across comms, pricing and dispatch — at a fraction of a single FTE's fully-loaded cost.</p>
+          <p class="t-small mt-6" style="font-style:italic;">"We charge for the work AI does — replacing host labor, not seats."</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><strong>$69</strong><span>Guest comms</span></div>
+          <div class="case-metric"><strong>~$108</strong><span>Pricing (5% rev share)</span></div>
+          <div class="case-metric"><strong>~$70</strong><span>Dispatch (~7 jobs)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== COMPARISON WITH LEGACY ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Why usage-based</span>
+        <h2 class="t-h1 mt-4">Your bill goes down when the AI fails. So it doesn't.</h2>
+        <p class="t-lead mt-6">Legacy PMS charges you the same whether the software works or not. We align our business model with your outcomes.</p>
+      </div>
+
+      <div class="compare-table">
+        <div class="compare-row">
+          <div class="head">Dimension</div>
+          <div class="head">Legacy PMS SaaS</div>
+          <div class="head">VestaOS</div>
+          <div class="head" style="text-align:right;">Benefit</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Pricing model</div>
+          <div class="before">Flat seat / listing fee</div>
+          <div class="after">Usage-based</div>
+          <div class="delta">Aligned with value</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Guest replies</div>
+          <div class="before">Manual, template-assisted</div>
+          <div class="after">AI-sent (90%)</div>
+          <div class="delta">Labor replaced</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Pricing updates</div>
+          <div class="before">Analyst + rules</div>
+          <div class="after">Autonomous, nightly</div>
+          <div class="delta">No FTE needed</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Offline dispatch</div>
+          <div class="before">Phone / WhatsApp</div>
+          <div class="after">Auto-dispatch + photo QA</div>
+          <div class="delta">Closed loop</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Settlement</div>
+          <div class="before">Spreadsheets</div>
+          <div class="after">Auto-invoice</div>
+          <div class="delta">Finance-ready</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== FAQ ===== -->
   <section class="section">

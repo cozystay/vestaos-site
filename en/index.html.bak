@@ -1,366 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VestaOS — AI Operating System for Short-Term Rentals</title>
-<meta name="description" content="VestaOS is the AI operating system for short-term rental operators. VRM handles revenue intelligence; Cleanfy powers offline fulfillment.">
-<link rel="alternate" hreflang="en" href="https://vestaos.ai/en/">
-<link rel="alternate" hreflang="zh" href="https://vestaos.ai/zh/">
-<link rel="alternate" hreflang="x-default" href="https://vestaos.ai/en/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --near-black:#0B0F1A;
-    --surface:#111520;
-    --surface2:#161B2B;
-    --deep-purple:#540E57;
-    --mid-purple:#7C2A67;
-    --solar-gold:#F4AD46;
-    --vesta-orange:#F18C28;
-    --wordmark-gray:#BDC2CC;
-    --off-white:#F5F6FA;
-    --text-muted:#8A90A0;
-    --border:rgba(255,255,255,0.08);
-    --border-hover:rgba(255,255,255,0.16);
-  }
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--near-black);color:var(--wordmark-gray);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-  nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:rgba(11,15,26,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .nav-wordmark{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;letter-spacing:0.08em;color:var(--wordmark-gray)}
-  .nav-wordmark span{color:var(--vesta-orange)}
-  .nav-links{display:flex;gap:32px;list-style:none}
-  .nav-links a{font-size:13.5px;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
-  .nav-links a:hover{color:var(--off-white)}
-  .nav-right{display:flex;align-items:center;gap:20px}
-  .lang-switch{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted)}
-  .lang-switch a{color:var(--text-muted);text-decoration:none;padding:4px 8px;border-radius:4px;transition:all 0.2s;letter-spacing:0.03em}
-  .lang-switch a:hover{color:var(--off-white);background:rgba(255,255,255,0.05)}
-  .lang-switch a.active{color:var(--vesta-orange);font-weight:500}
-  .lang-divider{color:rgba(255,255,255,0.15);font-size:11px}
-  .nav-cta{background:var(--vesta-orange);color:#fff;border:none;padding:9px 22px;border-radius:6px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.03em;transition:opacity 0.2s}
-  .nav-cta:hover{opacity:0.88}
-
-  .hero{padding:100px 48px 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(241,140,40,0.1);border:1px solid rgba(241,140,40,0.2);padding:5px 14px;border-radius:100px;font-size:12px;color:var(--vesta-orange);letter-spacing:0.08em;font-weight:500;text-transform:uppercase;margin-bottom:24px}
-  .hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--vesta-orange);display:inline-block;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-  h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:54px;line-height:1.08;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:20px}
-  h1 em{font-style:normal;background:linear-gradient(135deg,var(--solar-gold),var(--vesta-orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .hero-sub{font-size:16px;line-height:1.7;color:var(--text-muted);max-width:460px;margin-bottom:36px}
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-  .btn-primary{background:var(--vesta-orange);color:#fff;padding:13px 28px;border-radius:7px;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;letter-spacing:0.03em;transition:all 0.2s}
-  .btn-primary:hover{opacity:0.88;transform:translateY(-1px)}
-  .btn-secondary{background:transparent;color:var(--wordmark-gray);padding:13px 28px;border-radius:7px;border:1px solid var(--border-hover);font-family:'Inter',sans-serif;font-size:14px;cursor:pointer;transition:all 0.2s}
-  .btn-secondary:hover{border-color:rgba(255,255,255,0.4);color:var(--off-white)}
-
-  .hero-visual{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden}
-  .hero-visual::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(84,14,87,0.45),transparent 70%);pointer-events:none}
-  .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-  .dash-title{font-size:12px;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase}
-  .dash-badge{font-size:11px;color:var(--vesta-orange);background:rgba(241,140,40,0.12);padding:3px 10px;border-radius:100px;border:1px solid rgba(241,140,40,0.2)}
-  .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
-  .kpi{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px}
-  .kpi-label{font-size:11px;color:var(--text-muted);margin-bottom:6px;letter-spacing:0.04em}
-  .kpi-val{font-size:20px;font-weight:600;color:var(--off-white);font-family:'Montserrat',sans-serif}
-  .kpi-val.orange{color:var(--vesta-orange)}
-  .kpi-delta{font-size:11px;color:#4ade80;margin-top:3px}
-  .activity-list{display:flex;flex-direction:column;gap:8px}
-  .activity-item{display:flex;align-items:center;gap:10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 14px}
-  .activity-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-  .dot-green{background:#4ade80}
-  .dot-orange{background:var(--vesta-orange)}
-  .dot-purple{background:var(--mid-purple)}
-  .activity-text{font-size:12px;color:var(--wordmark-gray);flex:1}
-  .activity-time{font-size:11px;color:var(--text-muted)}
-
-  .stats-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:36px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
-  .stat-item{text-align:center}
-  .stat-num{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:700;color:var(--off-white);letter-spacing:-0.02em}
-  .stat-num span{color:var(--vesta-orange);font-size:0.7em;font-weight:500}
-  .stat-label{font-size:13px;color:var(--text-muted);margin-top:4px}
-
-  .section{max-width:1200px;margin:0 auto;padding:96px 48px}
-  .section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--vesta-orange);margin-bottom:12px;font-weight:500}
-  .section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:36px;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:12px}
-  .section-sub{font-size:15px;color:var(--text-muted);line-height:1.7;max-width:540px;margin-bottom:56px}
-
-  .products-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .product-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px;transition:border-color 0.25s,transform 0.2s;position:relative;overflow:hidden;cursor:pointer}
-  .product-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-  .product-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--deep-purple),var(--vesta-orange));opacity:0;transition:opacity 0.3s}
-  .product-card:hover::before{opacity:1}
-  .product-card.featured{border-color:rgba(241,140,40,0.2);background:linear-gradient(135deg,var(--surface) 60%,rgba(84,14,87,0.15))}
-  .product-card.featured::before{opacity:0.7}
-  .product-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-  .icon-vrm{background:rgba(241,140,40,0.12);border:1px solid rgba(241,140,40,0.2)}
-  .icon-clean{background:rgba(124,42,103,0.2);border:1px solid rgba(124,42,103,0.3)}
-  .product-tag{display:inline-block;font-size:11px;background:rgba(241,140,40,0.1);color:var(--vesta-orange);border:1px solid rgba(241,140,40,0.2);padding:3px 10px;border-radius:100px;margin-bottom:14px;letter-spacing:0.06em}
-  .product-tag.purple{background:rgba(124,42,103,0.15);color:#c47fbf;border-color:rgba(124,42,103,0.3)}
-  .product-name{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:700;color:var(--off-white);margin-bottom:10px}
-  .product-desc{font-size:14px;line-height:1.7;color:var(--text-muted);margin-bottom:22px}
-  .product-features{list-style:none;display:flex;flex-direction:column;gap:8px}
-  .product-features li{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--wordmark-gray)}
-  .product-features li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--vesta-orange);flex-shrink:0}
-  .feat-purple::before{background:var(--mid-purple) !important}
-  .product-link{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:13px;color:var(--vesta-orange);text-decoration:none;font-weight:500;letter-spacing:0.02em;transition:gap 0.2s;cursor:pointer}
-  .product-link:hover{gap:10px}
-
-  .how-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .how-inner{max-width:1200px;margin:0 auto;padding:96px 48px}
-  .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px}
-  .step{padding:28px 24px 28px 0;border-right:1px solid var(--border);position:relative}
-  .step:last-child{border-right:none;padding-right:0}
-  .step:not(:first-child){padding-left:24px}
-  .step-num{font-family:'Montserrat',sans-serif;font-size:42px;font-weight:800;color:rgba(241,140,40,0.15);line-height:1;margin-bottom:14px}
-  .step-title{font-size:14px;font-weight:500;color:var(--off-white);margin-bottom:8px;letter-spacing:0.02em}
-  .step-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
-
-  .cta-section{max-width:1200px;margin:0 auto;padding:96px 48px;text-align:center}
-  .cta-box{background:linear-gradient(135deg,var(--surface) 0%,rgba(84,14,87,0.2) 50%,var(--surface) 100%);border:1px solid var(--border-hover);border-radius:20px;padding:72px 48px;position:relative;overflow:hidden}
-  .cta-box::after{content:'';position:absolute;bottom:-80px;right:-80px;width:260px;height:260px;background:radial-gradient(circle,rgba(244,173,70,0.1),transparent 70%);pointer-events:none}
-  .cta-box h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:40px;color:var(--off-white);letter-spacing:-0.02em;margin-bottom:16px}
-  .cta-box p{font-size:16px;color:var(--text-muted);margin-bottom:32px;line-height:1.6}
-  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-  footer{border-top:1px solid var(--border);padding:32px 48px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;flex-wrap:wrap;gap:16px}
-  .footer-logo{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--wordmark-gray);letter-spacing:0.06em}
-  .footer-logo span{color:var(--vesta-orange)}
-  .footer-copy{font-size:12px;color:var(--text-muted)}
-  .footer-links{display:flex;gap:24px}
-  .footer-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color 0.2s}
-  .footer-links a:hover{color:var(--wordmark-gray)}
-
-  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-  .hero-left{animation:fadeUp 0.6s ease both}
-  .hero-visual{animation:fadeUp 0.6s 0.15s ease both}
-
-  @media (max-width: 980px){
-    .hero{grid-template-columns:1fr;gap:40px;padding:72px 24px 60px}
-    h1{font-size:40px}
-    .stats-strip{grid-template-columns:repeat(2,1fr);padding:28px 24px}
-    .section,.how-inner,.cta-section{padding:72px 24px}
-    .products-grid{grid-template-columns:1fr}
-    .steps-grid{grid-template-columns:1fr 1fr}
-    .step{border-right:none;border-bottom:1px solid var(--border);padding:24px 0 !important}
-    .step:nth-child(2){border-right:none}
-    .step:nth-child(odd){padding-right:16px !important}
-    .step:nth-child(even){padding-left:16px !important}
-    .cta-box{padding:48px 24px}
-    .cta-box h2{font-size:30px}
-    nav{padding:0 20px}
-    .nav-links{display:none}
-    footer{padding:24px;flex-direction:column;text-align:center}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vesta OS · The AI Native OS for Alternative Accommodations</title>
+  <meta name="description" content="Vesta OS is the AI Native OS for short-term rental operators. Automate guest messaging, pricing, dispatch and QA — end-to-end. Built by operators, trained on 10M+ data points." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
 </head>
 <body>
 
-<nav>
-  <a href="/en/" class="nav-logo">
-    <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
-      <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
-      <defs>
-        <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#540E57"/>
-          <stop offset="50%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#7C2A67"/>
-        </linearGradient>
-        <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#F18C28"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <span class="nav-wordmark">VESTA <span>OS</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#how">How it works</a></li>
-    <li><a href="#partners">City Partners</a></li>
-    <li><a href="#about">About</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-switch">
-      <a href="/en/" class="active">EN</a>
-      <span class="lang-divider">|</span>
-      <a href="/zh/">中</a>
-    </div>
-    <button class="nav-cta">Book a Demo</button>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">AI Operating System for STR</div>
-    <h1>Scale your portfolio.<br><em>Effortlessly.</em></h1>
-    <p class="hero-sub">VestaOS is the AI operating system built for short-term rental operators. VRM handles pricing and revenue intelligence. Cleanfy powers on-the-ground execution. One closed loop.</p>
-    <div class="hero-actions">
-      <button class="btn-primary">Start Free Trial</button>
-      <button class="btn-secondary">Watch Demo →</button>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="dash-header">
-      <span class="dash-title">VestaOS · Live Dashboard</span>
-      <span class="dash-badge">● Live</span>
-    </div>
-    <div class="kpi-row">
-      <div class="kpi">
-        <div class="kpi-label">Units Managed</div>
-        <div class="kpi-val orange">990+</div>
-        <div class="kpi-delta">↑ 3.5x YoY</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Net Revenue</div>
-        <div class="kpi-val">$4.55M</div>
-        <div class="kpi-delta">↑ 18% MoM</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Gross Margin</div>
-        <div class="kpi-val">89%</div>
-        <div class="kpi-delta">Software tier</div>
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/en/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+        <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
+        <defs>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/>
+            <stop offset="50%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">VESTA <span>OS</span></span>
+    </a>
+      <nav class="nav-center" aria-label="Main">
+        <a href="/en/" class="nav-link active">Home</a>
+        <a href="/en/vrm/" class="nav-link">VRM</a>
+        <a href="/en/cleanfy/" class="nav-link">Cleanfy</a>
+        <a href="/en/pricing/" class="nav-link">Pricing</a>
+        <a href="/en/about/" class="nav-link">About</a>
+      </nav>
+      <div class="nav-right">
+        <a href="/en/pricing/" class="nav-link hide-mobile">Log in</a>
+        <a href="/en/pricing/" class="btn btn-primary btn-sm btn-pill">Get started</a>
+        <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </div>
-    <div class="activity-list">
-      <div class="activity-item">
-        <div class="activity-dot dot-green"></div>
-        <span class="activity-text">VRM updated #LA-0412 dynamic rate +12%</span>
-        <span class="activity-time">Just now</span>
+  </header>
+
+  <div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="/en/">Home</a>
+    <a href="/en/vrm/">VRM</a>
+    <a href="/en/cleanfy/">Cleanfy</a>
+    <a href="/en/pricing/">Pricing</a>
+    <a href="/en/about/">About</a>
+    <a href="/en/pricing/">Log in</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="t-hero">The AI Native OS for alternative accommodations.</h1>
+        <p class="t-lead lead">Guest messaging · pricing · dispatch · QA · settlement — all automated, end-to-end. Built by operators who ran 1,000+ rooms before writing a single line of AI.</p>
+        <div class="hero-ctas">
+          <a href="/en/pricing/" class="btn btn-primary btn-lg btn-pill">Start free trial</a>
+          <a href="#products" class="btn btn-ghost btn-lg btn-pill">See how it works</a>
+        </div>
       </div>
-      <div class="activity-item">
-        <div class="activity-dot dot-orange"></div>
-        <span class="activity-text">Cleanfy dispatched cleaner · Unit 3 → 08:30</span>
-        <span class="activity-time">2 min ago</span>
-      </div>
-      <div class="activity-item">
-        <div class="activity-dot dot-purple"></div>
-        <span class="activity-text">AI guest reply sent · CSAT score 98%</span>
-        <span class="activity-time">5 min ago</span>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card hero-card-main">
+          <div class="photo"></div>
+          <div class="meta">
+            <div class="meta-row">
+              <h4>Cozy Downtown Loft · Vancouver</h4>
+              <span class="rating">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.39 6.94H22l-6 4.37 2.29 7.06L12 16.9 5.7 20.37 8 13.31 2 8.94h7.61z"/></svg>
+                4.96
+              </span>
+            </div>
+            <p class="sub">2 guests · 1 bedroom · Superhost</p>
+            <p class="price"><strong>$182</strong> <span>/ night</span></p>
+          </div>
+        </div>
+
+        <div class="hero-chip hero-chip-1">
+          <span class="icon"><i class="fas fa-comment-dots"></i></span>
+          <div><strong>~1 min reply</strong><em>98% SLA hit rate</em></div>
+        </div>
+        <div class="hero-chip hero-chip-2">
+          <span class="icon"><i class="fas fa-chart-line"></i></span>
+          <div><strong>+20% revenue</strong><em>Autonomous pricing</em></div>
+        </div>
+        <div class="hero-chip hero-chip-3">
+          <span class="icon"><i class="fas fa-check-circle"></i></span>
+          <div><strong>Auto-dispatched</strong><em>Cleaning verified</em></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="stats-strip">
-  <div class="stat-item">
-    <div class="stat-num">990<span>+</span></div>
-    <div class="stat-label">Units under management</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">3<span> cities</span></div>
-    <div class="stat-label">Vancouver · LA · Chicago</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">89<span>%</span></div>
-    <div class="stat-label">Software gross margin</div>
-  </div>
-  <div class="stat-item">
-    <div class="stat-num">12.4<span>x</span></div>
-    <div class="stat-label">LTV / CAC ratio</div>
-  </div>
-</section>
-
-<section class="section" id="products">
-  <div class="section-label">Two core products</div>
-  <h2 class="section-title">AI intelligence + ground execution</h2>
-  <p class="section-sub">VestaOS fuses smart decision-making with offline fulfillment — closing the loop that fragmented tools leave open.</p>
-  <div class="products-grid">
-    <article class="product-card featured">
-      <div class="product-icon icon-vrm">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M3 17l5-5 4 4 9-9" stroke="#F18C28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21 8h-5V3" stroke="#F18C28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="product-tag">Revenue Intelligence</span>
-      <h3 class="product-name">VRM</h3>
-      <p class="product-desc">AI-powered revenue management that monitors market conditions, competitor rates, and historical demand in real time — automatically adjusting prices across every channel to maximize yield per night.</p>
-      <ul class="product-features">
-        <li>Dynamic pricing across Airbnb, VRBO &amp; direct</li>
-        <li>AI demand forecasting &amp; rate optimization</li>
-        <li>Real-time competitor monitoring</li>
-        <li>GraphQL API · native PMS integration</li>
-      </ul>
-      <a href="#" class="product-link">Explore VRM →</a>
-    </article>
-    <article class="product-card">
-      <div class="product-icon icon-clean">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" stroke="#c47fbf" stroke-width="2" stroke-linecap="round"/>
-          <rect x="9" y="3" width="6" height="4" rx="1" stroke="#c47fbf" stroke-width="2"/>
-          <path d="M9 12l2 2 4-4" stroke="#c47fbf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <span class="product-tag purple">Offline Fulfillment</span>
-      <h3 class="product-name">Cleanfy</h3>
-      <p class="product-desc">A city-scale cleaning dispatch and settlement network. Checkout triggers automatic job assignment, GPS tracking keeps every turn transparent, and AI photo inspection closes the loop before the next guest arrives.</p>
-      <ul class="product-features">
-        <li class="feat-purple">Checkout-triggered auto dispatch</li>
-        <li class="feat-purple">Real-time GPS tracking per cleaner</li>
-        <li class="feat-purple">AI photo QC &amp; sign-off</li>
-        <li class="feat-purple">Automated settlement · 35% commission</li>
-      </ul>
-      <a href="#" class="product-link" style="color:#c47fbf">Explore Cleanfy →</a>
-    </article>
-  </div>
-</section>
-
-<section class="how-section" id="how">
-  <div class="how-inner">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">Four steps. Fully automated.</h2>
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-title">VRM prices your listings</div>
-        <div class="step-desc">Market signals in, optimized rates out — every channel updated automatically, every day.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-title">AI handles guests 24/7</div>
-        <div class="step-desc">Inquiries, check-in guidance, and urgent issues resolved by AI — human team stays on standby.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-title">Cleanfy dispatches instantly</div>
-        <div class="step-desc">Checkout fires a job in seconds. Nearest available cleaner accepts, GPS tracks every step.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-title">Data loops back and improves</div>
-        <div class="step-desc">Every operation feeds the model. The system gets sharper over time; marginal costs keep falling.</div>
+  <!-- ===== LOGO STRIP ===== -->
+  <section class="logo-strip">
+    <div class="container">
+      <p class="logo-strip-label">Connected to the world's leading channels</p>
+      <div class="logo-row">
+        <span>Airbnb</span>
+        <span>Booking</span>
+        <span>Expedia</span>
+        <span>Vrbo</span>
+        <span>Stripe</span>
+        <span>Google</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta-section">
-  <div class="cta-box">
-    <h2>Ready to hand operations to AI?</h2>
-    <p>Start with your first listing and grow to thousands.<br>No complex onboarding. 14-day free trial, no credit card required.</p>
-    <div class="cta-actions">
-      <button class="btn-primary">Book a Demo</button>
-      <button class="btn-secondary">Talk to City Partnerships</button>
+  <!-- ===== PROBLEM / INSIGHT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">The problem we lived</span>
+        <h2 class="t-h1 mt-4">Property management scales linearly. Margins don't.</h2>
+        <p class="t-lead mt-6">Before we built VestaOS, we operated a large urban portfolio with a sizable in-house team. Every new listing meant more headcount, more guest conversations, more dispatches, and more operational drag. We saw firsthand why the category has historically scaled linearly — and why AI changes that slope.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-comments"></i></div>
+          <h3>Drowning in messages</h3>
+          <p>High message volume across a large portfolio. Reply times drifted, SLA performance became inconsistent, and the work scaled with headcount.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-tags"></i></div>
+          <h3>Manual pricing every day</h3>
+          <p>Repeated manual repricing across multiple channels and booking windows. Constant intervention was still required to keep rates competitive.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Offline work, offline quality</h3>
+          <p>Dispatch, fulfillment, and QA lived in fragmented offline workflows. Verification lagged, visibility was limited, and no true closed loop existed.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <span class="footer-logo">VESTA <span>OS</span></span>
-  <div class="footer-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Contact</a>
-  </div>
-  <span class="footer-copy">© 2025 Cozy Holdings Corp. All rights reserved.</span>
-</footer>
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="section section-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">The VestaOS platform</span>
+        <h2 class="t-h1 mt-4">Two products. One autonomous operation.</h2>
+        <p class="t-lead mt-6">VRM runs your online workflow — guest comms, pricing, onboarding. Cleanfy runs your ground truth — dispatch, QA, settlement. Together they close the loop.</p>
+      </div>
 
+      <div class="product-grid">
+        <!-- VRM card -->
+        <article class="product-card">
+          <div class="cover cclaw original-style">
+            <span class="cover-label">Online · Revenue + Guest Ops</span>
+            <span class="cover-name">VRM</span>
+            <div class="product-preview vrm-preview original-preview">
+              <div class="mini-panel pricing-panel">
+                <div class="mini-title">Downtown Loft · LA-0412 <span class="mini-badge">AI Set</span></div>
+                <div class="mini-row"><span>Base rate</span><strong>$189</strong></div>
+                <div class="mini-row"><span>Event demand <em class="uplift">+12%</em></span><strong>$212</strong></div>
+                <div class="mini-row final"><span>AI final price</span><strong>$238</strong></div>
+              </div>
+              <div class="mini-panel chat-panel">
+                <div class="mini-title">Can I check in at 1pm?</div>
+                <div class="chat-bubble reply">Hi! Early check-in at 1pm is $25. Confirmed ✓</div>
+                <div class="mini-foot"><span class="green-dot"></span>Auto-replied · 0 human touch</div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>Autonomous pricing and AI guest ops — 24/7, zero headcount.</h3>
+            <p>Re-prices every listing nightly, handles the majority of guest inquiries end-to-end, and keeps revenue and response quality moving in parallel.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Dynamic pricing based on demand, events, and booking window</li>
+              <li><i class="fas fa-check-circle"></i> Instant guest replies with SLA-aware workflow automation</li>
+              <li><i class="fas fa-check-circle"></i> Optional operator escalation only when needed</li>
+            </ul>
+            <div class="card-cta">
+              <a href="/en/vrm/" class="btn btn-dark btn-pill">Explore VRM <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cleanfy card -->
+        <article class="product-card">
+          <div class="cover cleanfy original-style">
+            <span class="cover-label">Offline · Fulfillment</span>
+            <span class="cover-name">Cleanfy</span>
+            <div class="product-preview cleanfy-preview original-preview">
+              <div class="mini-panel ops-panel">
+                <div class="mini-title">Job #CLN-4821 <span class="mini-badge green">Auto-dispatched</span></div>
+                <div class="mini-subtitle">Turnover · 2BR · Downtown</div>
+                <div class="status-line done">Assigned · 0:07</div>
+                <div class="status-line done">On-site · 13:42</div>
+                <div class="status-line done">Photo QA passed</div>
+                <div class="status-line warn">Settling · $68 → partner</div>
+                <div class="mini-foot split"><span>SLA 98%</span><span>QA score 4.9</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>Dispatch, verify, and settle in one closed loop.</h3>
+            <p>Cleanfy transforms field operations into a governed workflow with live vendor coordination, QA checkpoints, and settlement linked to verified execution.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Auto-dispatch to the right partner at the right time</li>
+              <li><i class="fas fa-check-circle"></i> Photo-based QA before payment release</li>
+              <li><i class="fas fa-check-circle"></i> Full execution visibility from assignment to settlement</li>
+            </ul>
+            <div class="card-cta">
+              <a href="/en/cleanfy/" class="btn btn-dark btn-pill">Explore Cleanfy <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEFORE / AFTER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">Measurable impact</span>
+        <h2 class="t-h1 mt-4">Time saved is money saved.</h2>
+        <p class="t-lead mt-6">Same portfolio, same team, fundamentally different economics — before vs. after going AI-native.</p>
+      </div>
+
+      <div class="compare-table">
+        <div class="compare-row">
+          <div class="head">Workflow</div>
+          <div class="head">Before</div>
+          <div class="head">After</div>
+          <div class="head" style="text-align:right;">Improvement</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Guest response time</div>
+          <div class="before">20 min avg</div>
+          <div class="after">~1 min</div>
+          <div class="delta">20× faster</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Price adjustment</div>
+          <div class="before">2 hrs / cycle</div>
+          <div class="after">5 min / cycle</div>
+          <div class="delta">24× faster</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">SLA fulfillment rate</div>
+          <div class="before">60%</div>
+          <div class="after">98%</div>
+          <div class="delta">+38 pts</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">New listing onboarding</div>
+          <div class="before">7 days</div>
+          <div class="after">1 day</div>
+          <div class="delta">7× faster</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">Guest inquiries handled by AI</div>
+          <div class="before">0%</div>
+          <div class="after">90%</div>
+          <div class="delta">+90 pts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAND (dark) ===== -->
+
+  <!-- ===== CASE STUDY ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">Case study</span>
+        <h2 class="t-h1 mt-4">Vancouver 2BR: same home, better operation.</h2>
+      </div>
+      <div class="case-card">
+        <div>
+          <blockquote>"We kept the unit, the team, and the listing. We just let VRM handle guest comms and Cleanfy handle turnovers. Revenue went up, labor went down, and guests are happier."</blockquote>
+          <p class="attribution">— Portfolio operator, Downtown Vancouver · 2BR apartment</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><strong>+20%</strong><span>Revenue</span></div>
+          <div class="case-metric"><strong>−30%</strong><span>Labor hours</span></div>
+          <div class="case-metric"><strong>+22%</strong><span>Guest satisfaction</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY WE WIN ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Why VestaOS</span>
+        <h2 class="t-h1 mt-4">A data moat built from actually running the business.</h2>
+        <p class="t-lead mt-6">We're not a SaaS vendor studying the industry. We are the industry — now with a 10M+ point training set of real escalations, SOPs and exception paths.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-dna"></i></div>
+          <h3>Operator DNA</h3>
+          <p>Every workflow was a process we actually ran. Every edge case is one we've already solved — and trained the model on.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-infinity"></i></div>
+          <h3>Closed-loop learning</h3>
+          <p>Online and offline run on one platform, so every dispatch, photo and reply feeds the next reply, dispatch and price.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-shield-halved"></i></div>
+          <h3>Human-in-the-loop by design</h3>
+          <p>Brand safety guardrails, SLA policies and optional review let operators choose their own trust level — from full audit to full autopilot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2 class="t-h2">Ready to stop scaling your payroll?</h2>
+          <p>Start with your first 20 listings free for 30 days. No migration headaches — we'll move you over.</p>
+        </div>
+        <div class="btns">
+          <a href="/en/pricing/" class="btn btn-primary btn-lg btn-pill">Start free trial</a>
+          <a href="/en/about/" class="btn btn-ghost btn-lg btn-pill">Talk to founders</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/en/vrm/">VRM</a></li>
+            <li><a href="/en/cleanfy/">Cleanfy</a></li>
+            <li><a href="/en/pricing/">Pricing</a></li>
+            <li><a href="vrm.html#workflow">How it works</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/en/about/">About us</a></li>
+            <li><a href="about.html#team">Team</a></li>
+            <li><a href="about.html#story">Our story</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#">Help center</a></li>
+            <li><a href="#">Operator guides</a></li>
+            <li><a href="#">API &amp; integrations</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Acceptable use</a></li>
+            <li><a href="#">Data processing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> Vesta OS All rights reserved.</span>
+        <div class="social" aria-label="Social links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
 </body>
 </html>
