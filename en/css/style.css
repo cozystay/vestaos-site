@@ -3420,3 +3420,36 @@ html[lang="zh-CN"] .channel-logo-sub {
     radial-gradient(circle at 0% 0%, rgba(255, 107, 24, 0.12), transparent 30%),
     #fff;
 }
+
+/* WeChat / WeCom social icons */
+.social a.social-wechat,
+.social a.social-wecom {
+  color: #07C160;
+}
+
+.social a.social-wechat:hover,
+.social a.social-wecom:hover {
+  color: #06ad56;
+}
+
+/* Keep footer at the bottom of short pages without making it sticky */
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer,
+.footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
