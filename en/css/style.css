@@ -2534,3 +2534,172 @@ html[lang="zh-CN"] section:has(.vrm-workflow-title-zh) .vrm-workflow-title-zh + 
     white-space: normal;
   }
 }
+
+/* ===== May Madness pricing cleanup ===== */
+
+/* keep the campaign badge, but not too dominant */
+.may-madness-card-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  margin-bottom: 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6a1a, #ff9b35);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  box-shadow: 0 10px 22px rgba(255, 107, 24, 0.18);
+  animation: none;
+}
+
+/* compact promo strip instead of giant orange block */
+.may-madness-price-note {
+  margin: 16px 0 18px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 107, 24, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 24, 0.08),
+    rgba(255, 107, 24, 0.03)
+  );
+  box-shadow: none;
+}
+
+/* headline on one line, visually strong but not oversized */
+.may-madness-price-note strong,
+.may-madness-free-line {
+  display: block;
+  margin-bottom: 4px;
+  color: #ff5f14;
+  font-size: clamp(15px, 1.25vw, 21px);
+  line-height: 1.15;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+/* small sub line */
+.may-madness-subnote {
+  display: block;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #5f5674;
+  font-weight: 600;
+}
+
+/* keep pricing card rhythm closer to original */
+.pricing-card .may-madness-price-note + ul,
+.pricing-card .may-madness-price-note + .plan-list {
+  margin-top: 18px;
+}
+
+/* prevent giant wrap on narrower screens */
+@media (max-width: 1200px) {
+  .may-madness-price-note strong,
+  .may-madness-free-line {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 720px) {
+  .may-madness-card-badge {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .may-madness-price-note {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .may-madness-price-note strong,
+  .may-madness-free-line {
+    font-size: 18px;
+  }
+
+  .may-madness-subnote {
+    font-size: 11px;
+  }
+}
+
+/* ===== May Madness pricing card, conservative layout ===== */
+.may-madness-card-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  padding: 8px 14px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff6a1a, #ff9b35);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  box-shadow: 0 10px 22px rgba(255, 107, 24, 0.18);
+}
+
+.may-madness-price-note {
+  margin: 16px 0 18px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 107, 24, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 107, 24, 0.08), rgba(255, 107, 24, 0.03));
+  box-shadow: none;
+}
+
+.may-madness-price-note strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #ff5f14;
+  font-size: clamp(15px, 1.25vw, 21px);
+  line-height: 1.15;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.may-madness-subnote {
+  display: block;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #5f5674;
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  .may-madness-price-note strong {
+    white-space: normal;
+  }
+}
+
+/* ===== May Madness card promo placement fix ===== */
+.may-madness-price-note {
+  margin: 16px 0 20px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 107, 24, 0.24);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 107, 24, 0.09), rgba(124, 42, 103, 0.04));
+  box-shadow: none;
+}
+
+.may-madness-price-note strong {
+  display: block;
+  margin: 0 0 6px;
+  color: #ff5f14;
+  font-size: clamp(18px, 1.45vw, 26px);
+  line-height: 1.08;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+  white-space: normal;
+  text-transform: uppercase;
+}
+
+.may-madness-subnote {
+  display: block;
+  color: #4e4460;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 700;
+}
