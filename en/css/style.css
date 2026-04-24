@@ -1888,3 +1888,24 @@ html[lang="zh-CN"] section:has(.vrm-workflow-title-zh) .vrm-workflow-title-zh + 
     letter-spacing: -0.035em;
   }
 }
+
+/* Language switch */
+.language-switch {
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.language-switch:hover {
+  opacity: 1;
+}
+
+/* Language switch */
+.language-switch {
+  font-weight: 700;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.language-switch:hover {
+  opacity: 1;
+}
