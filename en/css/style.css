@@ -2929,3 +2929,369 @@ html[lang="zh-CN"] .offer-main {
     max-width: 132px;
   }
 }
+
+/* ===== Channel logo wall upgrade ===== */
+.logo-cloud,
+.channel-row,
+.partners-row {
+  align-items: center;
+}
+
+.logo-cloud span,
+.channel-row span,
+.partners-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 118px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(32, 22, 48, 0.06);
+  box-shadow: 0 10px 28px rgba(32, 22, 48, 0.04);
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  opacity: 1;
+  filter: none;
+}
+
+/* Brand-inspired text lockups, not official marks */
+.logo-cloud span:nth-child(1),
+.channel-row span:nth-child(1),
+.partners-row span:nth-child(1) {
+  color: #ff5a5f;
+}
+
+.logo-cloud span:nth-child(2),
+.channel-row span:nth-child(2),
+.partners-row span:nth-child(2) {
+  color: #003b95;
+}
+
+.logo-cloud span:nth-child(3),
+.channel-row span:nth-child(3),
+.partners-row span:nth-child(3) {
+  color: #1f4e79;
+}
+
+.logo-cloud span:nth-child(4),
+.channel-row span:nth-child(4),
+.partners-row span:nth-child(4) {
+  color: #245abc;
+}
+
+.logo-cloud span:nth-child(5),
+.channel-row span:nth-child(5),
+.partners-row span:nth-child(5) {
+  color: #635bff;
+}
+
+.logo-cloud span:nth-child(6),
+.channel-row span:nth-child(6),
+.partners-row span:nth-child(6) {
+  color: #5f6368;
+}
+
+.logo-cloud span:hover,
+.channel-row span:hover,
+.partners-row span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(32, 22, 48, 0.08);
+}
+
+@media (max-width: 760px) {
+  .logo-cloud span,
+  .channel-row span,
+  .partners-row span {
+    min-width: 96px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+/* ===== Official Airbnb partner highlight ===== */
+.logo-cloud span:first-child,
+.channel-row span:first-child,
+.partners-row span:first-child {
+  position: relative;
+  min-width: 170px;
+  height: 58px;
+  flex-direction: column;
+  gap: 2px;
+  color: #ff5a5f !important;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.9), transparent 28%),
+    linear-gradient(135deg, rgba(255, 90, 95, 0.12), rgba(255, 107, 24, 0.08));
+  border: 1px solid rgba(255, 90, 95, 0.22);
+  box-shadow: 0 16px 36px rgba(255, 90, 95, 0.12);
+}
+
+.logo-cloud span:first-child::after,
+.channel-row span:first-child::after,
+.partners-row span:first-child::after {
+  content: "Official Partner";
+  display: block;
+  margin-top: 1px;
+  color: #7b2b35;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+html[lang="zh-CN"] .logo-cloud span:first-child::after,
+html[lang="zh-CN"] .channel-row span:first-child::after,
+html[lang="zh-CN"] .partners-row span:first-child::after {
+  content: "已签约合作伙伴";
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.logo-cloud span:first-child::before,
+.channel-row span:first-child::before,
+.partners-row span:first-child::before {
+  content: "✓";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #ff5a5f;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 10px 22px rgba(255, 90, 95, 0.24);
+}
+
+@media (max-width: 760px) {
+  .logo-cloud span:first-child,
+  .channel-row span:first-child,
+  .partners-row span:first-child {
+    min-width: 140px;
+    height: 54px;
+  }
+}
+
+/* ===== Channel logo wall base styling ===== */
+.logo-cloud,
+.channel-row,
+.partners-row {
+  align-items: center;
+}
+
+.logo-cloud span,
+.channel-row span,
+.partners-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 118px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(32, 22, 48, 0.06);
+  box-shadow: 0 10px 28px rgba(32, 22, 48, 0.04);
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  opacity: 1;
+}
+
+/* ===== Homepage channel logo wall ===== */
+.channel-logo-wall {
+  padding: 38px 24px 42px;
+  border-top: 1px solid rgba(32, 22, 48, 0.08);
+  border-bottom: 1px solid rgba(32, 22, 48, 0.08);
+  background: #fff;
+  text-align: center;
+}
+
+.channel-logo-eyebrow {
+  margin-bottom: 24px;
+  color: #5f5b66;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.channel-logo-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.35fr repeat(5, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.channel-logo-card {
+  min-height: 58px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(32, 22, 48, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 32px rgba(32, 22, 48, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8d8d8d;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.channel-logo-card.airbnb-official {
+  position: relative;
+  flex-direction: column;
+  gap: 3px;
+  color: #ff5a5f;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,0.95), transparent 30%),
+    linear-gradient(135deg, rgba(255, 90, 95, 0.13), rgba(255, 107, 24, 0.08));
+  border-color: rgba(255, 90, 95, 0.28);
+  box-shadow: 0 18px 42px rgba(255, 90, 95, 0.14);
+}
+
+.channel-logo-card.airbnb-official::after {
+  content: "✓";
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #ff5a5f;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 950;
+  box-shadow: 0 10px 22px rgba(255, 90, 95, 0.24);
+}
+
+.channel-logo-name {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.05em;
+}
+
+.channel-logo-sub {
+  color: #7b2b35;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+html[lang="zh-CN"] .channel-logo-sub {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.channel-logo-card.booking { color: #003b95; }
+.channel-logo-card.expedia { color: #1f4e79; }
+.channel-logo-card.vrbo { color: #245abc; }
+.channel-logo-card.stripe { color: #635bff; }
+.channel-logo-card.google { color: #5f6368; }
+
+.channel-logo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(32, 22, 48, 0.09);
+}
+
+@media (max-width: 900px) {
+  .channel-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .channel-logo-card {
+    font-size: 19px;
+  }
+}
+
+/* Add Ctrip to channel logo wall */
+.channel-logo-grid {
+  grid-template-columns: 1.35fr repeat(6, 1fr);
+}
+
+.channel-logo-card.ctrip {
+  color: #2577e3;
+}
+
+@media (max-width: 1100px) {
+  .channel-logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .channel-logo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ===== Multiple official partner highlights ===== */
+.channel-logo-card.official-partner {
+  position: relative;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 58px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,0.95), transparent 30%),
+    linear-gradient(135deg, rgba(255, 107, 24, 0.10), rgba(124, 42, 103, 0.06));
+  border-color: rgba(255, 107, 24, 0.22);
+  box-shadow: 0 18px 42px rgba(32, 22, 48, 0.08);
+}
+
+.channel-logo-card.official-partner::after {
+  content: "✓";
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #ff6a1a;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 950;
+  box-shadow: 0 10px 22px rgba(255, 106, 26, 0.24);
+}
+
+.channel-logo-card.booking.official-partner {
+  color: #003b95;
+  border-color: rgba(0, 59, 149, 0.20);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,0.95), transparent 30%),
+    linear-gradient(135deg, rgba(0, 59, 149, 0.10), rgba(0, 113, 206, 0.06));
+}
+
+.channel-logo-card.booking.official-partner::after {
+  background: #003b95;
+  box-shadow: 0 10px 22px rgba(0, 59, 149, 0.22);
+}
+
+.channel-logo-card.ctrip.official-partner {
+  color: #2577e3;
+  border-color: rgba(37, 119, 227, 0.22);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,0.95), transparent 30%),
+    linear-gradient(135deg, rgba(37, 119, 227, 0.11), rgba(37, 119, 227, 0.05));
+}
+
+.channel-logo-card.ctrip.official-partner::after {
+  background: #2577e3;
+  box-shadow: 0 10px 22px rgba(37, 119, 227, 0.22);
+}
