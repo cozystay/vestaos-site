@@ -3,186 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign up · Vesta OS</title>
+  <title>Request access · Vesta OS</title>
   <link rel="stylesheet" href="/en/css/style.css" />
-  <style>
-    body {
-      background: #f5f3ef;
-      margin: 0;
-      font-family: Inter, sans-serif;
-      color: #171717;
-    }
-
-    .auth-shell {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .auth-card {
-      width: 100%;
-      max-width: 520px;
-    }
-
-    .auth-title {
-      font-size: 24px;
-      line-height: 1.2;
-      font-weight: 700;
-      color: #24145f;
-      text-align: left;
-      margin: 0 0 14px 0;
-    }
-
-    .auth-subtitle {
-      margin: 0 0 28px 0;
-      color: #5c5c5c;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .auth-form {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .auth-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .auth-label {
-      display: block;
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #171717;
-    }
-
-    .auth-input,
-    .auth-select {
-      width: 100%;
-      height: 50px;
-      border: 1px solid #d8d1c7;
-      border-radius: 10px;
-      padding: 0 16px;
-      font-size: 16px;
-      background: #fff;
-      box-sizing: border-box;
-      outline: none;
-    }
-
-    .auth-input:focus,
-    .auth-select:focus {
-      border-color: #e91e63;
-      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.08);
-    }
-
-    .auth-btn {
-      width: 100%;
-      height: 50px;
-      border: none;
-      border-radius: 10px;
-      background: #e91e63;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-
-    .auth-footer {
-      margin-top: 28px;
-      text-align: center;
-      font-size: 15px;
-      color: #171717;
-    }
-
-    .auth-footer a {
-      color: #e91e63;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    @media (max-width: 768px) {
-      .auth-title {
-        font-size: 22px;
-      }
-
-      .auth-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
-  <main class="auth-shell">
-    <section class="auth-card">
-      <h1 class="auth-title">Start for free.</h1>
-      <p class="auth-subtitle">Create your Vesta OS account and get set up for pricing, guest communication, dispatch, QA, and settlement.</p>
+  <main class="auth-page">
+    <section class="auth-card auth-card-wide">
+      <a class="auth-brand" href="/en/">VESTA OS</a>
 
-      <form class="auth-form">
-        <div class="auth-grid">
-          <div>
-            <label class="auth-label" for="first_name">First name</label>
-            <input class="auth-input" id="first_name" type="text" placeholder="First name" />
-          </div>
-          <div>
-            <label class="auth-label" for="last_name">Last name</label>
-            <input class="auth-input" id="last_name" type="text" placeholder="Last name" />
-          </div>
-        </div>
+      <h1>Request access to Vesta OS</h1>
+      <p class="auth-subtitle">Tell us a bit about your operation. We’ll prepare the right workspace setup for your team.</p>
 
-        <div class="auth-grid">
-          <div>
-            <label class="auth-label" for="email">Work email</label>
-            <input class="auth-input" id="email" type="email" placeholder="username@example.com" />
-          </div>
-          <div>
-            <label class="auth-label" for="company">Company</label>
-            <input class="auth-input" id="company" type="text" placeholder="Company" />
-          </div>
-        </div>
+      <form id="signupForm" class="auth-form">
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="fullName" type="text" required />
 
-        <div class="auth-grid">
-          <div>
-            <label class="auth-label" for="units">Listings under management</label>
-            <select class="auth-select" id="units">
-              <option>1–10</option>
-              <option>11–25</option>
-              <option>26–50</option>
-              <option>51–100</option>
-              <option>100+</option>
-            </select>
-          </div>
-          <div>
-            <label class="auth-label" for="username">Username</label>
-            <input class="auth-input" id="username" type="text" placeholder="Choose a username" />
-          </div>
-        </div>
+        <label for="email">Work email</label>
+        <input id="email" name="email" type="email" placeholder="you@company.com" required />
 
-        <div class="auth-grid">
-          <div>
-            <label class="auth-label" for="password">Password</label>
-            <input class="auth-input" id="password" type="password" placeholder="Create a password" />
-          </div>
-          <div>
-            <label class="auth-label" for="confirm_password">Confirm password</label>
-            <input class="auth-input" id="confirm_password" type="password" placeholder="Confirm password" />
-          </div>
-        </div>
+        <label for="company">Company</label>
+        <input id="company" name="company" type="text" required />
 
-        <button class="auth-btn" type="submit">Create account</button>
+        <label for="properties">Number of properties</label>
+        <select id="properties" name="properties" required>
+          <option value="">Select</option>
+          <option value="1-10">1–10</option>
+          <option value="11-25">11–25</option>
+          <option value="26-50">26–50</option>
+          <option value="51-100">51–100</option>
+          <option value="100+">100+</option>
+        </select>
+
+        <label for="city">Primary city</label>
+        <input id="city" name="city" type="text" />
+
+        <label for="need">Main operating need</label>
+        <textarea id="need" name="need" rows="4" placeholder="For example: guest communication, pricing, dispatch, QA, settlement"></textarea>
+
+        <p id="signupSuccess" class="auth-success" style="display:none;">Request received. We’ll contact you shortly.</p>
+        <p id="signupError" class="auth-error" style="display:none;">Submission failed. Please try again.</p>
+
+        <button id="signupSubmit" type="submit" class="auth-primary-btn">Request access</button>
       </form>
 
-      <div class="auth-footer">
+      <p class="auth-switch">
         Already have an account?
         <a href="/en/login/">Log in</a>
-      </div>
+      </p>
     </section>
   </main>
+
+  <script>
+    const SIGNUP_ENDPOINT = "https://script.google.com/a/macros/mycozyliving.ca/s/AKfycbwYrVrDqk05XQb5WkyTECVjlm5XaicH9UL_RQGut_DHa4SsYA0hiszUUFu5vm3dQ8-o/exec";
+
+    const form = document.getElementById("signupForm");
+    const submitButton = document.getElementById("signupSubmit");
+    const success = document.getElementById("signupSuccess");
+    const error = document.getElementById("signupError");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const payload = {
+        language: "en",
+        fullName: document.getElementById("fullName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        company: document.getElementById("company").value.trim(),
+        properties: document.getElementById("properties").value,
+        city: document.getElementById("city").value.trim(),
+        need: document.getElementById("need").value.trim(),
+        source: window.location.pathname
+      };
+
+      if (!payload.fullName || !payload.email || !payload.company || !payload.properties) {
+        error.textContent = "Please fill out full name, work email, company, and number of properties.";
+        error.style.display = "block";
+        success.style.display = "none";
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+
+      try {
+        await fetch(SIGNUP_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        success.style.display = "block";
+        error.style.display = "none";
+
+        setTimeout(() => {
+          window.location.href = "/en/dashboard/";
+        }, 1200);
+
+      } catch (err) {
+        error.style.display = "block";
+        success.style.display = "none";
+        submitButton.disabled = false;
+        submitButton.textContent = "Request access";
+      }
+    });
+  </script>
 </body>
 </html>
