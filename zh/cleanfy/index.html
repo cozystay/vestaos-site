@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleanfy · 闭环线下履约 · Vesta OS</title>
+  <meta name="description" content="Cleanfy auto-dispatches cleaning, maintenance and errands, gates work behind AI photo 质检验收, and settles invoices — hands-off." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/zh/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+        <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
+        <defs>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/>
+            <stop offset="50%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">VESTA <span>OS</span></span>
+    </a>
+      <nav class="nav-center" aria-label="Main">
+        <a href="/zh/" class="nav-link">首页</a>
+        <a href="/zh/vrm/" class="nav-link">VRM</a>
+        <a href="/zh/cleanfy/" class="nav-link active">Cleanfy</a>
+        <a href="/zh/pricing/" class="nav-link">定价</a>
+        <a href="/zh/about/" class="nav-link">关于我们</a>
+      </nav>
+      <div class="nav-right">
+        <a href="/zh/login/" class="nav-link hide-mobile">登录</a>
+        <a href="/zh/pricing/" class="btn btn-primary btn-sm btn-pill">申请开通</a>
+        <button class="nav-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="/zh/">首页</a>
+    <a href="/zh/vrm/">VRM</a>
+    <a href="/zh/cleanfy/">Cleanfy</a>
+    <a href="/zh/pricing/">定价</a>
+    <a href="/zh/about/">关于我们</a>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <span class="t-eyebrow eyebrow">线下 · 履约执行</span>
+      <h1 class="t-h1 zh-long-title">Cleanfy：自动运行的闭环线下履约系统。</h1>
+      <p class="t-lead lead">自动派单给合适的服务方，通过 AI 照片质检验收工作结果，并即时完成发票结算。房东无需介入，由城市合作伙伴网络负责执行，并保障 SLA。</p>
+      <div class="hero-ctas mt-8">
+        <a href="/zh/pricing/" class="btn btn-primary btn-lg btn-pill">申请开通</a>
+        <a href="#workflow" class="btn btn-ghost btn-lg btn-pill">查看工作流</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISPATCH ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="t-eyebrow">自动派单</span>
+          <h2 class="t-h2 mt-4">从 45 分钟电话沟通，变成 30 秒自动分配。</h2>
+          <p class="t-lead mt-6">Cleanfy 会根据可用性、距离、SLA 历史和服务方表现评分，为每个任务选择最合适的合作方，并自动发送完整任务信息。</p>
+          <ul class="feature-list mt-8" style="gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>城市合作伙伴网络</strong> —— 清洁、维修、跑腿、物资补给，均可在数分钟内接入。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>智能路由</strong> —— 分配任务时会综合 SLA 策略、位置、服务方评分和 SOP 匹配度。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>服务方分钟级接入</strong> —— 任何第三方服务机构都可以接入网络。</span></li>
+          </ul>
+        </div>
+        <div class="visual illus-cleanfy">
+          <div class="dispatch-mock" aria-hidden="true">
+            <div class="dm-head">
+              <div>
+                <strong>退房清洁 · 1402 Mainland</strong>
+                <div style="font-size:12px;color:var(--text-secondary);">退房 11:00 · 入住 15:00</div>
+              </div>
+              <span class="tag">任务派单ed</span>
+            </div>
+            <div class="dm-row"><span>已分配给</span><span>Pacific Clean Co.</span></div>
+            <div class="dm-row"><span>预计到达</span><span>11:18 AM</span></div>
+            <div class="dm-row"><span>SOP 检查点</span><span>14 个点位</span></div>
+            <div class="dm-row"><span>服务方评分</span><span style="color:var(--success);">4.92 ★</span></div>
+            <div class="progress"><div class="progress-bar" style="width:35%;"></div></div>
+            <div class="progress-label"><span>前往中</span><span>35%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRACKING & 质检验收 ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="two-col flip">
+        <div>
+          <span class="t-eyebrow">实时追踪与 AI 照片质检</span>
+          <h2 class="t-h2 mt-4 cleanfy-verify-title-zh">验证工作结果，而不只是验证是否到场。</h2>
+          <p class="t-lead mt-6">服务方需要在 SOP 指定点位拍摄实时照片。AI 会根据 SOP 和 SLA 对每张照片进行预筛查。运营方可以自行设置验收等级：每单审核、随机抽查或完全信任 AI。</p>
+          <div class="feature-grid mt-8" style="grid-template-columns:1fr 1fr; gap:20px;">
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-location-dot"></i></div>
+              <h3 style="font-size:16px;">地理位置验证</h3>
+              <p style="font-size:14px;">实时位置确认服务方确实到达正确房源。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-camera"></i></div>
+              <h3 style="font-size:16px;">必须实时拍照</h3>
+              <p style="font-size:14px;">不能从相册上传。照片必须现场拍摄，并绑定 SOP 检查点。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-robot"></i></div>
+              <h3 style="font-size:16px;">AI 预筛查</h3>
+              <p style="font-size:14px;">在任务完成前识别遗漏区域、损坏情况和 SOP 违规。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-user-check"></i></div>
+              <h3 style="font-size:16px;">你的信任等级</h3>
+              <p style="font-size:14px;">全量审核、随机抽查或完全自动化，由你设置策略。</p>
+            </div>
+          </div>
+        </div>
+        <div class="visual illus-cleanfy">
+          <div class="dispatch-mock" aria-hidden="true">
+            <div class="dm-head">
+              <div>
+                <strong>照片质检 · 14 个检查点</strong>
+                <div style="font-size:12px;color:var(--text-secondary);">AI 已预筛查</div>
+              </div>
+              <span class="tag">已验证</span>
+            </div>
+            <div class="dm-row"><span>浴室</span><span style="color:var(--success);">✓ 已通过</span></div>
+            <div class="dm-row"><span>厨房台面</span><span style="color:var(--success);">✓ 已通过</span></div>
+            <div class="dm-row"><span>床品摆放</span><span style="color:var(--success);">✓ 已通过</span></div>
+            <div class="dm-row"><span>备品补充</span><span style="color:#B8860B;">⚠ 检查咖啡胶囊</span></div>
+            <div class="dm-row"><span>垃圾处理</span><span style="color:var(--success);">✓ 已通过</span></div>
+            <div class="progress"><div class="progress-bar" style="width:93%;"></div></div>
+            <div class="progress-label"><span>AI 置信度</span><span>93%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SETTLEMENT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="t-eyebrow">自动结算</span>
+          <h2 class="t-h2 mt-4">通过验收的工作会自动生成并进入付款流程。</h2>
+          <p class="t-lead mt-6">一旦 AI 验收和可选人工审核通过，系统会自动生成发票，匹配对应明细，并同步给物业管理方财务团队，无需表格和对账电话。</p>
+          <ul class="feature-list mt-8" style="gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>基于已验证任务和 SOP 自动生成发票。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>服务方表现评分持续优化你的合作网络。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>完整审计记录支持房东账单与财务对账。</span></li>
+          </ul>
+        </div>
+        <div class="visual illus-cleanfy">
+          <div class="dispatch-mock" aria-hidden="true">
+            <div class="dm-head">
+              <div>
+                <strong>发票 #INV-20260412</strong>
+                <div style="font-size:12px;color:var(--text-secondary);">已自动结算</div>
+              </div>
+              <span class="tag">已支付</span>
+            </div>
+            <div class="dm-row"><span>退房清洁</span><span>$68.00</span></div>
+            <div class="dm-row"><span>布草更换</span><span>$12.00</span></div>
+            <div class="dm-row"><span>备品补充</span><span>$9.50</span></div>
+            <div class="dm-row"><span>服务方</span><span>Pacific Clean Co.</span></div>
+            <div class="dm-row"><span>合计</span><span style="color:var(--brand); font-weight:700;">$89.50</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKFLOW ===== -->
+  <section id="workflow" class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Cleanfy 如何运作</span>
+        <h2 class="t-h1 mt-4 zh-flow-title">任务派单 → 实时追踪 → 验收确认 → 自动结算。</h2>
+        <p class="t-lead mt-6">从住客退房到服务方收款形成完整闭环，房东不再处于关键执行路径中。</p>
+      </div>
+      <div class="workflow">
+        <div class="workflow-step">
+          <h4>任务分配</h4>
+          <p>系统根据 SLA、距离和表现评分，实时选择合适服务方。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>实时追踪</h4>
+          <p>从派单到任务完成，全程追踪服务方实时位置。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>照片质检关卡</h4>
+          <p>AI 会预筛查 SOP 点位的实时照片。没有照片，就不能完成任务。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>AI 验收与结算</h4>
+          <p>发票、服务方评分和财务交接自动完成。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Cleanfy 数据表现</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">真实运营，真实杠杆。</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="value" data-count="30" data-suffix=" sec">0</div>
+          <div class="label">平均自动派单时间</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="95" data-suffix="%">0</div>
+          <div class="label">现场 SLA 达成率</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="14" data-suffix="">0</div>
+          <div class="label">平均每单 SOP 检查点</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="9030" data-suffix="">0</div>
+          <div class="label">2025 年已验证任务</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2 class="t-h2">让线下运营进入自动驾驶。</h2>
+          <p>你可以在现有服务方网络上运行 Cleanfy，也可以接入我们的城市合作伙伴资源。</p>
+        </div>
+        <div class="btns">
+          <a href="/zh/pricing/" class="btn btn-primary btn-lg btn-pill">查看定价</a>
+          <a href="/zh/vrm/" class="btn btn-ghost btn-lg btn-pill">← 返回 VRM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>产品</h5>
+          <ul>
+            <li><a href="/zh/vrm/">VRM</a></li>
+            <li><a href="/zh/cleanfy/">Cleanfy</a></li>
+            <li><a href="/zh/pricing/">定价</a></li>
+            <li><a href="vrm.html#workflow">运作方式</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>公司</h5>
+          <ul>
+            <li><a href="/zh/about/">关于我们</a></li>
+            <li><a href="about.html#team">团队</a></li>
+            <li><a href="about.html#story">我们的故事</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>资源</h5>
+          <ul>
+            <li><a href="#">帮助中心</a></li>
+            <li><a href="#">运营指南</a></li>
+            <li><a href="#">API 与集成</a></li>
+            <li><a href="#">安全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>法律</h5>
+          <ul>
+            <li><a href="#">服务条款</a></li>
+            <li><a href="#">隐私政策</a></li>
+            <li><a href="#">可接受使用政策</a></li>
+            <li><a href="#">数据处理</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> Vesta OS 版权所有。</span>
+        <div class="social">
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
+</body>
+</html>

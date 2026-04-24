@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>定价 · Vesta OS</title>
+  <meta name="description" content="按使用量计费. Pay for the work AI does. $69 guest comms, 5% autonomous pricing, $10 per dispatched job." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💸</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/zh/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+        <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
+        <defs>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/>
+            <stop offset="50%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">VESTA <span>OS</span></span>
+    </a>
+      <nav class="nav-center">
+        <a href="/zh/" class="nav-link">首页</a>
+        <a href="/zh/vrm/" class="nav-link">VRM</a>
+        <a href="/zh/cleanfy/" class="nav-link">Cleanfy</a>
+        <a href="/zh/pricing/" class="nav-link active">定价</a>
+        <a href="/zh/about/" class="nav-link">关于我们</a>
+      </nav>
+      <div class="nav-right">
+        <a href="/zh/login/" class="nav-link hide-mobile">登录</a>
+        <a href="#contact" class="btn btn-primary btn-sm btn-pill">联系销售</a>
+        <button class="nav-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="/zh/">首页</a>
+    <a href="/zh/vrm/">VRM</a>
+    <a href="/zh/cleanfy/">Cleanfy</a>
+    <a href="/zh/pricing/">定价</a>
+    <a href="/zh/about/">关于我们</a>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <span class="t-eyebrow eyebrow">按使用量计费</span>
+      <h1 class="t-h1 zh-long-title">为 AI 实际完成的工作付费，而不是为不需要的座席付费。</h1>
+      <p class="t-lead lead">三个简单的使用量计费项。只有当 AI 真正替代人工工作量时，费用才会随之增长。收入管理首月免费。</p>
+    </div>
+  </section>
+
+  <!-- ===== PRICING GRID ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="pricing-grid">
+        <!-- Guest Comms -->
+        <div class="price-card">
+          <div class="icon-box" style="width:44px;height:44px;background:var(--brand-soft);color:var(--brand);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>住客沟通自动驾驶</h3>
+          <p class="desc">AI 按照你的品牌语气、运营规则和 SLA，自动回复各渠道住客咨询。</p>
+          <div class="price">$69<small> / 房源 / 月</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> 包含每月 300 条住客回复</li>
+            <li><i class="fas fa-check-circle"></i> 每额外 100 条回复加收 5 美元</li>
+            <li><i class="fas fa-check-circle"></i> 90% 可无需人工审核发送</li>
+            <li><i class="fas fa-check-circle"></i> 优先队列与升级处理</li>
+            <li><i class="fas fa-check-circle"></i> 统一接入 4–5 个渠道消息</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-pill">申请开通</a>
+        </div>
+
+        <!-- 智能动态定价 (featured) -->
+        <div class="price-card featured">
+          <div class="icon-box" style="width:44px;height:44px;background:var(--brand-soft);color:var(--brand);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>智能动态定价</h3>
+          <p class="desc">系统每晚针对未来 3–45 天滚动窗口自动调价，全面替代人工调价工作。</p>
+          <div class="price">5%<small> 按月净收入计费</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <strong>首月免费</strong></li>
+            <li><i class="fas fa-check-circle"></i> 活动需求信号识别</li>
+            <li><i class="fas fa-check-circle"></i> 竞品价格追踪</li>
+            <li><i class="fas fa-check-circle"></i> 受规则约束的价格边界</li>
+            <li><i class="fas fa-check-circle"></i> 同步至 Airbnb、Booking、Expedia、Vrbo</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-pill">申请开通</a>
+        </div>
+
+        <!-- Ops Autopilot -->
+        <div class="price-card">
+          <div class="icon-box" style="width:44px;height:44px;background:var(--brand-soft);color:var(--brand);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;">
+            <i class="fas fa-broom"></i>
+          </div>
+          <h3>运营自动驾驶（Cleanfy）</h3>
+          <p class="desc">为每个线下任务提供自动派单、实时追踪、AI 照片质检和自动结算。</p>
+          <div class="price">$10<small> / 派单任务</small></div>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> 清洁、维修、跑腿任务</li>
+            <li><i class="fas fa-check-circle"></i> 服务方分钟级接入</li>
+            <li><i class="fas fa-check-circle"></i> 基于 SOP 点位的实时照片质检</li>
+            <li><i class="fas fa-check-circle"></i> 自动开票与结算</li>
+            <li><i class="fas fa-check-circle"></i> 服务方表现评分</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-pill">申请开通</a>
+        </div>
+      </div>
+
+
+  <!-- ===== COMPARISON WITH LEGACY ===== -->
+
+  <!-- ===== 常见问题 ===== -->
+  <section class="section">
+    <div class="container" style="max-width:880px;">
+      <div class="section-head center">
+        <span class="t-eyebrow">运营商常问问题</span>
+        <h2 class="t-h1 mt-4">常见问题.</h2>
+      </div>
+      <div class="faq">
+        <details class="faq-item" open>
+          <summary>我需要更换现有 PMS 吗？</summary>
+          <div class="answer">不需要。Vesta OS 可以直接连接你现有的渠道，例如 Airbnb、Booking、Expedia、Vrbo，并可在迁移过程中与你现有 PMS 并行运行。多数运营商会先从住客沟通和动态定价开始，再逐步将线下运营迁移到 Cleanfy。</div>
+        </details>
+        <details class="faq-item">
+          <summary>当 VRM 不确定如何回复时会发生什么？</summary>
+          <div class="answer">任何带有负面情绪、退款风险或合规影响的消息，都会自动进入团队优先队列。你也可以在磨合期设置“每条回复都需审核”模式。</div>
+        </details>
+        <details class="faq-item">
+          <summary>我可以把自己的服务方接入 Cleanfy 吗？</summary>
+          <div class="answer">可以。第三方清洁公司、维修团队或物资供应商可以在数分钟内接入 Cleanfy。在已有覆盖的城市，你也可以使用 Vesta OS 的城市合作伙伴网络。</div>
+        </details>
+        <details class="faq-item">
+          <summary>动态定价 5% 收入分成如何计算？</summary>
+          <div class="answer">使用智能动态定价的房源，按净收入的 5% 按月计费。首月免费。你可以设置价格下限、上限和最短入住规则，系统会在这些边界内进行优化。</div>
+        </details>
+        <details class="faq-item">
+          <summary>是否有最低房源数量要求？</summary>
+          <div class="answer">没有硬性最低门槛。Vesta OS 适合管理 5–50 套房源的运营商，也支持更大规模的多城市组合。多城市部署可联系我们。</div>
+        </details>
+        <details class="faq-item">
+          <summary>数据和房源归谁所有？</summary>
+          <div class="answer">归你所有。你的渠道、内容和住客数据都属于你。Vesta OS 是你的运营层，你可以随时导出数据，我们不会在客户之间共享数据。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / CTA FORM ===== -->
+  <section id="contact" class="section section-soft">
+    <div class="container" style="max-width:640px;">
+      <div class="section-head center">
+        <span class="t-eyebrow">申请开通</span>
+        <h2 class="t-h1 mt-4">开始免费试用。</h2>
+        <p class="t-lead mt-6">留下基本信息，我们会在几天内帮你完成渠道上线，而不是几周。</p>
+      </div>
+
+      <form class="feature-card" onsubmit="event.preventDefault(); document.getElementById('form-success').style.display='block'; this.reset();" style="padding:32px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            姓名
+            <input required type="text" name="name" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit;" />
+          </label>
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            工作邮箱
+            <input required type="email" name="email" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit;" />
+          </label>
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            公司
+            <input type="text" name="company" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit;" />
+          </label>
+          <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600;">
+            管理房源数量
+            <select name="units" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit; background:#fff;">
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+            </select>
+          </label>
+        </div>
+        <label style="display:flex; flex-direction:column; gap:6px; font-size:14px; font-weight:600; margin-top:16px;">
+          请简单介绍你的运营情况
+          <textarea name="message" rows="4" style="padding:12px 14px; border:1px solid var(--border-strong); border-radius:8px; font-size:15px; font-family:inherit; resize:vertical;"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg btn-pill btn-block mt-6" style="margin-top:20px;">申请开通</button>
+        <div id="form-success" style="display:none; margin-top:16px; padding:12px; border-radius:8px; background:var(--brand-soft); color:var(--brand-dark); font-size:14px;">
+          <i class="fas fa-check-circle"></i> 已收到信息，我们会在一个工作日内与你联系。
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>产品</h5>
+          <ul>
+            <li><a href="/zh/vrm/">VRM</a></li>
+            <li><a href="/zh/cleanfy/">Cleanfy</a></li>
+            <li><a href="/zh/pricing/">定价</a></li>
+            <li><a href="vrm.html#workflow">运作方式</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>公司</h5>
+          <ul>
+            <li><a href="/zh/about/">关于我们</a></li>
+            <li><a href="about.html#team">团队</a></li>
+            <li><a href="about.html#story">我们的故事</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>资源</h5>
+          <ul>
+            <li><a href="#">帮助中心</a></li>
+            <li><a href="#">运营指南</a></li>
+            <li><a href="#">API 与集成</a></li>
+            <li><a href="#">安全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>法律</h5>
+          <ul>
+            <li><a href="#">服务条款</a></li>
+            <li><a href="#">隐私政策</a></li>
+            <li><a href="#">可接受使用政策</a></li>
+            <li><a href="#">数据处理</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> Vesta OS 版权所有。</span>
+        <div class="social">
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VRM · 智能线上运营 · Vesta OS</title>
+  <meta name="description" content="VRM handles 90% of guest inquiries, re-prices listings nightly, and onboards new properties across 4–5 channels in under a day." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/zh/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+        <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
+        <defs>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/>
+            <stop offset="50%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">VESTA <span>OS</span></span>
+    </a>
+      <nav class="nav-center" aria-label="Main">
+        <a href="/zh/" class="nav-link">首页</a>
+        <a href="/zh/vrm/" class="nav-link active">VRM</a>
+        <a href="/zh/cleanfy/" class="nav-link">Cleanfy</a>
+        <a href="/zh/pricing/" class="nav-link">定价</a>
+        <a href="/zh/about/" class="nav-link">关于我们</a>
+      </nav>
+      <div class="nav-right">
+        <a href="/zh/login/" class="nav-link hide-mobile">登录</a>
+        <a href="/zh/pricing/" class="btn btn-primary btn-sm btn-pill">申请开通</a>
+        <button class="nav-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="/zh/">首页</a>
+    <a href="/zh/vrm/">VRM</a>
+    <a href="/zh/cleanfy/">Cleanfy</a>
+    <a href="/zh/pricing/">定价</a>
+    <a href="/zh/about/">关于我们</a>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <span class="t-eyebrow eyebrow">线上 · 住客运营</span>
+      <h1 class="t-h1 zh-long-title">VRM：线上运营流程里的 AI 队友。</h1>
+      <p class="t-lead lead">住客沟通、智能动态定价与多渠道房源上线，由同一个系统完成：分钟级回复、每晚自动调价、数小时内完成上线，而不是几天。</p>
+      <div class="hero-ctas mt-8">
+        <a href="/zh/pricing/" class="btn btn-primary btn-lg btn-pill">申请开通</a>
+        <a href="#workflow" class="btn btn-ghost btn-lg btn-pill">查看工作流</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GUEST MESSAGING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="t-eyebrow">住客消息自动驾驶</span>
+          <h2 class="t-h2 mt-4 vrm-reply-title-zh">90% 的咨询，可在 1 分钟内自动回复。</h2>
+          <p class="t-lead mt-6">VRM 会读取、分类并回复每一条住客消息，语气、规则和本地信息都接近你最优秀的前台人员；只有高风险问题才会升级给团队。</p>
+          <ul class="feature-list mt-8" style="gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>优先队列</strong> —— 紧急问题、退款请求和负面情绪会自动置顶。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>理解规则的回复</strong> —— 基于你的房屋规则、取消政策、入住流程和本地建议进行回复。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>人工监督机制</strong> —— 全量审核、随机抽查或完全自动化，信任等级由你决定。</span></li>
+          </ul>
+        </div>
+        <div class="visual illus-cclaw">
+          <div class="chat-mock" aria-hidden="true">
+            <div class="chat-head">
+              <div class="chat-avatar">E</div>
+              <div>
+                <strong>Emma · 今晚抵达</strong>
+                <em>咨询 · 高优先级</em>
+              </div>
+            </div>
+            <div class="msg them">"你好！我们晚上 11 点落地，可以晚入住吗？另外停车免费吗？"</div>
+            <div class="msg-row right">
+              <div class="msg us">你好 Emma，欢迎入住。晚入住没有问题，你的智能门锁密码将在晚上 9 点后生效。门口街边停车位晚上 6 点后免费，两条街外也有付费停车库。🧡</div>
+            </div>
+            <div class="chat-footer"><span class="pulse"></span> VRM 自动回复 · 38 秒</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="two-col flip">
+        <div>
+          <span class="t-eyebrow">智能动态定价</span>
+          <h2 class="t-h2 mt-4">每晚自动调价，自动响应需求变化。</h2>
+          <p class="t-lead mt-6">过去跨多个房源、多个渠道和 45 天预订窗口完成一轮调价需要两小时，现在只需要五分钟。系统会自动响应活动、竞品价格和预订节奏，无需人工介入。</p>
+          <div class="feature-grid mt-8" style="grid-template-columns:1fr 1fr; gap:20px;">
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-bolt"></i></div>
+              <h3 style="font-size:16px;">识别活动需求</h3>
+              <p style="font-size:14px;">演唱会、会议、天气等需求波动，系统会在竞争对手之前捕捉到。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-sliders"></i></div>
+              <h3 style="font-size:16px;">受规则约束</h3>
+              <p style="font-size:14px;">你可以设置价格下限、上限和最短入住规则，AI 会在你的边界内优化。</p>
+            </div>
+          </div>
+        </div>
+        <div class="visual illus-cclaw">
+          <div class="dispatch-mock" aria-hidden="true" style="max-width:400px;">
+            <div class="dm-head">
+              <div>
+                <strong>每晚调价 · 1,012 套房源</strong>
+                <div style="font-size:12px; color:var(--text-secondary);">上次运行 · 2 分 48 秒前</div>
+              </div>
+              <span class="tag">已完成</span>
+            </div>
+            <div class="dm-row"><span>平均价格变化</span><span style="color:var(--success);">+$14.20</span></div>
+            <div class="dm-row"><span>已调价房源</span><span>1,012</span></div>
+            <div class="dm-row"><span>需求信号</span><span>演唱会 · 天气 · 预订节奏</span></div>
+            <div class="dm-row"><span>覆盖窗口</span><span>3–45 天</span></div>
+            <div class="progress"><div class="progress-bar" style="width:100%;"></div></div>
+            <div class="progress-label"><span>已同步至 Airbnb、Booking、Expedia、Vrbo</span><span>100%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ONBOARDING ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="t-eyebrow">房源上线</span>
+          <h2 class="t-h2 mt-4 vrm-onboarding-title-zh">从签约到上线 5 个渠道，一天内完成。</h2>
+          <p class="t-lead mt-6">房东只需填写一份 Vesta OS 上线表单。VRM 会自动生成标题、描述、设施、周边亮点和照片排序，并自动发布到 Airbnb、Booking、Expedia 和 Vrbo。</p>
+          <ul class="feature-list mt-8" style="gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>AI 根据不同渠道的 SEO 与内容规则生成房源文案。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>自动整理周边亮点与社区介绍。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>一键发布，并在 4–5 个渠道保持价格一致。</span></li>
+          </ul>
+        </div>
+        <div class="visual illus-cclaw">
+          <div class="hero-card hero-card-main" style="position:relative; inset:auto; box-shadow:var(--shadow-lg); width:100%; max-width:420px;">
+            <div class="photo" style="height:55%;"></div>
+            <div class="meta">
+              <div class="meta-row">
+                <h4>阳光单间 · Mount Pleasant</h4>
+                <span class="rating">
+                  <svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor;"><path d="M12 2l2.39 6.94H22l-6 4.37 2.29 7.06L12 16.9 5.7 20.37 8 13.31 2 8.94h7.61z"/></svg>
+                  新房源
+                </span>
+              </div>
+              <p class="sub">已上线 Airbnb · Booking · Expedia · Vrbo · 2 小时 14 分钟</p>
+              <p class="price"><strong>$138</strong> <span>每晚价格</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKFLOW ===== -->
+  <section id="workflow" class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">VRM 如何运作</span>
+        <h2 class="t-h1 mt-4 vrm-workflow-title-zh">消息接入 → 自动回复 → 升级处理 → 持续学习。</h2>
+        <p class="t-lead mt-6">四步闭环。每一条消息、每一次回复、每一次升级，都会成为下一次决策的训练数据。</p>
+      </div>
+      <div class="workflow">
+        <div class="workflow-step">
+          <h4>消息接入</h4>
+          <p>统一接入 Airbnb、Booking、Expedia、Vrbo 和直订渠道消息，并按意图和紧急程度自动分类。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>AI 自动回复</h4>
+          <p>根据规则和品牌语气生成回复，并可选择无需人工审核直接发送。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>优先队列</h4>
+          <p>负面情绪、退款风险或合规问题会优先交给人工处理。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>只升级必要问题</h4>
+          <p>团队只需要处理真正需要人工介入的 10%。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IMPACT STATS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">VRM 数据表现</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">运营商切换后的实际提升。</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="value" data-count="90" data-suffix="%">0</div>
+          <div class="label">由 AI 处理的咨询</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="98" data-suffix="%">0</div>
+          <div class="label">SLA 达成率</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="24" data-suffix="×">0</div>
+          <div class="label">价格调整更快</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="7" data-suffix="×">0</div>
+          <div class="label">房源上线更快</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2 class="t-h2">让 VRM 接管你的线上班次。</h2>
+          <p>前 20 套房源可免费开始。我们会协助迁移你的模板、规则和渠道连接。</p>
+        </div>
+        <div class="btns">
+          <a href="/zh/pricing/" class="btn btn-primary btn-lg btn-pill">查看定价</a>
+          <a href="/zh/cleanfy/" class="btn btn-ghost btn-lg btn-pill">下一页：Cleanfy →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>产品</h5>
+          <ul>
+            <li><a href="/zh/vrm/">VRM</a></li>
+            <li><a href="/zh/cleanfy/">Cleanfy</a></li>
+            <li><a href="/zh/pricing/">定价</a></li>
+            <li><a href="vrm.html#workflow">运作方式</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>公司</h5>
+          <ul>
+            <li><a href="/zh/about/">关于我们</a></li>
+            <li><a href="about.html#team">团队</a></li>
+            <li><a href="about.html#story">我们的故事</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>资源</h5>
+          <ul>
+            <li><a href="#">帮助中心</a></li>
+            <li><a href="#">运营指南</a></li>
+            <li><a href="#">API 与集成</a></li>
+            <li><a href="#">安全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>法律</h5>
+          <ul>
+            <li><a href="#">服务条款</a></li>
+            <li><a href="#">隐私政策</a></li>
+            <li><a href="#">可接受使用政策</a></li>
+            <li><a href="#">数据处理</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> Vesta OS 版权所有。</span>
+        <div class="social">
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
+</body>
+</html>

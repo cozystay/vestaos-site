@@ -1,712 +1,375 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VestaOS — 非标住宿行业的 AI 原生操作系统</title>
-<meta name="description" content="VestaOS 为非标住宿行业打造自主运营闭环。机器人自主执行 96% 的运营任务，人工只处理真正需要判断的 4%。">
-<link rel="alternate" hreflang="zh-CN" href="https://vestaos.ai/en/">
-<link rel="alternate" hreflang="zh" href="https://vestaos.ai/zh/">
-<link rel="canonical" href="https://vestaos.ai/zh/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ── Brand tokens ── */
-:root{
-  --bg:       #0B0F1A;
-  --bg2:      #111520;
-  --bg3:      #161B27;
-  --card:     #1A1F2E;
-  --card2:    #1F2535;
-  --border:   rgba(255,255,255,.08);
-  --border2:  rgba(255,255,255,.13);
-  --ink:      #F5F6FA;
-  --ink2:     #BDC2CC;
-  --ink3:     #808591;
-  --ink4:     #555A63;
-  --orange:   #F18C28;
-  --orange2:  #F4AD46;
-  --purple1:  #540E57;
-  --purple2:  #7C2A67;
-  --grad:     linear-gradient(135deg,#540E57,#7C2A67 50%,#F4AD46);
-  --grad-btn: linear-gradient(135deg,#C0392B,#F18C28 60%,#F4AD46);
-  --r:        12px;
-  --r2:       18px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--orange);color:#000}
-
-/* ── Atmosphere ── */
-body::before{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:
-    radial-gradient(ellipse 900px 600px at 20% -10%, rgba(124,42,103,.22) 0%, transparent 65%),
-    radial-gradient(ellipse 700px 500px at 80% 5%,  rgba(241,140,40,.10) 0%, transparent 60%);
-}
-
-/* ── Layout ── */
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
-.section{padding:96px 0;position:relative;z-index:1}
-
-/* ── Nav ── */
-.nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(11,15,26,.75);border-bottom:1px solid var(--border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.brand-logo{flex-shrink:0}
-.brand-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;letter-spacing:.05em}
-.brand-name span{color:var(--orange)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
-.nav-links a:hover{color:var(--ink)}
-.nav-right{display:flex;align-items:center;gap:16px}
-.lang-sw{display:flex;align-items:center;gap:4px;font-size:13px}
-.lang-sw a{color:var(--ink3);text-decoration:none;padding:3px 7px;border-radius:6px;transition:all .15s}
-.lang-sw a.on{color:var(--ink);background:rgba(255,255,255,.06)}
-.lang-sw .sep{color:var(--ink4)}
-.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:99px;background:var(--grad-btn);color:#fff;font:600 13.5px 'Inter',sans-serif;text-decoration:none;transition:opacity .15s,transform .12s;box-shadow:0 4px 16px rgba(241,140,40,.25)}
-.btn-nav:hover{opacity:.9;transform:translateY(-1px)}
-
-/* ── Hero ── */
-.hero{padding:80px 0 96px;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--ink2);font-size:13px;margin-bottom:36px}
-.hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);flex-shrink:0;box-shadow:0 0 0 3px rgba(241,140,40,.2)}
-.hero h1{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(52px,7vw,96px);line-height:1.0;letter-spacing:-.02em;margin-bottom:28px}
-.hero h1 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:18px;color:var(--ink2);max-width:640px;margin:0 auto 14px;line-height:1.6}
-.hero-sub strong{color:var(--ink);font-weight:600}
-.hero-ctas{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:99px;background:var(--grad-btn);color:#fff;font:600 15px 'Inter',sans-serif;text-decoration:none;transition:opacity .15s,transform .12s,box-shadow .15s;box-shadow:0 6px 24px rgba(241,140,40,.3)}
-.btn-primary:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 10px 30px rgba(241,140,40,.4)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:99px;border:1px solid var(--border2);color:var(--ink);font:500 15px 'Inter',sans-serif;text-decoration:none;transition:border-color .15s,background .15s}
-.btn-ghost:hover{border-color:var(--ink3);background:rgba(255,255,255,.04)}
-
-/* ── Trust strip ── */
-.trust{padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
-.trust-inner{display:flex;align-items:center;justify-content:center;gap:36px;flex-wrap:wrap}
-.trust-label{font-size:13px;color:var(--ink3)}
-.trust-logos{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
-.trust-logo{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:var(--ink2);opacity:.7;transition:opacity .15s}
-.trust-logo:hover{opacity:1}
-.trust-logo svg{flex-shrink:0}
-
-/* ── Kicker capsule ── */
-.kicker{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:transparent;border:1px solid var(--orange);color:var(--orange);font:600 11.5px 'Inter',sans-serif;letter-spacing:.1em;text-transform:uppercase;margin-bottom:22px}
-.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
-
-/* ── Problem section ── */
-.prob-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(36px,5vw,58px);line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
-.prob-head h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.prob-head p{font-size:17px;color:var(--ink2);max-width:600px;line-height:1.65;margin-bottom:48px}
-.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.prob-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;transition:border-color .2s,transform .2s}
-.prob-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.prob-icon{width:44px;height:44px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
-.prob-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;margin-bottom:10px;color:var(--ink)}
-.prob-card p{font-size:13.5px;color:var(--ink3);line-height:1.6;margin-bottom:18px}
-.prob-stat{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--orange);letter-spacing:-.01em}
-.prob-stat-l{font-size:11px;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
-
-/* ── Platform section ── */
-.platform-head{max-width:680px;margin-bottom:64px}
-.platform-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.02em;margin-bottom:16px}
-.platform-head h2 .g1,.platform-head h2 .g2{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.platform-head p{font-size:17px;color:var(--ink2);line-height:1.65}
-.module{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:56px 0;border-top:1px solid var(--border)}
-.module.reverse{direction:rtl}
-.module.reverse>*{direction:ltr}
-.module-meta{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.module-meta::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange)}
-.module h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.015em;margin-bottom:14px}
-.module h3 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.module-desc{font-size:15.5px;color:var(--ink2);line-height:1.7;margin-bottom:22px}
-.module-checks{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
-.module-checks li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--ink2);line-height:1.5}
-.module-checks li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:rgba(241,140,40,.15);border:1px solid rgba(241,140,40,.35);color:var(--orange);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-/* Mockup panels */
-.mockup{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);overflow:hidden}
-.mockup-bar{background:var(--card2);padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
-.mockup-bar .dot{width:8px;height:8px;border-radius:50%}
-.mockup-bar .dot.r{background:#F87171}
-.mockup-bar .dot.y{background:#FBBF24}
-.mockup-bar .dot.g{background:#34D399}
-.mockup-body{padding:20px}
-/* Chat mockup */
-.chat-msg{margin-bottom:12px}
-.chat-msg .bubble{display:inline-block;padding:10px 14px;border-radius:12px;font-size:13.5px;line-height:1.5;max-width:82%}
-.chat-msg.guest .bubble{background:var(--card2);border:1px solid var(--border);color:var(--ink2);border-radius:12px 12px 12px 4px}
-.chat-msg.bot .bubble{background:rgba(241,140,40,.12);border:1px solid rgba(241,140,40,.25);color:var(--ink);border-radius:12px 12px 4px 12px;float:right}
-.chat-msg.bot{text-align:right}
-.chat-label{font-size:11px;color:var(--ink3);margin-bottom:4px;padding:0 4px}
-.chat-msg.bot .chat-label{text-align:right;color:var(--orange)}
-.chat-meta{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(241,140,40,.06);border-top:1px solid var(--border);margin-top:8px;clear:both}
-.chat-meta span{font-size:12px;color:var(--ink3)}
-.chat-meta strong{font-size:12px;color:var(--orange);font-weight:600}
-/* Pricing mockup */
-.price-rows{display:flex;flex-direction:column;gap:0}
-.price-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px}
-.price-row:last-child{border-bottom:none}
-.price-row .label{color:var(--ink2)}
-.price-row .val{font-weight:600;color:var(--ink)}
-.price-row .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(241,140,40,.15);color:var(--orange);margin-left:8px}
-.price-final{background:rgba(241,140,40,.08);border:1px solid rgba(241,140,40,.3);border-radius:10px;padding:14px;margin-top:12px;display:flex;align-items:center;justify-content:space-between}
-.price-final .l{font-size:13px;color:var(--ink2)}
-.price-final .l strong{color:var(--ink);display:block;font-size:13px;margin-bottom:2px}
-.price-final .r{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--orange)}
-.price-refresh{font-size:11.5px;color:var(--ink3);margin-top:10px}
-/* Job mockup */
-.job-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
-.job-header h5{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:var(--ink)}
-.job-header p{font-size:12px;color:var(--ink3);margin-top:3px}
-.job-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:#34D399;white-space:nowrap}
-.job-steps{display:flex;flex-direction:column;gap:8px}
-.job-step{padding:12px 14px;border-radius:10px;font-size:13.5px;display:flex;align-items:center;gap:10px}
-.job-step.done{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);color:#34D399}
-.job-step.active{background:rgba(241,140,40,.08);border:1px solid rgba(241,140,40,.3);color:var(--orange)}
-.job-step svg{flex-shrink:0}
-.job-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
-.job-foot span{font-size:12.5px;color:var(--ink3)}
-.job-foot strong{color:var(--ink);font-weight:600}
-
-/* ── Before / After ── */
-.ba-head-text h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(32px,4vw,50px);line-height:1.08;letter-spacing:-.02em;margin-bottom:10px}
-.ba-head-text h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ba-head-text p{font-size:15px;color:var(--ink3);margin-bottom:36px}
-.ba-table{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
-.ba-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;align-items:center;border-bottom:1px solid var(--border)}
-.ba-row:last-child{border-bottom:none}
-.ba-row.head{background:var(--card2)}
-.ba-row div{padding:14px 20px;font-size:14px}
-.ba-row.head div{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
-.ba-workflow{color:var(--ink2)}
-.ba-before{color:var(--ink3);text-decoration:line-through}
-.ba-after{color:var(--ink);font-weight:600}
-.ba-delta{color:var(--orange);font-weight:700;font-size:13.5px}
-
-/* ── Case study ── */
-.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
-.case-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:32px}
-.case-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
-.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.case-stat-n{font-family:'Montserrat',sans-serif;font-size:36px;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.01em;line-height:1}
-.case-stat-l{font-size:12px;color:var(--ink3);margin-top:6px;letter-spacing:.03em}
-
-/* ── Why we win ── */
-.why-head h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(34px,4.5vw,54px);line-height:1.08;letter-spacing:-.02em;margin-bottom:48px}
-.why-head h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.why-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;transition:border-color .2s,transform .2s}
-.why-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.why-icon{width:48px;height:48px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
-.why-card h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;margin-bottom:10px;color:var(--ink)}
-.why-card p{font-size:13.5px;color:var(--ink3);line-height:1.65}
-
-/* ── CTA / Get started ── */
-.cta-box{background:linear-gradient(135deg,rgba(84,14,87,.4),rgba(124,42,103,.3),rgba(241,140,40,.15));border:1px solid rgba(241,140,40,.2);border-radius:var(--r2);padding:56px 48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.cta-left h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
-.cta-left h2 .g1{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.cta-left p{font-size:15px;color:var(--ink2);line-height:1.65;margin-bottom:28px}
-.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
-.cta-form{background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);padding:28px}
-.cta-form label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;margin-top:14px}
-.cta-form label:first-child{margin-top:0}
-.cta-form input,.cta-form select{width:100%;padding:11px 14px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;color:var(--ink);font:500 14px 'Inter',sans-serif;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;appearance:none}
-.cta-form input::placeholder{color:var(--ink4)}
-.cta-form input:focus,.cta-form select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(241,140,40,.12)}
-.cta-form select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%23808591' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.submit-btn{margin-top:18px;width:100%;padding:13px;background:var(--grad-btn);border:none;border-radius:99px;color:#fff;font:600 14.5px 'Inter',sans-serif;cursor:pointer;transition:opacity .15s,transform .1s;box-shadow:0 4px 18px rgba(241,140,40,.3)}
-.submit-btn:hover{opacity:.9;transform:translateY(-1px)}
-.submit-btn:disabled{opacity:.55;cursor:not-allowed}
-.form-fine{margin-top:10px;font-size:11.5px;color:var(--ink4);text-align:center}
-.form-success{display:none;text-align:center;padding:16px 0}
-.form-success h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px;color:var(--ink)}
-.form-success p{font-size:14px;color:var(--ink3)}
-
-/* ── Footer ── */
-footer{border-top:1px solid var(--border);padding:56px 0 36px;position:relative;z-index:1}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.foot-brand p{font-size:14px;color:var(--ink3);line-height:1.6;margin-top:14px;max-width:240px}
-.foot-col h5{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:16px}
-.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.foot-col a{color:var(--ink3);text-decoration:none;font-size:14px;transition:color .15s}
-.foot-col a:hover{color:var(--ink)}
-.foot-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
-.foot-copy{font-size:13px;color:var(--ink4)}
-.foot-right{display:flex;align-items:center;gap:20px}
-.foot-right span{font-size:13px;color:var(--ink4)}
-.foot-right a{color:var(--ink3);text-decoration:none;font-size:13px;transition:color .15s}
-.foot-right a:hover{color:var(--ink)}
-
-/* ── Responsive ── */
-@media(max-width:1024px){
-  .prob-grid{grid-template-columns:repeat(2,1fr)}
-  .why-grid{grid-template-columns:repeat(2,1fr)}
-  .module{grid-template-columns:1fr;gap:36px}
-  .module.reverse{direction:ltr}
-  .case-grid{grid-template-columns:1fr}
-  .cta-box{grid-template-columns:1fr;gap:32px}
-  .foot-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:768px){
-  .wrap{padding:0 20px}
-  .section{padding:64px 0}
-  .hero{padding:56px 0 72px}
-  .hero h1{font-size:44px}
-  .nav-links{display:none}
-  .ba-row{grid-template-columns:1.4fr 1fr 1fr}
-  .ba-delta{display:none}
-  .ba-row.head .ba-delta{display:none}
-  .prob-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
-  .trust-inner{flex-direction:column;gap:16px;text-align:center}
-  .case-stats{grid-template-columns:repeat(3,1fr)}
-  .foot-grid{grid-template-columns:1fr}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vesta OS · 面向非标住宿的 AI 原生操作系统</title>
+  <meta name="description" content="Vesta OS 是面向短租、民宿、服务式公寓与非标住宿运营商的 AI 原生操作系统，将住客沟通、动态定价、任务派单、质检验收与结算管理统一到一个端到端的智能运营平台。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
 </head>
 <body>
 
-<!-- NAV -->
-<header class="nav">
-<div class="wrap nav-inner">
-  <a class="brand" href="/zh/">
-    <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
-      <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
-      <defs>
-        <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#540E57"/>
-          <stop offset="50%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#7C2A67"/>
-        </linearGradient>
-        <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#F18C28"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <span class="brand-name">VESTA <span>OS</span></span>
-  </a>
-  <nav><ul class="nav-links">
-    <li><a href="#problem">产品</a></li>
-    <li><a href="#results">效果</a></li>
-    <li><a href="#why">优势</a></li>
-    <li><a href="/zh/about/">关于我们</a></li>
-  </ul></nav>
-  <div class="nav-right">
-    <div class="lang-sw">
-      <a href="/zh/">EN</a><span class="sep">|</span><a href="/zh/" class="on">中</a>
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/zh/" class="nav-logo" aria-label="VestaOS home">
+      <svg width="38" height="24" viewBox="0 0 48 30" fill="none" aria-hidden="true">
+        <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#gs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="24" cy="15" r="3.5" fill="url(#go)"/>
+        <defs>
+          <linearGradient id="gs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#540E57"/>
+            <stop offset="50%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#7C2A67"/>
+          </linearGradient>
+          <linearGradient id="go" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#F4AD46"/>
+            <stop offset="100%" stop-color="#F18C28"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-brand">VESTA <span>OS</span></span>
+    </a>
+      <nav class="nav-center" aria-label="Main">
+        <a href="/zh/" class="nav-link active">首页</a>
+        <a href="/zh/vrm/" class="nav-link">VRM</a>
+        <a href="/zh/cleanfy/" class="nav-link">Cleanfy</a>
+        <a href="/zh/pricing/#start-free-trial" class="nav-link">定价</a>
+        <a href="/zh/about/" class="nav-link">关于我们</a>
+      </nav>
+      <div class="nav-right">
+        <a href="/zh/login/" class="nav-link hide-mobile">登录</a>
+        <a href="/zh/pricing/#start-free-trial" class="btn btn-primary btn-sm btn-pill">申请开通</a>
+        <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
-    <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-nav">申请演示 →</a>
-  </div>
-</div>
-</header>
+  </header>
 
-<!-- HERO -->
-<section class="hero">
-<div class="wrap">
-  <h1>非标住宿行业的<br><span class="g1">AI 原生操作系统</span></h1>
-  <p class="hero-sub">客服消息 · 定价 · 派单 · 质检 · 结算。<br><strong>端到端。零人工。</strong></p>
-  <div class="hero-ctas">
-    <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-primary">申请演示 →</a>
-    <a href="#watch-demo" class="btn-ghost">⊙ 观看系统演示</a>
-  </div>
-</div>
-</section>
-
-<!-- TRUST STRIP -->
-<div class="trust">
-<div class="wrap trust-inner">
-  <span class="trust-label">官方连接合作伙伴 ·</span>
-  <div class="trust-logos">
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF5A5F"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      Airbnb
-    </span>
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#003580"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a4 4 0 018 0v2" stroke="#003580" stroke-width="2" fill="none"/></svg>
-      Booking
-    </span>
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#FBCC33"><path d="M3 17l9-14 9 14H3z"/></svg>
-      Expedia
-    </span>
-    <span class="trust-logo">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#1D5C96"><path d="M3 9l9-6 9 6v10a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/></svg>
-      VRBO
-    </span>
-  </div>
-</div>
-</div>
-
-<!-- THE PROBLEM -->
-<section class="section" id="problem">
-<div class="wrap">
-  <div class="kicker">行业痛点</div>
-  <div class="prob-head">
-    <h2>线性运营<span class="g1">封顶增长</span><br>压缩利润率</h2>
-    <p>房源增多就意味着人员增多。响应 SLA、定价灵活性、上线速度和线下派单是持续存在的瓶颈——不透明、纯手工，不烧掉利润就无法规模化。</p>
-  </div>
-  <div class="prob-grid">
-    <div class="prob-card">
-      <div class="prob-icon">💬</div>
-      <h4>客服沟通</h4>
-      <p>每天 200+ 条消息全靠人工处理。平均响应 20 分钟，目标 3 分钟——SLA 达成率 60%。</p>
-      <div class="prob-stat">20 min</div>
-      <div class="prob-stat-l">平均响应时间</div>
-    </div>
-    <div class="prob-card">
-      <div class="prob-icon">📈</div>
-      <h4>定价运营</h4>
-      <p>跨渠道每次定价耗时 2 小时，每天执行两次，覆盖 3–45 天滚动窗口。每天都是分析师的工作量。</p>
-      <div class="prob-stat">2 hrs</div>
-      <div class="prob-stat-l">每次调价</div>
-    </div>
-    <div class="prob-card">
-      <div class="prob-icon">🏠</div>
-      <h4>新房源上线</h4>
-      <p>每套房源约需 7 天上线。跨 4–5 个 OTA 手动填写描述、整理图片、标注 POI。每新增一套都要交增长税。</p>
-      <div class="prob-stat">7 days</div>
-      <div class="prob-stat-l">上线耗时</div>
-    </div>
-    <div class="prob-card">
-      <div class="prob-icon">🔧</div>
-      <h4>线下工作与派单</h4>
-      <p>安排清洁或维修需要 30–60 分钟。质量验收滞后数小时乃至数周。房东不停打电话联系。</p>
-      <div class="prob-stat">60 min</div>
-      <div class="prob-stat-l">派单耗时</div>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- PLATFORM -->
-<section class="section" id="platform" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">VestaOS 平台</div>
-  <div class="platform-head">
-    <h2>一个操作系统。<br><span class="g1">线上</span> + <span class="g2">线下</span>，闭环。</h2>
-    <p>VestaOS 将客服消息、动态定价和现场派单整合成一个自主运营闭环。人工只介入高风险升级情况——其余全部自动运行。</p>
+  <div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="/zh/">首页</a>
+    <a href="/zh/vrm/">VRM</a>
+    <a href="/zh/cleanfy/">Cleanfy</a>
+    <a href="/zh/pricing/#start-free-trial">定价</a>
+    <a href="/zh/about/">关于我们</a>
+    <a href="/zh/pricing/#start-free-trial">登录</a>
   </div>
 
-  <!-- Module 01: C Claw -->
-  <div class="module">
-    <div>
-      <div class="module-meta">MODULE 01 · 客服运营</div>
-      <h3>C Claw <span class="g1">AI 客服运营</span></h3>
-      <p class="module-desc">90% 的询盘端到端处理完毕。自动起草、发送、排优先级。人工只看到高风险升级——品牌安全，SLA 保障。</p>
-      <ul class="module-checks">
-        <li>响应时间从 20 分钟降至 <strong>~1 分钟</strong></li>
-        <li>SLA 完成率 98%（从 60% 提升）</li>
-        <li>24/7 全天候无需房东值守</li>
-      </ul>
-    </div>
-    <div class="mockup">
-      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">客人 · Sunlit Studio</span></div>
-      <div class="mockup-body">
-        <div class="chat-msg guest"><div class="chat-label">Sarah K.</div><div class="bubble">你好！我能在下午 1 点左右提前入住吗？我的飞机中午到。</div></div>
-        <div class="chat-msg bot"><div class="chat-label">C Claw Bot</div><div class="bubble">您好 Sarah！下午 1 点提前入住可以安排，费用 $25。需要添加到您的预订中吗？</div></div>
-        <div class="chat-msg guest" style="margin-top:10px"><div class="chat-label">Sarah K.</div><div class="bubble">好的！另外 WiFi 密码是什么？</div></div>
-        <div class="chat-msg bot"><div class="chat-label">C Claw Bot</div><div class="bubble">已安排！提前入住已确认 ✓ WiFi：VestaGuest · 密码：Sunny2024</div></div>
-        <div class="chat-meta" style="clear:both">
-          <span>自动处理 · 零人工介入</span>
-          <strong>CSAT 5/5</strong>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="t-hero zh-hero-title">面向非标住宿的 AI 原生操作系统</h1>
+        <p class="t-lead lead">住客沟通、动态定价、任务派单、质检验收与结算管理，端到端自动化。</p>
+        <div class="hero-ctas">
+          <a href="/zh/pricing/#start-free-trial" class="btn btn-primary btn-lg btn-pill">申请开通</a>
+          <a href="#products" class="btn btn-ghost btn-lg btn-pill">查看运作方式</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card hero-card-main">
+          <div class="photo"></div>
+          <div class="meta">
+            <div class="meta-row">
+              <h4>温哥华市中心公寓</h4>
+              <span class="rating">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.39 6.94H22l-6 4.37 2.29 7.06L12 16.9 5.7 20.37 8 13.31 2 8.94h7.61z"/></svg>
+                4.96
+              </span>
+            </div>
+            <p class="sub">2 位住客 · 1 间卧室 · 优质房源</p>
+            <p class="price"><strong>$182</strong> <span>/ 晚</span></p>
+          </div>
+        </div>
+
+        <div class="hero-chip hero-chip-1">
+          <span class="icon"><i class="fas fa-comment-dots"></i></span>
+          <div><strong>约 1 分钟回复</strong><em>98% SLA 达成率</em></div>
+        </div>
+        <div class="hero-chip hero-chip-2">
+          <span class="icon"><i class="fas fa-chart-line"></i></span>
+          <div><strong>+20% 收入提升</strong><em>智能动态定价</em></div>
+        </div>
+        <div class="hero-chip hero-chip-3">
+          <span class="icon"><i class="fas fa-check-circle"></i></span>
+          <div><strong>自动派单</strong><em>清洁已验收</em></div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Module 02: Pricing -->
-  <div class="module reverse">
-    <div>
-      <div class="module-meta">MODULE 02 · 收益管理</div>
-      <h3>自主<span class="g1">定价</span></h3>
-      <p class="module-desc">每晚对所有房源重新定价。实时响应需求和活动变化。无需分析师追踪竞品价格——完全替代房东的定价工作。</p>
-      <ul class="module-checks">
-        <li>每晚对所有房源重新定价</li>
-        <li>活动感知需求建模</li>
-        <li>无需分析师的竞品追踪</li>
-      </ul>
-    </div>
-    <div class="mockup">
-      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">VRM · 市中心公寓 LA-0412</span></div>
-      <div class="mockup-body">
-        <div class="price-rows">
-          <div class="price-row"><span class="label">基础价格</span><span class="val">$189</span></div>
-          <div class="price-row"><span class="label">活动需求 <span class="badge">+12%</span></span><span class="val">$212</span></div>
-          <div class="price-row"><span class="label">竞品提升 <span class="badge">+6%</span></span><span class="val">$225</span></div>
-        </div>
-        <div class="price-final">
-          <div class="l"><strong>AI 最终定价</strong><span style="font-size:11px;padding:2px 8px;border-radius:99px;background:rgba(241,140,40,.2);color:var(--orange);margin-left:6px;font-weight:700">AI SET</span></div>
-          <div class="r">$238</div>
-        </div>
-        <div class="price-refresh">5 分钟前更新 · 4 小时后刷新</div>
+  <!-- ===== LOGO STRIP ===== -->
+  <section class="logo-strip">
+    <div class="container">
+      <p class="logo-strip-label">连接全球主流渠道</p>
+      <div class="logo-row">
+        <span>Airbnb</span>
+        <span>Booking</span>
+        <span>Expedia</span>
+        <span>Vrbo</span>
+        <span>Stripe</span>
+        <span>Google</span>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Module 03: Cleanfy -->
-  <div class="module">
-    <div>
-      <div class="module-meta">MODULE 03 · 现场运营</div>
-      <h3>Cleanfy <span class="g1">闭环交付</span></h3>
-      <p class="module-desc">自动派单 → AI 照片质检 → 自动结算。房东无需介入。城市合伙人网络按 SLA 执行。</p>
-      <ul class="module-checks">
-        <li>自动派单给评分最高的合伙人</li>
-        <li>AI 预审 + SOP 合规照片质检</li>
-        <li>自动结算 + 供应商绩效评分</li>
-      </ul>
-    </div>
-    <div class="mockup">
-      <div class="mockup-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span style="margin-left:8px;font-size:12px;color:var(--ink3)">Job #CLN-4821</span></div>
-      <div class="mockup-body">
-        <div class="job-header">
-          <div><h5>Job #CLN-4821</h5><p style="font-size:12px;color:var(--ink3);margin-top:3px">交房 · 两卧 · 市中心</p></div>
-          <span class="job-badge">✓ 已自动派单</span>
-        </div>
-        <div class="job-steps">
-          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>已分配 · 0:07</div>
-          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>已到场 · 13:42</div>
-          <div class="job-step done"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>照片质检通过</div>
-          <div class="job-step active"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="7" r="2" fill="currentColor"/></svg>结算中 · $68 → 合伙人</div>
-        </div>
-        <div class="job-foot">
-          <span>SLA <strong>98%</strong></span>
-          <span>QA 评分 <strong>4.9</strong></span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- ===== PROBLEM / INSIGHT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">行业结构性问题</span>
+        <h2 class="t-h1 mt-4"><span class="one-line-title">运营规模线性增长，利润率却被不断压缩。</span></h2>
 </div>
-</section>
 
-<!-- BEFORE / AFTER -->
-<section class="section" id="results" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">使用前 vs. 使用后</div>
-  <div class="ba-head-text">
-    <h2>每个工作流均有<span class="g1">可量化提升</span></h2>
-    <p>2024 Q4 → 2025 Q4 · 9,030 笔订单已验证</p>
-  </div>
-  <div class="ba-table">
-    <div class="ba-row head">
-      <div>工作流</div><div>使用前</div><div>使用后</div><div class="ba-delta">提升幅度</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">客人响应时间</div>
-      <div class="ba-before">20 min</div>
-      <div class="ba-after">~1 min</div>
-      <div class="ba-delta">↑ 20× faster</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">定价调整周期</div>
-      <div class="ba-before">2 hrs / cycle</div>
-      <div class="ba-after">5 min / cycle</div>
-      <div class="ba-delta">↑ 24× faster</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">SLA 完成率</div>
-      <div class="ba-before">60%</div>
-      <div class="ba-after">98%</div>
-      <div class="ba-delta">↑ +38 pts</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">新房源上线</div>
-      <div class="ba-before">7 days</div>
-      <div class="ba-after">1 day</div>
-      <div class="ba-delta">↑ 7× faster</div>
-    </div>
-    <div class="ba-row">
-      <div class="ba-workflow">AI 处理询盘比例</div>
-      <div class="ba-before">0%</div>
-      <div class="ba-after">90%</div>
-      <div class="ba-delta">↑ +90 pts</div>
-    </div>
-  </div>
-
-  <!-- Case studies -->
-  <div class="case-grid">
-    <div class="case-card">
-      <div class="case-label">案例研究 · 温哥华两居室</div>
-      <div class="case-stats">
-        <div><div class="case-stat-n">+20%</div><div class="case-stat-l">收益</div></div>
-        <div><div class="case-stat-n">−30%</div><div class="case-stat-l">人力成本</div></div>
-        <div><div class="case-stat-n">+22%</div><div class="case-stat-l">满意度</div></div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-comments"></i></div>
+          <h3>被海量消息淹没</h3>
+          <p>随着房源数量增加，跨渠道消息量迅速上升，回复时效开始波动，服务标准难以保持一致，而工作量仍然依赖人力同步增长。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-tags"></i></div>
+          <h3>每天手动调价</h3>
+          <p>多个渠道和预订窗口需要反复手动调价。即使投入大量时间，仍然需要持续人工干预，才能保持价格竞争力。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>线下任务，线下黑箱</h3>
+          <p>任务派单、现场履约与质检验收长期分散在线下流程中。验收滞后、可见性有限，运营链条无法形成真正闭环。</p>
+        </div>
       </div>
     </div>
-    <div class="case-card">
-      <div class="case-label">市场扩张 · 洛杉矶 · 2025 Q1</div>
-      <div class="case-stats">
-        <div><div class="case-stat-n">3.5×</div><div class="case-stat-l">90 天内房源增长</div></div>
-        <div><div class="case-stat-n">76%</div><div class="case-stat-l">峰值入住率（从 50% 起）</div></div>
-        <div><div class="case-stat-n">95%</div><div class="case-stat-l">扩张期间 SLA 维持稳定</div></div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="section section-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">Vesta OS 平台</span>
+        <h2 class="t-h1 mt-4 one-line-title zh-long-title zh-one-line">两个产品模块，一个自主运营闭环。</h2>
+        <p class="t-lead mt-6">VRM 负责线上运营流程，包括住客沟通、动态定价与房源上线；Cleanfy 负责线下真实履约，包括派单、质检与结算。两者连接后，形成完整运营闭环。</p>
+      </div>
+
+      <div class="product-grid">
+        <!-- VRM card -->
+        <article class="product-card">
+          <div class="cover cclaw original-style">
+            <span class="cover-label">线上 · 收入与住客运营</span>
+            <span class="cover-name">VRM</span>
+            <div class="product-preview vrm-preview original-preview">
+              <div class="mini-panel pricing-panel">
+                <div class="mini-title">市中心公寓 · LA-0412 <span class="mini-badge">AI 设置</span></div>
+                <div class="mini-row"><span>基础价格</span><strong>$189</strong></div>
+                <div class="mini-row"><span>活动需求 <em class="uplift">+12%</em></span><strong>$212</strong></div>
+                <div class="mini-row final"><span>AI 最终价格</span><strong>$238</strong></div>
+              </div>
+              <div class="mini-panel chat-panel">
+                <div class="mini-title">我可以下午 1 点入住吗？</div>
+                <div class="chat-bubble reply">你好！下午 1 点提前入住费用为 25 美元，已为你确认 ✓</div>
+                <div class="mini-foot"><span class="green-dot"></span>自动回复 · 无需人工介入</div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>智能动态定价与 AI 住客运营，全天候运行，无需增加人手。</h3>
+            <p>系统每晚自动为房源重新定价，端到端处理大部分住客咨询，让收入优化与回复质量同步提升。</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> 基于需求、活动与预订窗口进行动态定价</li>
+              <li><i class="fas fa-check-circle"></i> 基于 SLA 的自动化流程，实现即时住客回复</li>
+              <li><i class="fas fa-check-circle"></i> 仅在必要时升级给人工处理</li>
+            </ul>
+            <div class="card-cta">
+              <a href="/zh/vrm/" class="btn btn-dark btn-pill">了解 VRM <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cleanfy card -->
+        <article class="product-card">
+          <div class="cover cleanfy original-style">
+            <span class="cover-label">线下 · 履约执行</span>
+            <span class="cover-name">Cleanfy</span>
+            <div class="product-preview cleanfy-preview original-preview">
+              <div class="mini-panel ops-panel">
+                <div class="mini-title">任务 #CLN-4821 <span class="mini-badge green">自动派单</span></div>
+                <div class="mini-subtitle">退房清洁 · 两居室 · 市中心</div>
+                <div class="status-line done">已分配 · 0:07</div>
+                <div class="status-line done">已到现场 · 13:42</div>
+                <div class="status-line done">照片质检已通过</div>
+                <div class="status-line warn">结算中 · $68 → 合作方</div>
+                <div class="mini-foot split"><span>SLA 98%</span><span>质检评分 4.9</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>派单、验收与结算，在一个闭环中完成。</h3>
+            <p>Cleanfy 将现场运营转化为可管理的标准流程，通过实时服务方协同、质检节点和基于验收结果的结算机制，确保线下履约可追踪、可验证。</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> 在正确时间自动派单给合适的服务方</li>
+              <li><i class="fas fa-check-circle"></i> 付款释放前进行基于照片的质检验收</li>
+              <li><i class="fas fa-check-circle"></i> 从任务分配到结算完成，全流程可见</li>
+            </ul>
+            <div class="card-cta">
+              <a href="/zh/cleanfy/" class="btn btn-dark btn-pill">了解 Cleanfy <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
 
-<!-- WHY WE WIN -->
-<section class="section" id="why" style="padding-top:0">
-<div class="wrap">
-  <div class="kicker">竞争优势</div>
-  <div class="why-head">
-    <h2>为什么我们能赢：<span class="g1">数据护城河 +<br>运营商基因</span></h2>
-  </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">🗄</div>
-      <h4>专有数据与运营专长</h4>
-      <p>来自真实运营的 1000 万+ 历史数据点。基于我们经过验证的 SOP、升级和异常处理逻辑构建。</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">∞</div>
-      <h4>一体化操作系统</h4>
-      <p>将线上（C Claw）和线下（Cleanfy）运营整合成单一连续闭环——平台级学习，即时反馈。</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🛡</div>
-      <h4>可靠性与可控性</h4>
-      <p>严格的 SLA 政策、品牌安全防护，以及灵活的人工介入选项，确保质量一致并降低风险。</p>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🔄</div>
-      <h4>复利飞轮</h4>
-      <p>更多客户 → 更丰富数据 → 更好模型 → 更高利润率。网络每季度都在变得更有价值。</p>
-    </div>
-  </div>
-</div>
-</section>
+  <!-- ===== BEFORE / AFTER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">可量化的运营提升</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">节省的时间，就是释放出的利润。</h2>
+        <p class="t-lead mt-6">同样的房源组合、同样的团队规模，在 AI 原生化之后，运营经济模型发生根本变化。</p>
+      </div>
 
-<!-- CTA / GET STARTED -->
-<section class="section" id="watch-demo" style="padding-top:0">
-<div class="wrap">
-  <div class="cta-box">
-    <div class="cta-left">
-      <div class="kicker" style="margin-bottom:18px">立即开始</div>
-      <h2>让每套房源成为<span class="g1">自主盈亏单元。</span></h2>
-      <p>在您的真实房源上体验 VestaOS。30 分钟工作会议，不放 PPT——我们将接入示例房源，实时演示 C Claw、定价和 Cleanfy。</p>
-      <div class="cta-btns">
-        <a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener" class="btn-primary">申请演示 →</a>
+      <div class="compare-table">
+        <div class="compare-row">
+          <div class="head">工作流</div>
+          <div class="head">之前</div>
+          <div class="head">之后</div>
+          <div class="head" style="text-align:right;">提升</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">住客回复时间</div>
+          <div class="before">平均 20 分钟</div>
+          <div class="after">约 1 分钟</div>
+          <div class="delta">快 20 倍</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">价格调整</div>
+          <div class="before">每轮 2 小时</div>
+          <div class="after">每轮 5 分钟</div>
+          <div class="delta">快 24 倍</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">SLA 达成率</div>
+          <div class="before">60%</div>
+          <div class="after">98%</div>
+          <div class="delta">提升 38 个百分点</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">新房源上线</div>
+          <div class="before">7 天</div>
+          <div class="after">1 天</div>
+          <div class="delta">快 7 倍</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">由 AI 处理的住客咨询</div>
+          <div class="before">0%</div>
+          <div class="after">90%</div>
+          <div class="delta">提升 90 个百分点</div>
+        </div>
       </div>
     </div>
-    <div class="cta-form" id="demoFormWrap">
-      <label>工作邮箱</label>
-      <input type="email" id="f-email" placeholder="you@company.com" autocomplete="email">
-      <div class="form-row">
+  </section>
+<!-- ===== WHY WE WIN ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">为什么选择 Vesta OS</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">基于真实运营沉淀出来的数据壁垒。</h2>
+        <p class="t-lead mt-6">我们不是站在行业外研究住宿运营的 SaaS 厂商。我们来自真实运营现场，并将千万级真实升级案例、SOP 与异常路径沉淀为训练数据。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-dna"></i></div>
+          <h3>运营基因</h3>
+          <p>每一个工作流都来自我们真实跑过的流程；每一个边界情况，都是我们曾经解决过并训练进模型的运营经验。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-infinity"></i></div>
+          <h3>闭环学习</h3>
+          <p>线上与线下在同一平台中运行，因此每一次派单、照片验收和住客回复，都会反哺下一次回复、派单与定价决策。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-shield-halved"></i></div>
+          <h3>默认保留人工监督</h3>
+          <p>品牌安全边界、SLA 策略与可选人工审核机制，让运营商可以自主选择信任等级：从全量审核到完全自动化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
         <div>
-          <label>房源规模</label>
-          <select id="f-size">
-            <option value="" disabled selected>Select…</option>
-            <option>1–10 套</option><option>11–50 套</option>
-            <option>51–200 套</option><option>200+ 套</option>
-          </select>
+          <h2 class="t-h2">准备停止用增加人力来支撑增长了吗？</h2>
+          <p>前 20 套房源可免费试用 30 天。无需复杂迁移，我们会协助你完成上线。</p>
+        </div>
+        <div class="btns">
+          <a href="/zh/pricing/#start-free-trial" class="btn btn-primary btn-lg btn-pill">申请开通</a>
+          <a href="/zh/about/" class="btn btn-ghost btn-lg btn-pill">准备在不增加运营负担的情况下扩大规模？</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>产品</h5>
+          <ul>
+            <li><a href="/zh/vrm/">VRM</a></li>
+            <li><a href="/zh/cleanfy/">Cleanfy</a></li>
+            <li><a href="/zh/pricing/#start-free-trial">定价</a></li>
+            <li><a href="vrm.html#workflow">运作方式</a></li>
+          </ul>
         </div>
         <div>
-          <label>城市 / 地区</label>
-          <input type="text" id="f-city" placeholder="如：温哥华、北京">
+          <h5>公司</h5>
+          <ul>
+            <li><a href="/zh/about/">关于我们</a></li>
+            <li><a href="about.html#team">团队</a></li>
+            <li><a href="about.html#story">我们的故事</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>资源</h5>
+          <ul>
+            <li><a href="#">帮助中心</a></li>
+            <li><a href="#">运营指南</a></li>
+            <li><a href="#">API 与集成</a></li>
+            <li><a href="#">安全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>法律</h5>
+          <ul>
+            <li><a href="#">服务条款</a></li>
+            <li><a href="#">隐私政策</a></li>
+            <li><a href="#">可接受使用政策</a></li>
+            <li><a href="#">数据处理</a></li>
+          </ul>
         </div>
       </div>
-      <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">申请演示</button>
-      <div class="form-fine">提交即表示您同意我们的<a href="/zh/terms/" style="color:var(--ink3)">服务条款</a>。</div>
-      <div class="form-success" id="formSuccess">
-        <h4>申请成功 ✓</h4>
-        <p>我们将在一个工作日内联系您安排现场演示。</p>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> Vesta OS 版权所有。</span>
+        <div class="social" aria-label="Social links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-<div class="wrap">
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <a class="brand" href="/zh/" style="text-decoration:none">
-        <svg width="34" height="21" viewBox="0 0 48 30" fill="none" aria-hidden="true">
-      <path d="M10 15 C10 8,18 4,24 8 C30 4,38 8,38 15 C38 22,30 26,24 22 C18 26,10 22,10 15Z" stroke="url(#fgs)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="24" cy="15" r="3.5" fill="url(#fgo)"/>
-      <defs>
-        <linearGradient id="fgs" x1="10" y1="15" x2="38" y2="15" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#540E57"/>
-          <stop offset="50%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#7C2A67"/>
-        </linearGradient>
-        <linearGradient id="fgo" x1="20" y1="11" x2="28" y2="19" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#F4AD46"/>
-          <stop offset="100%" stop-color="#F18C28"/>
-        </linearGradient>
-      </defs>
-    </svg>
-        <span class="brand-name" style="font-size:16px;letter-spacing:.05em">VESTA <span>OS</span></span>
-      </a>
-      <p>非标住宿行业的 AI 原生操作系统。客服 · 定价 · 派单 · 质检 · 结算。</p>
-    </div>
-    <div class="foot-col">
-      <h5>产品</h5>
-      <ul>
-        <li><a href="#platform">C Claw</a></li>
-        <li><a href="#platform">自主定价</a></li>
-        <li><a href="#platform">Cleanfy</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h5>公司</h5>
-      <ul>
-        <li><a href="/zh/about/">关于我们</a></li>
-        <li><a href="https://calendly.com/jacky-sun-cozystay/30min" target="_blank" rel="noopener">申请演示</a></li>
-        <li><a href="mailto:contact@vestaos.ai">联系我们</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h5>法律</h5>
-      <ul>
-        <li><a href="/zh/privacy/">隐私政策</a></li>
-        <li><a href="/zh/terms/">服务条款</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <span class="foot-copy">© 2026 VestaOS · Cozy Holdings Corp. · 加拿大卑诗省列治文市</span>
-    <div class="foot-right">
-      <span>Airbnb &amp; Booking.com 官方连接合作伙伴</span>
-      <div class="lang-sw"><a href="/zh/">EN</a><span class="sep">|</span><a href="/zh/" class="on">中</a></div>
-    </div>
-  </div>
-</div>
-</footer>
-
-<script>
-var FORM_ACTION = "";
-var ENTRY_IDS = { email:"", size:"", city:"" };
-
-function handleSubmit(){
-  var email = document.getElementById('f-email').value.trim();
-  var size  = document.getElementById('f-size').value;
-  var city  = document.getElementById('f-city').value.trim();
-  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    alert('请输入有效的工作邮箱。');return;
-  }
-  document.getElementById('submitBtn').disabled = true;
-  document.getElementById('submitBtn').textContent = '发送中…';
-  if(FORM_ACTION && ENTRY_IDS.email){
-    var fd = new FormData();
-    fd.append(ENTRY_IDS.email, email);
-    if(ENTRY_IDS.size) fd.append(ENTRY_IDS.size, size);
-    if(ENTRY_IDS.city) fd.append(ENTRY_IDS.city, city);
-    fetch(FORM_ACTION,{method:'POST',mode:'no-cors',body:fd}).catch(function(){});
-  }
-  try{localStorage.setItem('vestaos_demo_unlocked','1');localStorage.setItem('vestaos_lead',JSON.stringify({email:email,size:size,city:city,ts:new Date().toISOString()}));}catch(e){}
-  setTimeout(function(){
-    document.getElementById('formSuccess').style.display='block';
-    document.getElementById('submitBtn').style.display='none';
-    document.querySelector('.form-fine').style.display='none';
-  },400);
-}
-</script>
+  <script src="/en/js/main.js"></script>
 </body>
 </html>
