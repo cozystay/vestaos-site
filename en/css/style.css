@@ -3747,3 +3747,45 @@ footer,
     min-width: 0 !important;
   }
 }
+
+/* Chinese mobile typography correction */
+@media (max-width: 768px) {
+  html[lang^="zh"] .t-hero,
+  html[lang^="zh"] .zh-hero-title {
+    font-size: clamp(40px, 10.5vw, 48px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.02em !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+  }
+
+  html[lang^="zh"] .t-h1,
+  html[lang^="zh"] .t-h2,
+  html[lang^="zh"] .zh-long-title,
+  html[lang^="zh"] .zh-one-line,
+  html[lang^="zh"] h1,
+  html[lang^="zh"] h2 {
+    font-size: clamp(30px, 8vw, 40px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -0.018em !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+  }
+
+  html[lang^="zh"] .t-lead,
+  html[lang^="zh"] .lead,
+  html[lang^="zh"] p {
+    font-size: 16px !important;
+    line-height: 1.72 !important;
+    letter-spacing: 0 !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  html[lang^="zh"] .one-line-title,
+  html[lang^="zh"] .zh-one-line {
+    white-space: normal !important;
+  }
+}
