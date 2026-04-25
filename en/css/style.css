@@ -3807,3 +3807,21 @@ footer,
   color: #ff0000;
   opacity: 0.85;
 }
+
+.social a.social-xhs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon-img {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  object-fit: cover;
+  display: block;
+}
+
+.social a.social-xhs:hover .social-icon-img {
+  opacity: 0.85;
+}
