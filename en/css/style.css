@@ -3566,3 +3566,184 @@ footer,
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Strong mobile overflow fixes for homepage hero and channel blocks */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  body {
+    position: relative;
+  }
+
+  .hero,
+  .hero-grid,
+  .hero-inner,
+  .hero-content,
+  .hero-copy,
+  .hero-visual,
+  .section,
+  .section-inner,
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .hero-grid,
+  .hero-inner {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero h1,
+  .hero-title,
+  .t-h1,
+  h1 {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+    font-size: clamp(42px, 13vw, 64px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .hero h1 span,
+  .hero-title span,
+  .t-h1 span,
+  h1 span {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .hero p,
+  .hero .lead,
+  .hero-subtitle,
+  .t-lead {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .hero-actions,
+  .cta-row,
+  .button-row,
+  .actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .hero-actions a,
+  .cta-row a,
+  .button-row a,
+  .actions a,
+  .btn {
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+
+  .hero-visual {
+    margin-top: 28px !important;
+    transform: none !important;
+  }
+
+  .hero-visual > *,
+  .hero-card,
+  .dashboard-card,
+  .phone-card,
+  .floating-card,
+  .mockup,
+  .mockup-card {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .channel-grid,
+  .partner-grid,
+  .logo-grid,
+  .integration-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 16px !important;
+  }
+
+  .channel-card,
+  .partner-card,
+  .logo-card,
+  .integration-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Mobile hero typography correction */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 44px !important;
+  }
+
+  .hero h1,
+  .hero-title,
+  .t-h1,
+  h1 {
+    font-size: clamp(38px, 10vw, 44px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.045em !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .hero h1 span,
+  .hero-title span,
+  .t-h1 span,
+  h1 span {
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .hero p,
+  .hero .lead,
+  .hero-subtitle,
+  .t-lead {
+    max-width: 100% !important;
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+
+  .hero-actions,
+  .cta-row,
+  .button-row,
+  .actions {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-actions .btn,
+  .cta-row .btn,
+  .button-row .btn,
+  .actions .btn,
+  .btn {
+    width: auto !important;
+    min-width: 0 !important;
+  }
+}
