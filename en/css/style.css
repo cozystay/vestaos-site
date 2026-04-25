@@ -3789,3 +3789,21 @@ footer,
     white-space: normal !important;
   }
 }
+
+.social a.social-xhs {
+  color: #ff2442;
+}
+
+.social a.social-xhs:hover {
+  color: #ff2442;
+  opacity: 0.85;
+}
+
+.social a.social-youtube {
+  color: #ff0000;
+}
+
+.social a.social-youtube:hover {
+  color: #ff0000;
+  opacity: 0.85;
+}
