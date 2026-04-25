@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vesta OS · 面向非標住宿的 AI 原生操作系統</title>
+  <meta name="description" content="Vesta OS 是面向短租、民宿、服務式公寓與非標住宿運營商的 AI 原生操作系統，將住客溝通、動態定價、任務派單、質檢驗收與結算管理統一到一個端到端的智能運營平臺。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>" />
+</head>
+<body>
+<!-- May Madness campaign bar -->
+<div class="may-madness-bar">
+  <strong>May Madness：</strong>
+  5 月 31 日前簽約，即可享 <span>Airbnb AI Inbox Autopilot 終身免費</span>。
+  <a href="/zh-tw/pricing/#may-madness">查看優惠 →</a>
+</div>
+<!-- /May Madness campaign bar -->
+
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/zh-tw/" class="nav-logo" aria-label="VestaOS home">
+        <img class="nav-logo-img" src="/en/assets/vesta-logo.png" alt="Vesta OS" />
+      </a>
+      <nav class="nav-center" aria-label="Main">
+        <a href="/zh-tw/" class="nav-link active">首頁</a>
+        <a href="/zh-tw/vrm/" class="nav-link">VRM</a>
+        <a href="/zh-tw/cleanfy/" class="nav-link">Cleanfy</a>
+        <a href="/zh-tw/pricing/#start-free-trial" class="nav-link">定價</a>
+        <a href="/zh-tw/about/" class="nav-link">關於我們</a>
+      </nav>
+      <div class="nav-right">
+        <div class="language-dropdown">
+          <button class="language-toggle" type="button" aria-label="Select language">
+            Language <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="language-menu">
+            <a href="/en/">English</a>
+            <a href="/zh-tw/">簡體中文</a>
+            <a href="/zh-tw/">繁體中文</a>
+            <a href="/es/">Español</a>
+          </div>
+        </div>
+        <a href="/zh-tw/login/" class="nav-link hide-mobile">登錄</a>
+        <a href="/zh-tw/pricing/#start-free-trial" class="btn btn-primary btn-sm btn-pill">申請開通</a>
+        <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="/zh-tw/">首頁</a>
+    <a href="/zh-tw/vrm/">VRM</a>
+    <a href="/zh-tw/cleanfy/">Cleanfy</a>
+    <a href="/zh-tw/pricing/#start-free-trial">定價</a>
+    <a href="/zh-tw/about/">關於我們</a>
+    <a href="/zh-tw/pricing/#start-free-trial">登錄</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="t-hero zh-hero-title">面向非標住宿的 <span class="hero-orange-hit">AI 原生操作系統</span></h1>
+        <p class="t-lead lead">住客溝通、動態定價、任務派單、質檢驗收與結算管理，端到端自動化。</p>
+        <div class="hero-ctas">
+          <a href="/zh-tw/pricing/#start-free-trial" class="btn btn-primary btn-lg btn-pill">申請開通</a>
+          <a href="#products" class="btn btn-ghost btn-lg btn-pill">查看運作方式</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card hero-card-main">
+          <div class="photo"></div>
+          <div class="meta">
+            <div class="meta-row">
+              <h4>溫哥華市中心公寓</h4>
+              <span class="rating">
+                <svg viewBox="0 0 24 24"><path d="M12 2l2.39 6.94H22l-6 4.37 2.29 7.06L12 16.9 5.7 20.37 8 13.31 2 8.94h7.61z"/></svg>
+                4.96
+              </span>
+            </div>
+            <p class="sub">2 位住客 · 1 間臥室 · 優質房源</p>
+            <p class="price"><strong>$182</strong> <span>/ 晚</span></p>
+          </div>
+        </div>
+
+        <div class="hero-chip hero-chip-1">
+          <span class="icon"><i class="fas fa-comment-dots"></i></span>
+          <div><strong>約 1 分鐘回覆</strong><em>98% SLA 達成率</em></div>
+        </div>
+        <div class="hero-chip hero-chip-2">
+          <span class="icon"><i class="fas fa-chart-line"></i></span>
+          <div><strong>+20% 收入提升</strong><em>智能動態定價</em></div>
+        </div>
+        <div class="hero-chip hero-chip-3">
+          <span class="icon"><i class="fas fa-check-circle"></i></span>
+          <div><strong>自動派單</strong><em>清潔已驗收</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOGO STRIP ===== -->
+  <section class="logo-strip">
+    <div class="container">
+      <div class="channel-logo-wall">
+  <div class="channel-logo-eyebrow">連接全球主流渠道</div>
+  <div class="channel-logo-grid">
+    <div class="channel-logo-card airbnb-official">
+      <span class="channel-logo-name">Airbnb</span>
+      <span class="channel-logo-sub">已簽約合作伙伴</span>
+    </div>
+    <div class="channel-logo-card booking official-partner">
+      <span class="channel-logo-name">Booking.com</span>
+      <span class="channel-logo-sub">已簽約合作伙伴</span>
+    </div>
+    <div class="channel-logo-card expedia">Expedia</div>
+    <div class="channel-logo-card vrbo">Vrbo</div>
+    <div class="channel-logo-card stripe">Stripe</div>
+    <div class="channel-logo-card google">Google</div>
+    <div class="channel-logo-card ctrip official-partner">
+      <span class="channel-logo-name">攜程</span>
+      <span class="channel-logo-sub">已簽約合作伙伴</span>
+    </div>
+  </div>
+</div>
+</section>
+
+  <!-- ===== PROBLEM / INSIGHT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">行業結構性問題</span>
+        <h2 class="t-h1 mt-4"><span class="one-line-title">運營規模線性增長，利潤率卻被不斷壓縮</span></h2>
+</div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-comments"></i></div>
+          <h3>被海量消息淹沒</h3>
+          <p>隨着房源數量增加，跨渠道消息量迅速上升，回覆時效開始波動，服務標準難以保持一致，而工作量仍然依賴人力同步增長。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-tags"></i></div>
+          <h3>每天手動調價</h3>
+          <p>多個渠道和預訂窗口需要反覆手動調價。即使投入大量時間，仍然需要持續人工干預，才能保持價格競爭力。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>線下任務，線下黑箱</h3>
+          <p>任務派單、現場履約與質檢驗收長期分散在線下流程中。驗收滯後、可見性有限，運營鏈條無法形成真正閉環。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section id="products" class="section section-soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">Vesta OS 平臺</span>
+        <h2 class="t-h1 mt-4 one-line-title zh-long-title zh-one-line">兩個產品模塊，一個自主運營閉環</h2>
+        <p class="t-lead mt-6">VRM 負責線上運營流程，包括住客溝通、動態定價與房源上線；Cleanfy 負責線下真實履約，包括派單、質檢與結算。兩者連接後，形成完整運營閉環。</p>
+      </div>
+
+      <div class="product-grid">
+        <!-- VRM card -->
+        <article class="product-card">
+          <div class="cover cclaw original-style">
+            <span class="cover-label">線上 · 收入與住客運營</span>
+            <span class="cover-name">VRM</span>
+            <div class="product-preview vrm-preview original-preview">
+              <div class="mini-panel pricing-panel">
+                <div class="mini-title">市中心公寓 · LA-0412 <span class="mini-badge">AI 設置</span></div>
+                <div class="mini-row"><span>基礎價格</span><strong>$189</strong></div>
+                <div class="mini-row"><span>活動需求 <em class="uplift">+12%</em></span><strong>$212</strong></div>
+                <div class="mini-row final"><span>AI 最終價格</span><strong>$238</strong></div>
+              </div>
+              <div class="mini-panel chat-panel">
+                <div class="mini-title">我可以下午 1 點入住嗎？</div>
+                <div class="chat-bubble reply">你好！下午 1 點提前入住費用爲 25 美元，已爲你確認 ✓</div>
+                <div class="mini-foot"><span class="green-dot"></span>自動回覆 · 無需人工介入</div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>智能動態定價與 AI 住客運營，全天候運行，無需增加人手</h3>
+            <p>系統每晚自動爲房源重新定價，端到端處理大部分住客諮詢，讓收入優化與回覆質量同步提升。</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> 基於需求、活動與預訂窗口進行動態定價</li>
+              <li><i class="fas fa-check-circle"></i> 基於 SLA 的自動化流程，實現即時住客回覆</li>
+              <li><i class="fas fa-check-circle"></i> 僅在必要時升級給人工處理</li>
+            </ul>
+            <div class="card-cta">
+              <a href="/zh-tw/vrm/" class="btn btn-dark btn-pill">瞭解 VRM <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cleanfy card -->
+        <article class="product-card">
+          <div class="cover cleanfy original-style">
+            <span class="cover-label">線下 · 履約執行</span>
+            <span class="cover-name">Cleanfy</span>
+            <div class="product-preview cleanfy-preview original-preview">
+              <div class="mini-panel ops-panel">
+                <div class="mini-title">任務 #CLN-4821 <span class="mini-badge green">自動派單</span></div>
+                <div class="mini-subtitle">退房清潔 · 兩居室 · 市中心</div>
+                <div class="status-line done">已分配 · 0:07</div>
+                <div class="status-line done">已到現場 · 13:42</div>
+                <div class="status-line done">照片質檢已通過</div>
+                <div class="status-line warn">結算中 · $68 → 合作方</div>
+                <div class="mini-foot split"><span>SLA 98%</span><span>質檢評分 4.9</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>派單、驗收與結算，在一個閉環中完成</h3>
+            <p>Cleanfy 將現場運營轉化爲可管理的標準流程，通過實時服務方協同、質檢節點和基於驗收結果的結算機制，確保線下履約可追蹤、可驗證。</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> 在正確時間自動派單給合適的服務方</li>
+              <li><i class="fas fa-check-circle"></i> 付款釋放前進行基於照片的質檢驗收</li>
+              <li><i class="fas fa-check-circle"></i> 從任務分配到結算完成，全流程可見</li>
+            </ul>
+            <div class="card-cta">
+              <a href="/zh-tw/cleanfy/" class="btn btn-dark btn-pill">瞭解 Cleanfy <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEFORE / AFTER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="t-eyebrow">可量化的運營提升</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">節省的時間，就是釋放出的利潤</h2>
+        <p class="t-lead mt-6">同樣的房源組合、同樣的團隊規模，在 AI 原生化之後，運營經濟模型發生根本變化。</p>
+      </div>
+
+      <div class="compare-table">
+        <div class="compare-row">
+          <div class="head">工作流</div>
+          <div class="head">之前</div>
+          <div class="head">之後</div>
+          <div class="head" style="text-align:right;">提升</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">住客回覆時間</div>
+          <div class="before">平均 20 分鐘</div>
+          <div class="after">約 1 分鐘</div>
+          <div class="delta">快 20 倍</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">價格調整</div>
+          <div class="before">每輪 2 小時</div>
+          <div class="after">每輪 5 分鐘</div>
+          <div class="delta">快 24 倍</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">SLA 達成率</div>
+          <div class="before">60%</div>
+          <div class="after">98%</div>
+          <div class="delta">提升 38 個百分點</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">新房源上線</div>
+          <div class="before">7 天</div>
+          <div class="after">1 天</div>
+          <div class="delta">快 7 倍</div>
+        </div>
+        <div class="compare-row">
+          <div class="metric">由 AI 處理的住客諮詢</div>
+          <div class="before">0%</div>
+          <div class="after">90%</div>
+          <div class="delta">提升 90 個百分點</div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- ===== WHY WE WIN ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">爲什麼選擇 Vesta OS</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">基於真實運營沉澱出來的數據壁壘</h2>
+        <p class="t-lead mt-6">我們不是站在行業外研究住宿運營的 SaaS 廠商。我們來自真實運營現場，並將千萬級真實升級案例、SOP 與異常路徑沉澱爲訓練數據。</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-dna"></i></div>
+          <h3>運營基因</h3>
+          <p>每一個工作流都來自我們真實跑過的流程；每一個邊界情況，都是我們曾經解決過並訓練進模型的運營經驗。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-infinity"></i></div>
+          <h3>閉環學習</h3>
+          <p>線上與線下在同一平臺中運行，因此每一次派單、照片驗收和住客回覆，都會反哺下一次回覆、派單與定價決策。</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box"><i class="fas fa-shield-halved"></i></div>
+          <h3>默認保留人工監督</h3>
+          <p>品牌安全邊界、SLA 策略與可選人工審覈機制，讓運營商可以自主選擇信任等級：從全量審覈到完全自動化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2 class="t-h2">準備停止用增加人力來支撐增長了嗎？</h2>
+          <p>前 20 套房源可免費試用 30 天。無需複雜遷移，我們會協助你完成上線。</p>
+        </div>
+        <div class="btns">
+          <a href="/zh-tw/pricing/#start-free-trial" class="btn btn-primary btn-lg btn-pill">申請開通</a>
+          <a href="/zh-tw/about/" class="btn btn-ghost btn-lg btn-pill">準備在不增加運營負擔的情況下擴大規模？</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>產品</h5>
+          <ul>
+            <li><a href="/zh-tw/vrm/">VRM</a></li>
+            <li><a href="/zh-tw/cleanfy/">Cleanfy</a></li>
+            <li><a href="/zh-tw/pricing/#start-free-trial">定價</a></li>
+            <li><a href="/zh-tw/how-it-works/">運作方式</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>公司</h5>
+          <ul>
+            <li><a href="/zh-tw/about/">關於我們</a></li>
+            <li><a href="/zh-tw/team/">團隊</a></li>
+            <li><a href="about.html#story">我們的故事</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>資源</h5>
+          <ul>
+            <li><a href="/zh-tw/resources/help-center/">幫助中心</a></li>
+            <li><a href="/zh-tw/resources/operator-guides/">運營指南</a></li>
+            <li><a href="/zh-tw/resources/api-integrations/">API 與集成</a></li>
+            <li><a href="/zh-tw/resources/security/">安全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>法律</h5>
+          <ul>
+            <li><a href="/zh-tw/legal/terms/">服務條款</a></li>
+            <li><a href="/zh-tw/legal/privacy/">隱私政策</a></li>
+            <li><a href="/zh-tw/legal/acceptable-use/">可接受使用政策</a></li>
+            <li><a href="/zh-tw/legal/data-processing/">數據處理</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> 驛家科技集團 版權所有。</span>
+        <div class="social" aria-label="Social links">
+          <a href="https://www.facebook.com/cozystayofficial" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/9365027/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/cozystay.official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="/en/assets/wechat-official-qr.png" target="_blank" rel="noopener" class="social-wechat" aria-label="微信公衆號"><i class="fab fa-weixin"></i></a>
+          <a href="/en/assets/wecom-qr.png" target="_blank" rel="noopener" class="social-wecom" aria-label="企業微信"><i class="fas fa-comments"></i></a>
+          <a href="https://xhslink.com/m/1TwOsV44wya" target="_blank" rel="noopener" class="social-xhs" aria-label="小紅書"><img src="/en/assets/xiaohongshu-logo.png" alt="" class="social-icon-img"></a>
+          <a href="https://www.youtube.com/@cozystay8706" target="_blank" rel="noopener" class="social-youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
+</body>
+</html>

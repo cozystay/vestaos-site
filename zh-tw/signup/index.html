@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>申請開通 · Vesta OS</title>
+  <link rel="stylesheet" href="/en/css/style.css" />
+</head>
+<body>
+<!-- May Madness campaign bar -->
+<div class="may-madness-bar">
+  <strong>May Madness：</strong>
+  5 月 31 日前簽約，即可享 <span>Airbnb AI Inbox Autopilot 終身免費</span>。
+  <a href="/zh-tw/pricing/#may-madness">查看優惠 →</a>
+</div>
+<!-- /May Madness campaign bar -->
+
+  <main class="auth-page">
+    <section class="auth-card auth-card-wide">
+      <a class="auth-brand" href="/zh-tw/">VESTA OS</a>
+
+      <h1>申請開通 Vesta OS</h1>
+      <p class="auth-subtitle">留下你的運營信息，我們會爲你的團隊準備合適的 Vesta OS 工作臺。</p>
+
+      <form id="signupForm" class="auth-form">
+        <input type="hidden" id="campaign" name="campaign" value="may-madness" />
+        <label for="fullName">姓名</label>
+        <input id="fullName" name="fullName" type="text" required />
+
+        <label for="email">工作郵箱</label>
+        <input id="email" name="email" type="email" placeholder="you@company.com" required />
+
+        <label for="company">公司名稱</label>
+        <input id="company" name="company" type="text" required />
+
+        <label for="properties">管理房源數量</label>
+        <select id="properties" name="properties" required>
+          <option value="">請選擇</option>
+          <option value="1-10">1–10</option>
+          <option value="11-25">11–25</option>
+          <option value="26-50">26–50</option>
+          <option value="51-100">51–100</option>
+          <option value="100+">100+</option>
+        </select>
+
+        <label for="city">主要運營城市</label>
+        <input id="city" name="city" type="text" />
+
+        <label for="need">當前主要需求</label>
+        <textarea id="need" name="need" rows="4" placeholder="例如：住客溝通、動態定價、清潔派單、質檢、結算等"></textarea>
+
+        <p id="signupSuccess" class="auth-success" style="display:none;">申請已收到，我們會盡快聯繫你。</p>
+        <p id="signupError" class="auth-error" style="display:none;">提交失敗，請稍後重試。</p>
+
+        <button id="signupSubmit" type="submit" class="auth-primary-btn">申請開通</button>
+      </form>
+
+      <p class="auth-switch">
+        已有賬號？
+        <a href="/zh-tw/login/">登錄</a>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const SIGNUP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzBefmSNTz0oyBdgIIqMYqqbbtiwwTw5Wgak4vY0sKPB4E08y_EBGeHvjaIbFflJ5U0/exec";
+
+    const form = document.getElementById("signupForm");
+    const submitButton = document.getElementById("signupSubmit");
+    const success = document.getElementById("signupSuccess");
+    const error = document.getElementById("signupError");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const payload = {
+        language: "zh",
+        fullName: document.getElementById("fullName").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        company: document.getElementById("company").value.trim(),
+        properties: document.getElementById("properties").value,
+        city: document.getElementById("city").value.trim(),
+        need: document.getElementById("need").value.trim(),
+        source: window.location.pathname,
+        campaign: "may-madness"
+      };
+
+      if (!payload.fullName || !payload.email || !payload.company || !payload.properties) {
+        error.textContent = "請填寫姓名、工作郵箱、公司名稱和管理房源數量。";
+        error.style.display = "block";
+        success.style.display = "none";
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "提交中...";
+
+      try {
+        await fetch(SIGNUP_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        success.style.display = "block";
+        error.style.display = "none";
+
+        setTimeout(() => {
+          window.location.href = "/zh/dashboard/";
+        }, 1200);
+
+      } catch (err) {
+        error.style.display = "block";
+        success.style.display = "none";
+        submitButton.disabled = false;
+        submitButton.textContent = "申請開通";
+      }
+    });
+  </script>
+</body>
+</html>

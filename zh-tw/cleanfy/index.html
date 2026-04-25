@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleanfy · 閉環線下履約 · Vesta OS</title>
+  <meta name="description" content="Cleanfy auto-dispatches cleaning, maintenance and errands, gates work behind AI photo 質檢驗收, and settles invoices — hands-off." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="/en/css/style.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧹</text></svg>" />
+</head>
+<body>
+<!-- May Madness campaign bar -->
+<div class="may-madness-bar">
+  <strong>May Madness：</strong>
+  5 月 31 日前簽約，即可享 <span>Airbnb AI Inbox Autopilot 終身免費</span>。
+  <a href="/zh-tw/pricing/#may-madness">查看優惠 →</a>
+</div>
+<!-- /May Madness campaign bar -->
+
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/zh-tw/" class="nav-logo" aria-label="VestaOS home">
+        <img class="nav-logo-img" src="/en/assets/vesta-logo.png" alt="Vesta OS" />
+      </a>
+      <nav class="nav-center" aria-label="Main">
+        <a href="/zh-tw/" class="nav-link">首頁</a>
+        <a href="/zh-tw/vrm/" class="nav-link">VRM</a>
+        <a href="/zh-tw/cleanfy/" class="nav-link active">Cleanfy</a>
+        <a href="/zh-tw/pricing/" class="nav-link">定價</a>
+        <a href="/zh-tw/about/" class="nav-link">關於我們</a>
+      </nav>
+      <div class="nav-right">
+        <a href="/zh-tw/login/" class="nav-link hide-mobile">登錄</a>
+        <a href="/zh-tw/pricing/" class="btn btn-primary btn-sm btn-pill">申請開通</a>
+        <button class="nav-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="/zh-tw/">首頁</a>
+    <a href="/zh-tw/vrm/">VRM</a>
+    <a href="/zh-tw/cleanfy/">Cleanfy</a>
+    <a href="/zh-tw/pricing/">定價</a>
+    <a href="/zh-tw/about/">關於我們</a>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section class="page-header">
+    <div class="container">
+      <span class="t-eyebrow eyebrow">線下 · 履約執行</span>
+      <h1 class="t-h1 zh-long-title">Cleanfy：自動運行的閉環線下履約系統</h1>
+      <p class="t-lead lead">自動派單給合適的服務方，通過 AI 照片質檢驗收工作結果，並即時完成發票結算。房東無需介入，由城市合作伙伴網絡負責執行，並保障 SLA。</p>
+      <div class="hero-ctas mt-8">
+        <a href="/zh-tw/pricing/" class="btn btn-primary btn-lg btn-pill">申請開通</a>
+        <a href="#workflow" class="btn btn-ghost btn-lg btn-pill">查看工作流</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DISPATCH ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="t-eyebrow">自動派單</span>
+          <h2 class="t-h2 mt-4">從 45 分鐘電話溝通，變成 30 秒自動分配</h2>
+          <p class="t-lead mt-6">Cleanfy 會根據可用性、距離、SLA 歷史和服務方表現評分，爲每個任務選擇最合適的合作方，並自動發送完整任務信息。</p>
+          <ul class="feature-list mt-8" style="gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>城市合作伙伴網絡</strong> —— 清潔、維修、跑腿、物資補給，均可在數分鐘內接入。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>智能路由</strong> —— 分配任務時會綜合 SLA 策略、位置、服務方評分和 SOP 匹配度。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span><strong>服務方分鐘級接入</strong> —— 任何第三方服務機構都可以接入網絡。</span></li>
+          </ul>
+        </div>
+        <div class="visual illus-cleanfy">
+          <div class="dispatch-mock" aria-hidden="true">
+            <div class="dm-head">
+              <div>
+                <strong>退房清潔 · 1402 Mainland</strong>
+                <div style="font-size:12px;color:var(--text-secondary);">退房 11:00 · 入住 15:00</div>
+              </div>
+              <span class="tag">任務派單ed</span>
+            </div>
+            <div class="dm-row"><span>已分配給</span><span>Pacific Clean Co.</span></div>
+            <div class="dm-row"><span>預計到達</span><span>11:18 AM</span></div>
+            <div class="dm-row"><span>SOP 檢查點</span><span>14 個點位</span></div>
+            <div class="dm-row"><span>服務方評分</span><span style="color:var(--success);">4.92 ★</span></div>
+            <div class="progress"><div class="progress-bar" style="width:35%;"></div></div>
+            <div class="progress-label"><span>前往中</span><span>35%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRACKING & 質檢驗收 ===== -->
+  <section class="section section-soft">
+    <div class="container">
+      <div class="two-col flip">
+        <div>
+          <span class="t-eyebrow">實時追蹤與 AI 照片質檢</span>
+          <h2 class="t-h2 mt-4 cleanfy-verify-title-zh">驗證工作結果，而不只是驗證是否到場</h2>
+          <p class="t-lead mt-6">服務方需要在 SOP 指定點位拍攝實時照片。AI 會根據 SOP 和 SLA 對每張照片進行預篩查。運營方可以自行設置驗收等級：每單審覈、隨機抽查或完全信任 AI。</p>
+          <div class="feature-grid mt-8 two-up-mobile-stack">
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-location-dot"></i></div>
+              <h3 style="font-size:16px;">地理位置驗證</h3>
+              <p style="font-size:14px;">實時位置確認服務方確實到達正確房源。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-camera"></i></div>
+              <h3 style="font-size:16px;">必須實時拍照</h3>
+              <p style="font-size:14px;">不能從相冊上傳。照片必須現場拍攝，並綁定 SOP 檢查點。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-robot"></i></div>
+              <h3 style="font-size:16px;">AI 預篩查</h3>
+              <p style="font-size:14px;">在任務完成前識別遺漏區域、損壞情況和 SOP 違規。</p>
+            </div>
+            <div class="feature-card" style="padding:20px;">
+              <div class="icon-box" style="width:40px;height:40px;"><i class="fas fa-user-check"></i></div>
+              <h3 style="font-size:16px;">你的信任等級</h3>
+              <p style="font-size:14px;">全量審覈、隨機抽查或完全自動化，由你設置策略。</p>
+            </div>
+          </div>
+        </div>
+        <div class="visual illus-cleanfy">
+          <div class="dispatch-mock" aria-hidden="true">
+            <div class="dm-head">
+              <div>
+                <strong>照片質檢 · 14 個檢查點</strong>
+                <div style="font-size:12px;color:var(--text-secondary);">AI 已預篩查</div>
+              </div>
+              <span class="tag">已驗證</span>
+            </div>
+            <div class="dm-row"><span>浴室</span><span style="color:var(--success);">✓ 已通過</span></div>
+            <div class="dm-row"><span>廚房檯面</span><span style="color:var(--success);">✓ 已通過</span></div>
+            <div class="dm-row"><span>牀品擺放</span><span style="color:var(--success);">✓ 已通過</span></div>
+            <div class="dm-row"><span>備品補充</span><span style="color:#B8860B;">⚠ 檢查咖啡膠囊</span></div>
+            <div class="dm-row"><span>垃圾處理</span><span style="color:var(--success);">✓ 已通過</span></div>
+            <div class="progress"><div class="progress-bar" style="width:93%;"></div></div>
+            <div class="progress-label"><span>AI 置信度</span><span>93%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SETTLEMENT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="t-eyebrow">自動結算</span>
+          <h2 class="t-h2 mt-4">通過驗收的工作會自動生成並進入付款流程</h2>
+          <p class="t-lead mt-6">一旦 AI 驗收和可選人工審覈通過，系統會自動生成發票，匹配對應明細，並同步給物業管理方財務團隊，無需表格和對賬電話。</p>
+          <ul class="feature-list mt-8" style="gap:14px;">
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>基於已驗證任務和 SOP 自動生成發票。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>服務方表現評分持續優化你的合作網絡。</span></li>
+            <li style="display:flex;align-items:flex-start;gap:12px;"><i class="fas fa-check-circle" style="color:var(--brand);margin-top:4px;"></i><span>完整審計記錄支持房東賬單與財務對賬。</span></li>
+          </ul>
+        </div>
+        <div class="visual illus-cleanfy">
+          <div class="dispatch-mock" aria-hidden="true">
+            <div class="dm-head">
+              <div>
+                <strong>發票 #INV-20260412</strong>
+                <div style="font-size:12px;color:var(--text-secondary);">已自動結算</div>
+              </div>
+              <span class="tag">已支付</span>
+            </div>
+            <div class="dm-row"><span>退房清潔</span><span>$68.00</span></div>
+            <div class="dm-row"><span>布草更換</span><span>$12.00</span></div>
+            <div class="dm-row"><span>備品補充</span><span>$9.50</span></div>
+            <div class="dm-row"><span>服務方</span><span>Pacific Clean Co.</span></div>
+            <div class="dm-row"><span>合計</span><span style="color:var(--brand); font-weight:700;">$89.50</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORKFLOW ===== -->
+  <section id="workflow" class="section section-soft">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Cleanfy 如何運作</span>
+        <h2 class="t-h1 mt-4 zh-flow-title">任務派單 → 實時追蹤 → 驗收確認 → 自動結算</h2>
+        <p class="t-lead mt-6">從住客退房到服務方收款形成完整閉環，房東不再處於關鍵執行路徑中。</p>
+      </div>
+      <div class="workflow">
+        <div class="workflow-step">
+          <h4>任務分配</h4>
+          <p>系統根據 SLA、距離和表現評分，實時選擇合適服務方。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>實時追蹤</h4>
+          <p>從派單到任務完成，全程追蹤服務方實時位置。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>照片質檢關卡</h4>
+          <p>AI 會預篩查 SOP 點位的實時照片。沒有照片，就不能完成任務。</p>
+        </div>
+        <div class="workflow-step">
+          <h4>AI 驗收與結算</h4>
+          <p>發票、服務方評分和財務交接自動完成。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <span class="t-eyebrow">Cleanfy 數據表現</span>
+        <h2 class="t-h1 mt-4 zh-long-title zh-one-line">真實運營，真實槓桿</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="value" data-count="30" data-suffix=" sec">0</div>
+          <div class="label">平均自動派單時間</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="95" data-suffix="%">0</div>
+          <div class="label">現場 SLA 達成率</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="14" data-suffix="">0</div>
+          <div class="label">平均每單 SOP 檢查點</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-count="9030" data-suffix="">0</div>
+          <div class="label">2025 年已驗證任務</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h2 class="t-h2">讓線下運營進入自動駕駛</h2>
+          <p>你可以在現有服務方網絡上運行 Cleanfy，也可以接入我們的城市合作伙伴資源。</p>
+        </div>
+        <div class="btns">
+          <a href="/zh-tw/pricing/" class="btn btn-primary btn-lg btn-pill">查看定價</a>
+          <a href="/zh-tw/vrm/" class="btn btn-ghost btn-lg btn-pill">← 返回 VRM</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>產品</h5>
+          <ul>
+            <li><a href="/zh-tw/vrm/">VRM</a></li>
+            <li><a href="/zh-tw/cleanfy/">Cleanfy</a></li>
+            <li><a href="/zh-tw/pricing/">定價</a></li>
+            <li><a href="/zh-tw/how-it-works/">運作方式</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>公司</h5>
+          <ul>
+            <li><a href="/zh-tw/about/">關於我們</a></li>
+            <li><a href="/zh-tw/team/">團隊</a></li>
+            <li><a href="about.html#story">我們的故事</a></li>
+</ul>
+        </div>
+        <div>
+          <h5>資源</h5>
+          <ul>
+            <li><a href="/zh-tw/resources/help-center/">幫助中心</a></li>
+            <li><a href="/zh-tw/resources/operator-guides/">運營指南</a></li>
+            <li><a href="/zh-tw/resources/api-integrations/">API 與集成</a></li>
+            <li><a href="/zh-tw/resources/security/">安全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>法律</h5>
+          <ul>
+            <li><a href="/zh-tw/legal/terms/">服務條款</a></li>
+            <li><a href="/zh-tw/legal/privacy/">隱私政策</a></li>
+            <li><a href="/zh-tw/legal/acceptable-use/">可接受使用政策</a></li>
+            <li><a href="/zh-tw/legal/data-processing/">數據處理</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="current-year">2026</span> 驛家科技集團 版權所有。</span>
+        <div class="social">
+          <a href="https://www.facebook.com/cozystayofficial" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.linkedin.com/company/9365027/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/cozystay.official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="/en/assets/wechat-official-qr.png" target="_blank" rel="noopener" class="social-wechat" aria-label="微信公衆號"><i class="fab fa-weixin"></i></a>
+          <a href="/en/assets/wecom-qr.png" target="_blank" rel="noopener" class="social-wecom" aria-label="企業微信"><i class="fas fa-comments"></i></a>
+          <a href="https://xhslink.com/m/1TwOsV44wya" target="_blank" rel="noopener" class="social-xhs" aria-label="小紅書"><img src="/en/assets/xiaohongshu-logo.png" alt="" class="social-icon-img"></a>
+          <a href="https://www.youtube.com/@cozystay8706" target="_blank" rel="noopener" class="social-youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/en/js/main.js"></script>
+
+<!-- Cleanfy app download links -->
+<section class="vrm-app-section cleanfy-app-section">
+  <div class="vrm-app-download">
+    <div>
+      <span class="vrm-app-kicker">Cleanfy 移動端 App</span>
+      <h3>在手機上完成清潔派單、現場質檢、任務追蹤與結算</h3>
+      <p>下載 Cleanfy App，支持 iOS 和 Android。</p>
+    </div>
+    <div class="vrm-app-buttons">
+      <a href="https://apps.apple.com/cn/app/cleanfy-cleaning-done-easy/id1620985833?l=en-GB" class="store-button" target="_blank" rel="noopener">
+        <i class="fab fa-apple"></i>
+        <span><small>下載於</small>App Store</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.cozystay.blackcomb&pcampaignid=web_share" class="store-button" target="_blank" rel="noopener">
+        <i class="fab fa-google-play"></i>
+        <span><small>下載於</small>Google Play</span>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- /Cleanfy app download links -->
+
+</body>
+</html>

@@ -23,7 +23,17 @@
         <a href="/zh/about/" class="nav-link">关于我们</a>
       </nav>
       <div class="nav-right">
-        <a href="/en/" class="nav-link language-switch">EN</a>
+        <div class="language-dropdown">
+          <button class="language-toggle" type="button" aria-label="Select language">
+            Language <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="language-menu">
+            <a href="/en/">English</a>
+            <a href="/zh/">简体中文</a>
+            <a href="/zh-tw/">繁體中文</a>
+            <a href="/es/">Español</a>
+          </div>
+        </div>
         <a href="/zh/login/" class="nav-link hide-mobile">登录</a>
         <a href="/zh/pricing/#start-free-trial" class="btn btn-primary btn-sm btn-pill">申请开通</a>
         <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">

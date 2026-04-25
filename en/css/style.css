@@ -3958,3 +3958,217 @@ footer,
     max-width: 100%;
   }
 }
+
+.nav-languages {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-languages .language-switch {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-languages {
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+}
+
+/* Language dropdown */
+.language-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.language-toggle i {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.language-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.14);
+  display: none;
+  z-index: 50;
+}
+
+.language-menu a {
+  display: block;
+  padding: 9px 10px;
+  border-radius: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.language-menu a:hover {
+  background: rgba(245, 124, 32, 0.10);
+  color: var(--brand);
+}
+
+.language-dropdown:hover .language-menu,
+.language-dropdown:focus-within .language-menu {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .language-toggle {
+    font-size: 14px;
+  }
+
+  .language-menu {
+    right: 0;
+    min-width: 140px;
+  }
+}
+
+/* Spanish landing page refinements */
+.es-page .t-hero {
+  max-width: 980px;
+  font-size: clamp(54px, 7vw, 86px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.es-page .hero-copy {
+  min-width: 0;
+}
+
+.es-page .t-lead {
+  max-width: 780px;
+}
+
+.es-page .feature-card h3,
+.es-page .workflow-step h3 {
+  line-height: 1.18;
+}
+
+.es-page .feature-card p,
+.es-page .workflow-step p {
+  line-height: 1.58;
+}
+
+.es-page .cta-banner {
+  align-items: center;
+}
+
+.es-page .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .es-page .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .es-page .hero-visual {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .es-page .hero {
+    padding-top: 44px;
+  }
+
+  .es-page .t-hero {
+    font-size: clamp(36px, 10vw, 46px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.045em !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    hyphens: none !important;
+  }
+
+  .es-page .t-lead {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .es-page .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .es-page .hero-actions .btn,
+  .es-page .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .es-page .feature-grid,
+  .es-page .workflow {
+    grid-template-columns: 1fr !important;
+  }
+
+  .es-page .cta-banner {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .es-page .cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+/* Spanish landing page: simplify hero visual */
+.es-page .hero-grid {
+  grid-template-columns: 1fr !important;
+}
+
+.es-page .hero-copy {
+  max-width: 900px;
+}
+
+.es-page .hero-visual {
+  display: none !important;
+}
+
+.es-page .t-hero {
+  max-width: 900px;
+  font-size: clamp(56px, 6.4vw, 92px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.es-page .hero .t-lead {
+  max-width: 720px;
+}
+
+@media (max-width: 768px) {
+  .es-page .t-hero {
+    font-size: clamp(38px, 10vw, 48px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.045em !important;
+  }
+}

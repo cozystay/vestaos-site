@@ -36,7 +36,17 @@
         <a href="/en/about/" class="nav-link">About</a>
       </nav>
       <div class="nav-right">
-        <a href="/zh/" class="nav-link language-switch">中文</a>
+        <div class="language-dropdown">
+          <button class="language-toggle" type="button" aria-label="Select language">
+            Language <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="language-menu">
+            <a href="/en/">English</a>
+            <a href="/zh/">简体中文</a>
+            <a href="/zh-tw/">繁體中文</a>
+            <a href="/es/">Español</a>
+          </div>
+        </div>
         <a href="/en/login/" class="nav-link hide-mobile">Log in</a>
         <a href="/en/pricing/#start-free-trial" class="btn btn-primary btn-sm btn-pill">Get started</a>
         <button class="nav-menu-toggle" aria-label="Open menu" aria-expanded="false">
