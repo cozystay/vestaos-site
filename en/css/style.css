@@ -3895,3 +3895,47 @@ footer,
     line-height: 1.68;
   }
 }
+
+/* Resource document pages */
+.resource-doc {
+  max-width: 960px;
+}
+
+.resource-section {
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.resource-section:first-child {
+  padding-top: 0;
+}
+
+.resource-section:last-child {
+  border-bottom: 0;
+}
+
+.resource-section h2 {
+  margin-bottom: 16px;
+}
+
+.resource-section p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+  margin: 0 0 14px;
+}
+
+@media (max-width: 768px) {
+  .resource-doc {
+    max-width: 100%;
+  }
+
+  .resource-section {
+    padding: 28px 0;
+  }
+
+  .resource-section p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
